@@ -1,32 +1,93 @@
-/* === about.html === */
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Happy Days Nursery</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us – Happy Days Nursery</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-        <a href="location.html">Where to Find Us</a>
-        <a href="staff.html">Staff</a>
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <div class="dropdown"><a href="about.html">About Us</a>
+        <div class="dropdown-content">
+          <a href="#aims">Aims & Objectives</a>
+          <a href="#trips">Our Trips</a>
+          <a href="#offer">Local Offer</a>
+          <a href="#iefs">IEFS</a>
+          <a href="#nutrition">Nutrition & Health</a>
+          <a href="#funding">Funding</a>
+        </div>
+      </div>
+      <a href="rooms.html">Rooms</a>
+      <a href="parents.html">Parents Area</a>
+      <a href="contact.html">Contact Us</a>
     </div>
+    <div class="nav-right"><span class="phone">📞 01234 567890</span></div>
+  </header>
 
-    <header>
-        <h1>About Us</h1>
-    </header>
+  <!-- Banner -->
+  <section class="page-banner">
+    <h1>About Us</h1>
+    <p>Learn more about our aims, trips, team and what makes Happy Days special.</p>
+  </section>
 
-    <section class="intro">
-        <p>Happy Days Nursery has been caring for children since 2010. We focus on early development through play, creativity, and learning.</p>
+  <!-- Main Content -->
+  <main class="main-content">
+    <section id="aims">
+      <h2>Aims & Objectives</h2>
+      <p>We aim to provide a safe, stimulating and caring environment for all children aged six weeks to five years.</p>
     </section>
+    <section id="trips">
+      <h2>Our Trips</h2>
+      <p>We organise fun and educational outings—farm visits, library time, local park adventures, and more.</p>
+    </section>
+    <section id="offer">
+      <h2>Local Offer</h2>
+      <p>We support the local authority’s offer for children with special educational needs and disabilities.</p>
+    </section>
+    <section id="iefs">
+      <h2>IEFS</h2>
+      <p>As part of the Inclusive Early Years Funding Scheme, we ensure equal access to resources for all children.</p>
+    </section>
+    <section id="nutrition">
+      <h2>Nutrition & Health</h2>
+      <p>Balanced meals are prepared on-site daily to support healthy growth and well-being.</p>
+    </section>
+    <section id="funding">
+      <h2>Funding</h2>
+      <p>Government-funded childcare places are available, and we offer support on funding options.</p>
+    </section>
+  </main>
 
-    <footer>
-        <p>© 2025 Happy Days Nursery</p>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <p>123 Nursery Lane<br>London, UK<br>📞 01234 567890</p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rooms.html">Rooms</a></li>
+          <li><a href="parents.html">Parents Area</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Opening Hours</h4>
+        <p>Mon–Fri: 7:30 am – 6:00 pm<br>Sat & Sun: Closed</p>
+      </div>
+      <div class="footer-column">
+        <h4>Ofsted & Hygiene</h4>
+        <p>Ofsted Rated: Outstanding<br>Food Hygiene: 5 Stars</p>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2025 Happy Days Nursery. All content owned by us.</p>
+  </footer>
 </body>
 </html>

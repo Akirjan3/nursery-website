@@ -1,72 +1,298 @@
-/* === style.css === */
-body {
-    font-family: Arial, sans-serif;
+/* General Styles */
+* {
     margin: 0;
-    background-color: #fffaf2;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #f8f8f8;
     color: #333;
 }
 
+/* Navbar */
 .navbar {
-    background-color: #f2c94c;
-    padding: 1em;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3e8ed0;
+    padding: 15px 30px;
+    flex-wrap: wrap;
 }
 
-.navbar a {
-    margin: 0 15px;
+.nav-left a,
+.dropdown a {
+    color: white;
     text-decoration: none;
-    color: #000;
+    margin: 0 12px;
+    font-weight: 500;
+    position: relative;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px 16px;
+    display: block;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-right .phone {
+    color: white;
+    font-size: 16px;
     font-weight: bold;
 }
 
-header {
-    background-color: #f9e79f;
-    padding: 2em;
+/* Hero Section */
+.hero {
+    background: url('images/nursery-background.jpg') no-repeat center center/cover;
+    height: 90vh;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.hero-text h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.hero-text .sub-title {
+    display: block;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.hero-text p {
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+.hero-text button {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #3e8ed0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero-text button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Notice */
+.notice {
+    background-color: #ffd861;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.notice .btn {
+    background-color: #3e8ed0;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Welcome Section */
+.welcome {
+    padding: 60px 30px;
+    text-align: center;
+    background-color: white;
+}
+
+.welcome h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.welcome p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    background-color: #3e8ed0;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Outdoor */
+.outdoor {
+    background-color: #e3f2fd;
+    padding: 60px 30px;
     text-align: center;
 }
 
-.intro, .contact, .gallery, .location, .staff {
-    padding: 2em;
+.outdoor h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.outdoor h3 {
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.outdoor p {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* News Section */
+.news {
+    background-color: #fff;
+    padding: 60px 30px;
     text-align: center;
 }
 
-div.staff-member {
-    margin-bottom: 1em;
+.news h2 {
+    margin-bottom: 10px;
 }
 
-gallery img {
-    width: 200px;
-    margin: 10px;
-    border-radius: 8px;
+.news p {
+    margin-bottom: 20px;
 }
 
-form {
-    max-width: 500px;
-    margin: 0 auto;
+/* Visit Form Section */
+.visit {
+    position: relative;
+    background: url('images/visit-bg.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.visit-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.visit-form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-form input, form textarea {
-    margin: 10px 0;
+.visit-form input {
     padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-form button {
-    padding: 10px;
-    background-color: #f2c94c;
+    font-size: 16px;
     border: none;
+    border-radius: 5px;
+}
+
+.visit-form button {
+    background-color: #ffd861;
+    color: #333;
+    padding: 12px;
     font-weight: bold;
     cursor: pointer;
+    border: none;
     border-radius: 5px;
 }
 
+/* Footer */
 footer {
-    background-color: #f2c94c;
-    padding: 1em;
+    background-color: #333;
+    color: white;
+    padding: 40px 30px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-column h4 {
+    margin-bottom: 10px;
+    color: #ffd861;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin: 8px 0;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+footer p {
     text-align: center;
-    margin-top: 2em;
+    font-size: 14px;
+    margin-top: 20px;
+    color: #aaa;
 }
