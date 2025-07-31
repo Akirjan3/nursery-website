@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haslemere House Day Nursery</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function scrollToAboutUs() {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="index.html">Home</a>
+
+            <div class="dropdown">
+                <a href="about.html">About Us</a>
+                <div class="dropdown-content">
+                    <a href="about.html#aims">Aims & Objectives</a>
+                    <a href="about.html#trips">Our Trips</a>
+                    <a href="about.html#offer">Local Offer</a>
+                    <a href="about.html#iefs">IEFS</a>
+                    <a href="about.html#nutrition">Nutrition & Health</a>
+                    <a href="about.html#funding">Funding</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="parents.html">Parents Info</a>
+                <div class="dropdown-content">
+                    <a href="parents.html#news">News & Events</a>
+                    <a href="parents.html#policies">Policies & Procedures</a>
+                    <a href="parents.html#protection">Child Protection</a>
+                    <a href="parents.html#staff">Staff Qualifications</a>
+                    <a href="parents.html#ratios">Staff:Child Ratios</a>
+                    <a href="parents.html#health">Health & Behaviour</a>
+                    <a href="parents.html#equality">Equal Opportunities</a>
+                </div>
+            </div>
+
+            <a href="sessions-fees.html">Sessions & Fees</a>
+            <a href="news-events.html">News & Events</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="nav-right">
+            <span class="phone">📞 01234 567890</span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Haslemere House<br><span class="sub-title">Day Nursery</span></h1>
+            <p>Caring for children six weeks to five years old</p>
+            <button onclick="scrollToAboutUs()">Explore Now</button>
+        </div>
+    </section>
+
+    <!-- Notice Section -->
+    <section class="notice">
+        <p>The nursery is open – please call us to inquire.</p>
+        <a href="tel:01234567890" class="btn">Call Today</a>
+    </section>
+
+    <!-- Welcome Section -->
+    <section id="about" class="welcome">
+        <h2>Welcome to Haslemere House Day Nursery!</h2>
+        <p>At Haslemere House, we are a privately owned day nursery and pre‑school run by passionate young parents who truly understand the importance of a nurturing, inspiring start in life. Our vision is simple — to offer every child the best possible foundation in both education and care.</p>
+        <p>We welcome children from 9 months to 5 years old, providing a safe, stimulating, and loving environment where they can learn, grow, and thrive. Our nursery is open Monday to Friday from 8:00am to 6:00pm, 51 weeks of the year, to support busy families with flexible, dependable care.</p>
+        <p>Children enjoy warm, healthy lunches and teas, and take part in enriching activities tailored to their age and stage of development. Our aim is to nurture confident, resilient little people—independent thinkers who feel secure, valued, and ready for the next step in their journey.</p>
+        <p>We’d love to welcome you and your little one into our nursery family.</p>
+  </section>
+
+    <!-- Outdoor Area -->
+    <section class="outdoor">
+        <h2>Our Outside Environment</h2>
+        <h3>Discover • Play • Explore</h3>
+        <p>Children can run, jump, climb, garden, and learn through outdoor play in our safe and stimulating outdoor area.</p>
+        <div class="gallery">
+            <img src="images/outdoor1.jpg" alt="Children playing">
+            <img src="images/outdoor2.jpg" alt="Playground">
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <h2>Latest News</h2>
+        <p>Find out what we’ve been up to – view our newsletter and events calendar!</p>
+        <a href="parents.html#news" class="btn">Read More</a>
+    </section>
+
+    <!-- Visit Form Section -->
+    <section class="visit">
+        <div class="visit-overlay">
+            <h2>Come along and visit our nursery</h2>
+            <p>We would love to meet you and your child and take you on a tour of Happy Days Nursery.</p>
+            <form class="visit-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="tel" name="phone" placeholder="Your Phone" required>
+                <button type="submit">Request a Visit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <p>123 Nursery Lane<br>London, UK<br>📞 01234 567890</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="parents.html">Parents</a></li>
+                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Opening Hours</h4>
+                <p>Mon – Fri: 7:30am – 6:00pm<br>Sat & Sun: Closed</p>
+            </div>
+            <div class="footer-column">
+                <h4>Ofsted & Hygiene</h4>
+                <p>Ofsted Rated: Outstanding<br>Food Hygiene: 5 Stars</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 Happy Days Nursery. All content on this website is owned and licensed.</p>
+    </footer>
+</body>

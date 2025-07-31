@@ -1,99 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Parents Area – Happy Days Nursery</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parents Info | Haslemere House Day Nursery</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="navbar">
-    <div class="nav-left">
-      <a href="index.html">Home</a>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <div class="dropdown">
       <a href="about.html">About Us</a>
-      <a href="rooms.html">Rooms</a>
-      <div class="dropdown"><a href="parents.html">Parents Area</a>
-        <div class="dropdown-content">
-          <a href="#news">News & Events</a>
-          <a href="#policies">Policies & Procedures</a>
-          <a href="#protection">Child Protection Policies</a>
-          <a href="#staff">Staff Qualifications</a>
-          <a href="#ratios">Staff‑Child Ratios</a>
-          <a href="#health">Health & Behaviour</a>
-          <a href="#premises">Safety & Premises</a>
-          <a href="#equal">Equal Opportunities</a>
-        </div>
+      <div class="dropdown-content">
+        <a href="about.html">Aims & Objectives</a>
+        <a href="team.html">Our Team</a>
+        <a href="policy.html">Our Policy</a>
+        <a href="curriculum.html">Our Curriculum</a>
       </div>
-      <a href="contact.html">Contact Us</a>
     </div>
-    <div class="nav-right"><span class="phone">📞 01234 567890</span></div>
-  </header>
+    <div class="dropdown">
+      <a href="#" class="active">Parents Info</a>
+      <div class="dropdown-content">
+        <a href="rooms.html">Rooms</a>
+        <a href="send.html">SEND</a>
+        <a href="support-for-parents.html">Support for Parents</a>
+      </div>
+    </div>
+    <a href="sessions-fees.html">Sessions & Fees</a>
+    <a href="news-events.html">News & Events</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
 
-  <section class="page-banner">
-    <h1>Parents Area</h1>
-    <p>Resources for families and carers.</p>
-  </section>
+  <!-- Top Strip -->
+  <div class="top-strip">
+    <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image" />
+    <h1>Parents Info</h1>
+    <a href="contact.html" class="btn call-btn">CALL TODAY</a>
+  </div>
 
-  <main class="main-content">
+  <!-- Main Content -->
+  <main class="content-layout" style="max-width: 900px; margin: 30px auto; padding: 0 20px;">
+
     <section id="news">
       <h2>News & Events</h2>
-      <p>Stay informed with events and our latest newsletter.</p>
+      <p>Stay up to date with our latest nursery news, seasonal events, and important announcements. We host regular family days, workshops, and celebrations throughout the year to keep parents involved and informed.</p>
     </section>
-    <section id="policies">
+
+    <section id="policies" style="margin-top: 40px;">
       <h2>Policies & Procedures</h2>
-      <p>Read our comprehensive nursery policies.</p>
+      <p>Our comprehensive policies are designed to ensure a safe, nurturing, and inclusive environment. These include admissions, behaviour management, health & safety, safeguarding, and confidentiality. Please contact us for a full copy or to discuss any concerns.</p>
     </section>
-    <section id="protection">
+
+    <section id="protection" style="margin-top: 40px;">
       <h2>Child Protection Policies</h2>
-      <p>Ensuring safety and security for every child.</p>
+      <p>Child safety is our highest priority. All staff are DBS-checked, trained in safeguarding, and adhere to strict protocols to protect children from harm. We work closely with local authorities to ensure best practice at all times.</p>
     </section>
-    <section id="staff">
+
+    <section id="staff" style="margin-top: 40px;">
       <h2>Staff Qualifications</h2>
-      <p>Meet our qualified and caring team.</p>
+      <p>Our team includes highly qualified childcare professionals holding NVQs, CACHE Diplomas, and early years teaching qualifications. Staff participate in ongoing training to stay current with the latest childcare standards.</p>
     </section>
-    <section id="ratios">
+
+    <section id="ratios" style="margin-top: 40px;">
       <h2>Staff‑Child Ratios</h2>
-      <p>Maintaining high standards of attention and care.</p>
+      <p>We maintain strict staff-to-child ratios exceeding statutory requirements to ensure personalised attention, safety, and support for every child’s development.</p>
     </section>
-    <section id="health">
+
+    <section id="health" style="margin-top: 40px;">
       <h2>Health & Behaviour</h2>
-      <p>Supporting children’s well-being and development.</p>
+      <p>We promote healthy habits, balanced nutrition, and positive behaviour management. Our dedicated staff work with parents to support individual health needs and encourage respectful social interactions.</p>
     </section>
-    <section id="premises">
+
+    <section id="premises" style="margin-top: 40px;">
       <h2>Safety of Premises</h2>
-      <p>We ensure clean, secure and welcoming environments.</p>
+      <p>Our nursery environment is regularly inspected and maintained to be secure, clean, and stimulating. Safety checks, secure access, and hygienic practices are integral to our daily routine.</p>
     </section>
-    <section id="equal">
+
+    <section id="equal" style="margin-top: 40px;">
       <h2>Equal Opportunities</h2>
-      <p>Inclusion, transparency and fairness for all.</p>
+      <p>We foster an inclusive community where every child and family is respected regardless of background, culture, or ability. Our curriculum celebrates diversity and promotes equality at all levels.</p>
     </section>
+
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-column">
         <h4>Contact</h4>
-        <p>123 Nursery Lane<br>London, UK<br>📞 01234 567890</p>
+        <p>123 Nursery Lane<br />London, UK<br />📞 01234 567890</p>
       </div>
       <div class="footer-column">
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="rooms.html">Rooms</a></li>
+          <li><a href="sessions-fees.html">Sessions & Fees</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <h4>Opening Hours</h4>
-        <p>Mon–Fri: 7:30 am – 6:00 pm<br>Sat & Sun: Closed</p>
+        <p>Mon–Fri: 7:30 am – 6:00 pm<br />Sat & Sun: Closed</p>
       </div>
       <div class="footer-column">
         <h4>Ofsted & Hygiene</h4>
-        <p>Ofsted Rated: Outstanding<br>Food Hygiene: 5 Stars</p>
+        <p>Ofsted Rated: Outstanding<br />Food Hygiene: 5 Stars</p>
       </div>
     </div>
-    <p class="copyright">&copy; 2025 Happy Days Nursery.</p>
+    <p class="copyright">&copy; 2025 Haslemere House Day Nursery</p>
   </footer>
+
 </body>
 </html>
