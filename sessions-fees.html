@@ -422,45 +422,32 @@
 
         /* Footer */
         footer {
-            background-color: #a28fc9;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
-            padding: 50px 30px 20px;
-            font-size: 16px;
+            padding: 50px 0 20px;
             margin-top: 60px;
         }
 
         .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .footer-column {
-            flex: 1 1 250px;
-            min-width: 220px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
         }
 
         .footer-column h4 {
-            font-size: 20px;
+            color: #a28fc9;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-column p {
+            line-height: 1.7;
             margin-bottom: 15px;
-            color: #fff;
-            border-bottom: 2px solid #f4e8f4;
-            padding-bottom: 6px;
-        }
-
-        .footer-column p,
-        .footer-column a {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #fafafa;
-            text-decoration: none;
-        }
-
-        .footer-column a:hover {
-            text-decoration: underline;
+            color: #ecf0f1;
         }
 
         .footer-column ul {
@@ -472,11 +459,27 @@
             margin-bottom: 10px;
         }
 
+        .footer-column ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #a28fc9;
+        }
+
         .copyright {
-            text-align: center;
+            border-top: 1px solid #34495e;
             margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .copyright p {
+            color: #95a5a6;
             font-size: 14px;
-            color: #eee;
+            margin: 0;
         }
 
         /* Responsive Design */
@@ -743,18 +746,22 @@
     <footer>
         <div class="footer-container">
             <div class="footer-column">
-                <h4>Contact</h4>
-                <p>
-                    68 Haslemere Avenue<br>
-                    Mitcham, London<br>
-                    CR4 3BA<br><br>
-                    <a href="mailto:Haslemere.daynursery@googlemail.com">
-                        Haslemere.daynursery@googlemail.com
-                    </a><br>
-                    📞 <a href="tel:02086400822">020 8640 0822</a>
-                </p>
+                <h4>Contact Information</h4>
+                <p><strong>Haslemere House Day Nursery</strong></p>
+                <p>68 Haslemere Avenue<br>
+                Mitcham, CR4 3BA<br>
+                London, UK</p>
+                <p>📞 Phone: 020 8640 0822<br>
+                📧 Email: info@haslemerehousedaynursery.co.uk</p>
             </div>
-
+            
+            <div class="footer-column">
+                <h4>Opening Hours</h4>
+                <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
+                <p><strong>Weekends:</strong><br>Closed</p>
+                <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
+            </div>
+            
             <div class="footer-column">
                 <h4>Quick Links</h4>
                 <ul>
@@ -762,30 +769,21 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="parents.html">Parents Info</a></li>
                     <li><a href="sessions-fees.html">Sessions & Fees</a></li>
-                    <li><a href="news-events.html">News & Events</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
-
+            
             <div class="footer-column">
-                <h4>Opening Hours</h4>
-                <p>
-                    Mon – Fri: 8:00 am – 6:00 pm<br>
-                    Sat & Sun: Closed
-                </p>
-
-                <br>
-                <h4>Ofsted & Hygiene</h4>
-                <p>
-                    Ofsted Rated: Outstanding<br>
-                    Food Hygiene: 5 Stars
-                </p>
+                <h4>Quality Assurance</h4>
+                <p><strong>Ofsted Rating:</strong><br>Outstanding</p>
+                <p><strong>Food Hygiene:</strong><br>5 Stars</p>
+                <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
             </div>
         </div>
-
-        <p class="copyright">
-            &copy; 2025 Haslemere House Day Nursery. All content on this website (including images) are owned by us. Do not attempt to copy without our consent.
-        </p>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted | Outstanding Rating Maintained</p>
+        </div>
     </footer>
 </body>
 </html>

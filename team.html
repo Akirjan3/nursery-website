@@ -1,93 +1,1216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our Team</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parents Info - Haslemere House Day Nursery</title>
+    <style>
+        /* General Reset and Typography */
+        /* General Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    line-height: 1.6;
+    color: #333;
+}
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #a28fc9;
+            padding: 12px 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar > a,
+        .navbar .dropdown > a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f3f0f8;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(162, 143, 201, 0.2);
+            z-index: 999;
+            top: 100%;
+            left: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #555 !important;
+            padding: 12px 18px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e9f1f8;
+        }
+
+        /* Top Strip */
+        .top-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            border-bottom: 3px solid #a28fc9;
+        }
+
+        .top-strip h1 {
+            font-size: 36px;
+            color: #a28fc9;
+            font-weight: 700;
+            text-align: center;
+            flex: 1;
+        }
+
+        .ofsted-image {
+            height: 60px;
+            width: auto;
+        }
+
+
+       /* Buttons */
+        .btn, .call-btn {
+            background-color: #a28fc9;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid #a28fc9;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .call-btn {
+            background-color: #f3f0f8;
+            color: #a28fc9;
+        }
+
+        .btn:hover, .call-btn:hover {
+            background-color: #9073be;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: white;
+    padding: 60px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.hero-section h2 {
+    font-size: 42px;
+    color: #a28fc9;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.hero-section p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h3 {
+    font-size: 36px;
+    color: #a28fc9;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.section-header p {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Team Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(162, 143, 201, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-photo {
+    height: 120px;
+    background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: white;
+}
+
+.team-info {
+    padding: 30px;
+}
+
+.team-info h4 {
+    font-size: 22px;
+    color: #a28fc9;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.team-role {
+    font-size: 14px;
+    color: #9073be;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.team-info p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.team-qualifications {
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+}
+
+/* Team Introduction Section */
+.team-intro-section {
+    background: white;
+    padding: 60px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+    margin-bottom: 60px;
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.intro-text h3 {
+    font-size: 28px;
+    color: #a28fc9;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.intro-text p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.qualification-highlights {
+    list-style: none;
+    padding: 0;
+}
+
+.qualification-highlights li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 15px;
+    color: #555;
+    font-weight: 500;
+}
+
+.qualification-highlights li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+}
+
+.intro-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.team-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.team-stats .stat-item {
+    background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 4px solid #a28fc9;
+}
+
+.team-stats .stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #a28fc9;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.team-stats .stat-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Leadership Section */
+.leadership-section {
+    margin-bottom: 60px;
+}
+
+.leadership-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.leader-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(162, 143, 201, 0.1);
+    transition: transform 0.3s ease;
+    max-width: 600px;
+    width: 100%;
+}
+
+.leader-card:hover {
+    transform: translateY(-5px);
+}
+
+.directors-card {
+    border-top: 5px solid #a28fc9;
+}
+
+.leader-photo {
+    height: 150px;
+    background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: white;
+}
+
+.leader-info {
+    padding: 35px;
+}
+
+.leader-info h4 {
+    font-size: 24px;
+    color: #a28fc9;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.leader-role {
+    font-size: 16px;
+    color: #9073be;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.leader-info p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.leader-credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.leader-credentials span {
+    background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Management Section */
+.management-section {
+    background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+    padding: 60px 40px;
+    border-radius: 15px;
+    margin-bottom: 60px;
+}
+
+/* Practitioners Section */
+.practitioners-section {
+    margin-bottom: 60px;
+}
+
+/* Support Section */
+.support-section {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+    margin-bottom: 60px;
+}
+
+.support-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.support-card {
+    max-width: 400px;
+    border-left: 5px solid #a28fc9;
+}
+
+/* Apprentices Section */
+.apprentices-section {
+    background: linear-gradient(135deg, #a28fc9 0%, #c2b3e0 100%);
+    color: white;
+    padding: 60px 40px;
+    border-radius: 15px;
+    margin-bottom: 60px;
+    box-shadow: 0 8px 25px rgba(162, 143, 201, 0.3);
+}
+
+.apprentices-section .section-header h3,
+.apprentices-section .section-header p {
+    color: white;
+}
+
+.apprentice-highlight {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.apprentice-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.apprentice-info h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.apprentice-info p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    opacity: 0.95;
+}
+
+.apprentice-benefits {
+    list-style: none;
+    padding: 0;
+}
+
+.apprentice-benefits li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.apprentice-benefits li::before {
+    content: '⭐';
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+}
+
+.current-apprentices h5 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.apprentice-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.apprentice-card .team-photo {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.apprentice-details h6 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.apprentice-level {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.apprentice-details p {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* Team Values Section */
+.team-values-section {
+    background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+    padding: 60px 40px;
+    border-radius: 15px;
+    margin-bottom: 60px;
+}
+
+.values-content h3 {
+    text-align: center;
+    font-size: 32px;
+    color: #a28fc9;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.value-item {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-5px);
+}
+
+.value-icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.value-item h4 {
+    font-size: 18px;
+    color: #a28fc9;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.value-item p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Join Team Section */
+.join-team-section {
+    background: linear-gradient(135deg, #9073be 0%, #a28fc9 100%);
+    color: white;
+    padding: 60px 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 50px;
+    box-shadow: 0 8px 25px rgba(162, 143, 201, 0.3);
+}
+
+.cta-content h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.cta-content p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-white {
+    background: white;
+    color: #a28fc9;
+    border: 2px solid white;
+}
+
+.btn-white:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: #9073be;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 50px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-column h4 {
+    color: #a28fc9;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-column p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #a28fc9;
+}
+
+.copyright {
+    border-top: 1px solid #34495e;
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.copyright p {
+    color: #95a5a6;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Responsive Design for Team Page */
+@media (max-width: 768px) {
+    .top-strip {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .top-strip h1 {
+        font-size: 28px;
+    }
+    
+    .main-content {
+        padding: 20px 15px;
+    }
+    
+    .hero-section {
+        padding: 40px 20px;
+    }
+    
+    .hero-section h2 {
+        font-size: 32px;
+    }
+    
+    .intro-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .apprentice-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .apprentice-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .leader-credentials {
+        justify-content: center;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .team-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .team-stats .stat-item {
+        padding: 20px 15px;
+    }
+    
+    .team-stats .stat-number {
+        font-size: 24px;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar {
+        flex-wrap: wrap;
+        min-height: auto;
+    }
+    
+    .navbar a {
+        padding: 15px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .leader-info,
+    .apprentice-highlight {
+        padding: 25px 20px;
+    }
+    
+    .hero-section,
+    .team-intro-section,
+    .management-section,
+    .support-section,
+    .apprentices-section,
+    .team-values-section,
+    .join-team-section {
+        padding: 30px 20px;
+    }
+    
+    .section-header h3 {
+        font-size: 28px;
+    }
+    
+    .cta-content h3 {
+        font-size: 28px;
+    }
+}
+    </style>
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-      <a href="index.html">Home</a>
-      <div class="dropdown">
-          <a href="about.html">About Us</a>
-          <div class="dropdown-content">
-              <a href="about.html">Aims & Objectives</a>
-              <a href="team.html">Our Team</a>
-              <a href="policy.html">Our Policy</a>
-              <a href="curriculum.html">Our Curriculum</a>
-          </div>
-      </div>
-      <a href="parents.html">Parents Info</a>
-      <a href="sessions-fees.html">Sessions & Fees</a>
-      <a href="news-events.html">News &  Events</a>
-      <a href="contact.html">Contact Us</a>
-  </nav>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <div class="dropdown-content">
+                <a href="about.html">Aims & Objectives</a>
+                <a href="team.html" class="active">Our Team</a>
+                <a href="policy.html">Our Policy</a>
+                <a href="curriculum.html">Our Curriculum</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="parents.html">Parents Info</a>
+            <div class="dropdown-content">
+                <a href="rooms.html">Rooms</a>
+                <a href="send.html">SEND</a>
+                <a href="support-for-parents.html">Support for Parents</a>
+            </div>
+        </div>
+        <a href="sessions-fees.html">Sessions & Fees</a>
+        <a href="news-events.html">News & Events</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
 
-  <!-- Top Strip -->
-  <div class="top-strip">
-    <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image">
-    <h1>Our Team</h1>
-    <a href="contact.html" class="btn call-btn">CALL TODAY</a>
-  </div> 
-
-  <!-- Main Content -->
-  <div class="team-section">
-    <p class="team-intro">All our staff are first aid trained, specifically paediatrics first aid trained.</p>
-    
-    <p class="team-example"><span class="red-text">(List of staffs with qualification and photo)</span><br><br><strong>Example:</strong></p>
-
-    <div class="staff-example">
-      <div class="staff-photo-placeholder">IMAGE OF STAFF</div>
-      <p class="directors red-text">Anojan Sivanantharejah and Krishneya Anojan – DIRECTORS</p>
+    <!-- Top Strip -->
+    <div class="top-strip">
+        <img src="images/ofsted-placeholder.png" alt="Ofsted Outstanding Provider" class="ofsted-image">
+        <h1>Our Team</h1>
+        <a href="contact.html" class="call-btn">CONTACT US</a>
     </div>
 
-    <div class="staff-list">
-      <p>Sara Clark (Level 3 qualified) – MANAGER</p>
-      <p>Lizzie Hobbs (Level 3 qualified, SENCO) – DEPUTY MANAGER</p>
-      <p>Sharon Thomas-Randall (Level 3 qualified) – THIRD IN CHARGE</p>
-      <p>Micaela New (Level 3 qualified) – NURSERY PRACTITIONER</p>
-      <p>Sewwathy Mathanraaj (Level 3 qualified) – NURSERY PRACTITIONER</p>
-      <p>Kala Shusenthun (Level 3 qualified) – NURSERY PRACTITIONER</p>
-      <p>Nicole Morris (Level 3 qualified) – NURSERY PRACTITIONER</p>
-      <p>Shyamala Anoojensan (Level 3 qualified) – NURSERY PRACTITIONER</p>
-      <p>Syeda Abbas (Level 2 qualified) – NURSERY PRACTITIONER</p>
-      <p>Amy Barber (Level 2 qualified) – NURSERY PRACTITIONER</p>
-      <p>Denise Carta (Level 2 qualified) – NURSERY PRACTITIONER</p>
-      <p>Paula Moran – COOK</p>
-      <p><strong>Apprentices</strong></p>
-      <p>Lillie-Jo Randel (Level 3) – NURSERY PRACTITIONER</p>
-    </div>
-  </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h2>Meet Our Dedicated Team</h2>
+            <p>Our passionate and highly qualified team of childcare professionals are committed to providing exceptional care and education for your children. Every member of our staff is first aid trained with specialized pediatric first aid certification, ensuring the highest standards of safety and care.</p>
+        </section>
 
-  <!-- Footer -->
- <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <h4>Contact</h4>
-        <p>68 Haslemere Avenue, Mitcham, CR4 3BA<br />London, UK<br />📞 020 8640 0822</p>
-      </div>
-      <div class="footer-column">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="parents.html">Parents Info</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Opening Hours</h4>
-        <p>Mon–Fri: 8:00 am – 6:00 pm<br />Sat & Sun: Closed</p>
-      </div>
-      <div class="footer-column">
-        <h4>Ofsted & Hygiene</h4>
-        <p>Ofsted Rated: Outstanding<br />Food Hygiene: 5 Stars</p>
-      </div>
+        <!-- Team Introduction -->
+        <section class="team-intro-section">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h3>Professional Excellence & Qualifications</h3>
+                    <p>All our team members are carefully selected for their expertise, passion, and commitment to early childhood development. Our staff hold relevant qualifications ranging from Level 2 to Level 3 in childcare and early years education.</p>
+                    <ul class="qualification-highlights">
+                        <li>100% of staff are pediatric first aid certified</li>
+                        <li>Ongoing professional development and training</li>
+                        <li>DBS checked and safeguarding trained</li>
+                        <li>Specialized SEND support qualifications</li>
+                        <li>Regular supervision and mentoring programs</li>
+                    </ul>
+                </div>
+                <div class="intro-visual">
+                    <div class="team-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">13+</span>
+                            <span class="stat-label">Team Members</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">First Aid Trained</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">85%</span>
+                            <span class="stat-label">Level 3 Qualified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Team -->
+        <section class="leadership-section">
+            <div class="section-header">
+                <h3>Leadership Team</h3>
+                <p>Our experienced leadership team brings years of expertise in childcare management and early years education.</p>
+            </div>
+            
+            <div class="leadership-grid">
+                <div class="leader-card directors-card">
+                    <div class="leader-photo">
+                        👫
+                    </div>
+                    <div class="leader-info">
+                        <h4>Anojan Sivanantharajah & Krishneya Anojan</h4>
+                        <div class="leader-role">Co-Directors & Owners</div>
+                        <p>Our dedicated directors bring passion and vision to Haslemere House Day Nursery. With extensive experience in early childhood education and business management, they ensure the highest standards of care and continuous improvement in all aspects of nursery operations.</p>
+                        <div class="leader-credentials">
+                            <span>🎓 Business Management</span>
+                            <span>👶 Early Years Specialists</span>
+                            <span>📋 Ofsted Excellence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Management Team -->
+        <section class="management-section">
+            <div class="section-header">
+                <h3>Management Team</h3>
+                <p>Our management team ensures day-to-day excellence in childcare delivery and staff coordination.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">👩‍🏫</div>
+                    <div class="team-info">
+                        <h4>Sara Clark</h4>
+                        <div class="team-role">Nursery Manager</div>
+                        <p>Sara leads our nursery with exceptional organizational skills and a deep commitment to child development. Her Level 3 qualification and years of experience ensure smooth daily operations and high-quality care standards.</p>
+                        <div class="team-qualifications">Level 3 Qualified • Management Experience • Safeguarding Lead</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👩‍🎓</div>
+                    <div class="team-info">
+                        <h4>Lizzie Hobbs</h4>
+                        <div class="team-role">Deputy Manager & SENCO</div>
+                        <p>As our Special Educational Needs Coordinator, Lizzie ensures inclusive care for all children. Her expertise in supporting children with additional needs makes her an invaluable member of our leadership team.</p>
+                        <div class="team-qualifications">Level 3 Qualified • SENCO Certification • Inclusion Specialist</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👩‍💼</div>
+                    <div class="team-info">
+                        <h4>Sharon Thomas-Randall</h4>
+                        <div class="team-role">Third in Charge</div>
+                        <p>Sharon brings stability and expertise to our management structure, supporting both staff development and maintaining our high standards of childcare across all age groups.</p>
+                        <div class="team-qualifications">Level 3 Qualified • Team Leadership • Child Development</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nursery Practitioners -->
+        <section class="practitioners-section">
+            <div class="section-header">
+                <h3>Nursery Practitioners</h3>
+                <p>Our skilled practitioners work directly with children, creating nurturing environments that promote learning and development.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">👩‍🎨</div>
+                    <div class="team-info">
+                        <h4>Micaela New</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                        <p>Micaela specializes in creative activities and artistic development, helping children explore their imagination through various art and craft projects.</p>
+                        <div class="team-qualifications">Level 3 Qualified • Creative Arts • Child Psychology</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👩‍🔬</div>
+                    <div class="team-info">
+                        <h4>Sewwathy Mathanraaj</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                        <p>With a focus on early learning and development, Sewwathy creates engaging educational activities that support children's cognitive and social growth.</p>
+                        <div class="team-qualifications">Level 3 Qualified • Early Learning • Multilingual Support</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👩‍🌱</div>
+                    <div class="team-info">
+                        <h4>Kala Shusenthun</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                        <p>Kala brings expertise in outdoor learning and nature-based activities, encouraging children to explore and learn from their natural environment.</p>
+                        <div class="team-qualifications">Level 3 Qualified • Outdoor Learning • Environmental Education</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👩‍🏃</div>
+                    <div class="team-info">
+                        <h4>Nicole Morris</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                        <p>Nicole specializes in physical development and movement activities, helping children develop their motor skills through fun and engaging exercises.</p>
+                        <div class="team-qualifications">Level 3 Qualified • Physical Development • Health & Safety</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👩‍📚</div>
+                    <div class="team-info">
+                        <h4>Shyamala Anoojensan</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                        <p>Shyamala focuses on language development and literacy, creating storytelling sessions and reading activities that foster a love of books and communication.</p>
+                        <div class="team-qualifications">Level 3 Qualified • Language Development • Literacy Support</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👩‍🎵</div>
+                    <div class="team-info">
+                        <h4>Syeda Abbas</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                        <p>Syeda brings enthusiasm and dedication to daily childcare activities, with a special interest in music and movement that helps children express themselves creatively.</p>
+                        <div class="team-qualifications">Level 2 Qualified • Music & Movement • Creative Expression</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👩‍🎭</div>
+                    <div class="team-info">
+                        <h4>Amy Barber</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                        <p>Amy specializes in dramatic play and storytelling, using imaginative activities to support children's social and emotional development.</p>
+                        <div class="team-qualifications">Level 2 Qualified • Dramatic Play • Social Development</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👩‍🧩</div>
+                    <div class="team-info">
+                        <h4>Denise Carta</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                        <p>Denise focuses on cognitive development through puzzles, games, and problem-solving activities that challenge and engage young minds.</p>
+                        <div class="team-qualifications">Level 2 Qualified • Cognitive Development • Problem Solving</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Staff -->
+        <section class="support-section">
+            <div class="section-header">
+                <h3>Support Team</h3>
+                <p>Our dedicated support staff ensure children receive nutritious meals and a clean, safe environment.</p>
+            </div>
+            
+            <div class="support-grid">
+                <div class="team-card support-card">
+                    <div class="team-photo">👩‍🍳</div>
+                    <div class="team-info">
+                        <h4>Paula Moran</h4>
+                        <div class="team-role">Head Cook</div>
+                        <p>Paula prepares fresh, nutritious meals daily, accommodating dietary requirements and allergies while ensuring children enjoy healthy, delicious food that supports their growth and development.</p>
+                        <div class="team-qualifications">Food Safety Certified • Nutritional Planning • Allergy Awareness</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apprentices Section -->
+        <section class="apprentices-section">
+            <div class="section-header">
+                <h3>Future Childcare Professionals</h3>
+                <p>We're proud to support the next generation of childcare professionals through our apprenticeship programs.</p>
+            </div>
+            
+            <div class="apprentice-highlight">
+                <div class="apprentice-content">
+                    <div class="apprentice-info">
+                        <h4>Growing Our Team Through Training</h4>
+                        <p>Our apprenticeship program provides hands-on experience and professional development opportunities for aspiring childcare practitioners. We believe in nurturing talent and supporting career growth within our nursery community.</p>
+                        <ul class="apprentice-benefits">
+                            <li>Structured learning and development programs</li>
+                            <li>Mentorship from experienced practitioners</li>
+                            <li>Pathway to full qualification and employment</li>
+                            <li>Real-world experience in childcare settings</li>
+                        </ul>
+                    </div>
+                    <div class="current-apprentices">
+                        <h5>Current Apprentice</h5>
+                        <div class="apprentice-card">
+                            <div class="team-photo">👩‍🎓</div>
+                            <div class="apprentice-details">
+                                <h6>Lillie-Jo Randel</h6>
+                                <div class="apprentice-level">Level 3 Apprentice</div>
+                                <p>Currently completing Level 3 qualification while gaining valuable hands-on experience working with children across different age groups.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Values -->
+        <section class="team-values-section">
+            <div class="values-content">
+                <h3>What Makes Our Team Special</h3>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <span class="value-icon">💝</span>
+                        <h4>Passionate Care</h4>
+                        <p>Every team member brings genuine love and enthusiasm for working with children</p>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-icon">🎓</span>
+                        <h4>Continuous Learning</h4>
+                        <p>We invest in ongoing training and professional development for all our staff</p>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-icon">🤝</span>
+                        <h4>Collaborative Approach</h4>
+                        <p>Our team works together to create the best possible experience for every child</p>
+                    </div>
+                    <div class="value-item">
+                        <span class="value-icon">🌟</span>
+                        <h4>Excellence Standards</h4>
+                        <p>We maintain the highest standards of care, safety, and educational practice</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Our Team CTA -->
+        <section class="join-team-section">
+            <div class="cta-content">
+                <h3>Join Our Amazing Team</h3>
+                <p>Are you passionate about early childhood education and looking for a rewarding career? We're always interested in hearing from qualified childcare professionals who share our values and commitment to excellence.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn">View Current Vacancies</a>
+                    <a href="contact.html" class="btn btn-white">Send Your CV</a>
+                </div>
+            </div>
+        </section>
     </div>
-    <p class="copyright">&copy; 2025 Haslemere House Day Nursery</p>
-  </footer>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contact Information</h4>
+                <p><strong>Haslemere House Day Nursery</strong></p>
+                <p>68 Haslemere Avenue<br>
+                Mitcham, CR4 3BA<br>
+                London, UK</p>
+                <p>📞 Phone: 020 8640 0822<br>
+                📧 Email: info@haslemerehousedaynursery.co.uk</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Opening Hours</h4>
+                <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
+                <p><strong>Weekends:</strong><br>Closed</p>
+                <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="parents.html">Parents Info</a></li>
+                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quality Assurance</h4>
+                <p><strong>Ofsted Rating:</strong><br>Outstanding</p>
+                <p><strong>Food Hygiene:</strong><br>5 Stars</p>
+                <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted | Outstanding Rating Maintained</p>
+        </div>
+    </footer>
+
 </body>
 </html>

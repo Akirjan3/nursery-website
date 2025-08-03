@@ -1,101 +1,1357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>News & Events | Haslemere House Day Nursery</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Events - Haslemere House Day Nursery</title>
+    <style>
+        /* General Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #a28fc9;
+            padding: 12px 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar > a,
+        .navbar .dropdown > a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar > a:hover,
+        .navbar .dropdown > a:hover,
+        .navbar .active {
+            background-color: #c2b3e0;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f3f0f8;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(162, 143, 201, 0.2);
+            z-index: 999;
+            top: 100%;
+            left: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #555 !important;
+            padding: 12px 18px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e9f1f8;
+        }
+
+        /* Top Strip */
+        .top-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            border-bottom: 3px solid #a28fc9;
+        }
+
+        .top-strip h1 {
+            font-size: 36px;
+            color: #a28fc9;
+            font-weight: 700;
+            text-align: center;
+            flex: 1;
+        }
+
+        .ofsted-image {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Buttons */
+        .btn, .call-btn {
+            background-color: #a28fc9;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid #a28fc9;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .call-btn {
+            background-color: #f3f0f8;
+            color: #a28fc9;
+        }
+
+        .btn:hover, .call-btn:hover {
+            background-color: #9073be;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #a28fc9 0%, #c2b3e0 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(162, 143, 201, 0.3);
+        }
+
+        .hero-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Featured Event */
+        .featured-event {
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-event::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: #a28fc9;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .featured-event h3 {
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .featured-event p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .event-detail {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .event-detail span {
+            font-size: 24px;
+            color: #a28fc9;
+        }
+
+        /* Upcoming Events Section */
+        .events-section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h3 {
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .event-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #a28fc9;
+            position: relative;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-date {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+            min-width: 70px;
+            line-height: 1.2;
+        }
+
+        .event-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: white;
+        }
+
+        .event-card h4 {
+            font-size: 22px;
+            color: #a28fc9;
+            margin-bottom: 15px;
+            font-weight: 600;
+            padding-right: 90px;
+        }
+
+        .event-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: #555;
+            padding: 8px 0;
+        }
+
+        .meta-item span {
+            font-size: 18px;
+            color: #a28fc9;
+            width: 20px;
+        }
+
+        .event-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .event-features li {
+            padding: 5px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .event-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #a28fc9;
+            font-weight: bold;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .newsletter-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .newsletter-info h3 {
+            font-size: 28px;
+            color: #a28fc9;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .newsletter-info p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .newsletter-benefits {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .newsletter-benefits li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .newsletter-benefits li::before {
+            content: '📰';
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+
+        .newsletter-recent {
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #a28fc9;
+        }
+
+        .newsletter-recent h4 {
+            font-size: 20px;
+            color: #a28fc9;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .newsletter-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .newsletter-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(162, 143, 201, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .newsletter-list li:last-child {
+            border-bottom: none;
+        }
+
+        .newsletter-list a {
+            color: #a28fc9;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .newsletter-list a:hover {
+            text-decoration: underline;
+        }
+
+        .newsletter-date {
+            font-size: 12px;
+            color: #999;
+            background: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-section h3 {
+            text-align: center;
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .gallery-section > p {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
+        }
+
+        .gallery-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-item {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            transition: transform 0.3s ease;
+            border-top: 4px solid #a28fc9;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item span {
+            font-size: 50px;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .gallery-item h4 {
+            font-size: 18px;
+            color: #a28fc9;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .gallery-item p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .gallery-count {
+            font-size: 12px;
+            color: #999;
+            background: #f8f9fa;
+            padding: 5px 12px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .gallery-btn {
+            text-align: center;
+        }
+
+        .gallery-btn a {
+            background: #a28fc9;
+            color: white;
+            padding: 18px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-btn a:hover {
+            background: #9073be;
+            transform: translateY(-2px);
+        }
+
+        /* Community Involvement */
+        .involvement-section {
+            background: linear-gradient(135deg, #9073be 0%, #a28fc9 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 25px rgba(162, 143, 201, 0.3);
+        }
+
+        .involvement-section h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .involvement-section > p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
+        }
+
+        .involvement-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .involvement-option {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .involvement-option:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .involvement-option span {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .involvement-option h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .involvement-option p {
+            font-size: 15px;
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .involvement-benefits {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .involvement-benefits h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .benefits-list li::before {
+            content: '⭐';
+            font-size: 16px;
+        }
+
+        .involvement-btn {
+            background: white;
+            color: #a28fc9;
+            padding: 18px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .involvement-btn:hover {
+            background: #f3f0f8;
+            transform: translateY(-2px);
+        }
+
+        /* Latest News Section */
+        .news-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .news-section h3 {
+            text-align: center;
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-item {
+            border-left: 4px solid #a28fc9;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: #a28fc9;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .news-item h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .news-item p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .news-item a {
+            color: #a28fc9;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h4 {
+            color: #a28fc9;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-column p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #a28fc9;
+        }
+
+        .copyright {
+            border-top: 1px solid #34495e;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .copyright p {
+            color: #95a5a6;
+            font-size: 14px;
+            margin: 0;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-strip {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .top-strip h1 {
+                font-size: 28px;
+            }
+
+            .hero-section {
+                padding: 30px 20px;
+            }
+
+            .hero-section h2 {
+                font-size: 28px;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .event-details {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-preview {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .involvement-options {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 10px;
+            }
+
+            .event-card {
+                padding: 25px 15px;
+            }
+
+            .event-card h4 {
+                padding-right: 60px;
+            }
+
+            .newsletter-section,
+            .gallery-section,
+            .involvement-section,
+            .news-section {
+                padding: 30px 20px;
+            }
+
+            .featured-event {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <div class="dropdown-content">
+                <a href="about.html">Aims & Objectives</a>
+                <a href="team.html">Our Team</a>
+                <a href="policy.html">Our Policy</a>
+                <a href="curriculum.html">Our Curriculum</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="parents.html">Parents Info</a>
+            <div class="dropdown-content">
+                <a href="rooms.html">Rooms</a>
+                <a href="send.html">SEND</a>
+                <a href="support-for-parents.html">Support for Parents</a>
+            </div>
+        </div>
+        <a href="sessions-fees.html">Sessions & Fees</a>
+        <a href="news-events.html" class="active">News & Events</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <div class="dropdown">
-      <a href="about.html">About Us</a>
-      <div class="dropdown-content">
-        <a href="about.html">Aims & Objectives</a>
-        <a href="team.html">Our Team</a>
-        <a href="policy.html">Our Policy</a>
-        <a href="curriculum.html">Our Curriculum</a>
-      </div>
+    <!-- Top Strip -->
+    <div class="top-strip">
+        <img src="images/ofsted-placeholder.png" alt="Ofsted Outstanding Provider" class="ofsted-image">
+        <h1>News & Events</h1>
+        <a href="contact.html" class="call-btn">CONTACT US</a>
     </div>
-    <div class="dropdown">
-      <a href="parents.html">Parents Info</a>
-      <div class="dropdown-content">
-        <a href="rooms.html">Rooms</a>
-        <a href="send.html">SEND</a>
-        <a href="support-for-parents.html">Support for Parents</a>
-      </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h2>Stay Connected with Our Nursery Community</h2>
+            <p>Discover what's happening at Haslemere House Day Nursery through our latest news, upcoming events, and community activities. We believe in keeping families informed and engaged in their child's nursery journey through regular updates and exciting opportunities to get involved.</p>
+        </section>
+
+        <!-- Featured Event -->
+        <section class="featured-event">
+            <div class="featured-badge">🌟 FEATURED EVENT</div>
+            <h3>Summer Family Fun Day 2025</h3>
+            <p>Join us for our biggest celebration of the year! This special day brings together children, families, and staff for an unforgettable experience filled with games, activities, delicious food, and wonderful memories. It's a perfect opportunity to meet other families and see your children engage in fun group activities.</p>
+            <div class="event-details">
+                <div class="event-detail">
+                    <span>📅</span>
+                    <span>Saturday, July 15th 2025</span>
+                </div>
+                <div class="event-detail">
+                    <span>🕐</span>
+                    <span>11:00 AM - 3:00 PM</span>
+                </div>
+                <div class="event-detail">
+                    <span>📍</span>
+                    <span>Nursery Gardens & Main Hall</span>
+                </div>
+                <div class="event-detail">
+                    <span>🎫</span>
+                    <span>Free for All Families</span>
+                </div>
+            </div>
+            <a href="contact.html" class="btn">Register Your Family Today</a>
+        </section>
+
+        <!-- Latest News -->
+        <section class="news-section">
+            <h3>Latest Nursery News</h3>
+            <div class="news-grid">
+                <div class="news-item">
+                    <div class="news-date">July 28, 2025</div>
+                    <h4>New Outdoor Learning Area Opens</h4>
+                    <p>We're excited to announce the opening of our brand new outdoor learning space, complete with natural play equipment, vegetable gardens, and weather protection areas for year-round learning.</p>
+                    <a href="#" onclick="alert('Full article coming soon')">Read More →</a>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">July 20, 2025</div>
+                    <h4>Outstanding Ofsted Rating Maintained</h4>
+                    <p>We're proud to announce that our recent Ofsted inspection has confirmed our Outstanding rating, highlighting our exceptional care standards and educational provision.</p>
+                    <a href="#" onclick="alert('Full article coming soon')">Read More →</a>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">July 15, 2025</div>
+                    <h4>Summer Reading Challenge Success</h4>
+                    <p>Congratulations to all our children who participated in this year's summer reading challenge! Over 85% of families took part, fostering a love of books and stories.</p>
+                    <a href="#" onclick="alert('Full article coming soon')">Read More →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events -->
+        <section class="events-section">
+            <div class="section-header">
+                <h3>Upcoming Events & Activities</h3>
+                <p>Mark your calendars for these exciting upcoming events and activities. We love bringing our nursery community together for memorable experiences that support children's development and family connections.</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        AUG<br>10-12
+                    </div>
+                    <div class="event-icon">👨‍👩‍👧‍👦</div>
+                    <h4>Parent-Teacher Consultation Week</h4>
+                    <p>Schedule individual meetings with your child's key person to discuss their progress, development milestones, and future learning goals. These important conversations help us work together to support your child's growth.</p>
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span>🕐</span>
+
+<span>Various times available</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>📍</span>
+                            <span>Individual meeting rooms</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👥</span>
+                            <span>Parents & Key Persons</span>
+                        </div>
+                    </div>
+                    <ul class="event-features">
+                        <li>15-minute individual consultations</li>
+                        <li>Development portfolio review</li>
+                        <li>Goal setting for next term</li>
+                        <li>Online booking system available</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Book Your Slot</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        AUG<br>18
+                    </div>
+                    <div class="event-icon">🌱</div>
+                    <h4>Little Gardeners Workshop</h4>
+                    <p>Children will learn about plants, nature, and the environment through hands-on gardening activities. They'll plant seeds, water plants, and discover how things grow in our specially designed garden area.</p>
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span>🕐</span>
+                            <span>10:00 AM - 11:30 AM</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>📍</span>
+                            <span>Outdoor Learning Garden</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👥</span>
+                            <span>Ages 2-5 years</span>
+                        </div>
+                    </div>
+                    <ul class="event-features">
+                        <li>Seed planting activities</li>
+                        <li>Nature exploration games</li>
+                        <li>Take-home mini garden pot</li>
+                        <li>Weather-appropriate clothing advised</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Register Interest</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        AUG<br>25
+                    </div>
+                    <div class="event-icon">🎭</div>
+                    <h4>Storytelling & Drama Session</h4>
+                    <p>Professional storytellers will captivate children with interactive tales, encouraging imagination and language development through dramatic play and creative expression.</p>
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span>🕐</span>
+                            <span>2:00 PM - 3:00 PM</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>📍</span>
+                            <span>Main Activity Hall</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👥</span>
+                            <span>All age groups welcome</span>
+                        </div>
+                    </div>
+                    <ul class="event-features">
+                        <li>Interactive storytelling performance</li>
+                        <li>Costume dress-up opportunities</li>
+                        <li>Simple drama activities</li>
+                        <li>Promotes language & creativity</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Save The Date</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        SEP<br>01
+                    </div>
+                    <div class="event-icon">🍎</div>
+                    <h4>Healthy Eating Workshop</h4>
+                    <p>Learn about nutrition and healthy food choices through fun cooking activities. Children will prepare simple, nutritious snacks while learning about different food groups and healthy habits.</p>
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span>🕐</span>
+                            <span>9:30 AM - 11:00 AM</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>📍</span>
+                            <span>Nursery Kitchen & Dining Room</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👥</span>
+                            <span>Ages 3-5 years</span>
+                        </div>
+                    </div>
+                    <ul class="event-features">
+                        <li>Hands-on food preparation</li>
+                        <li>Learn about food groups</li>
+                        <li>Taste testing activities</li>
+                        <li>Take-home recipe cards</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Join The Fun</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        SEP<br>08
+                    </div>
+                    <div class="event-icon">🎨</div>
+                    <h4>Creative Arts Festival</h4>
+                    <p>Celebrate creativity with a special arts festival featuring painting, crafts, music, and movement activities. Children will create masterpieces to take home and display their artistic talents.</p>
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span>🕐</span>
+                            <span>10:00 AM - 2:00 PM</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>📍</span>
+                            <span>All Nursery Areas</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👥</span>
+                            <span>Families welcome to join</span>
+                        </div>
+                    </div>
+                    <ul class="event-features">
+                        <li>Multiple art stations</li>
+                        <li>Music and movement activities</li>
+                        <li>Mini art exhibition</li>
+                        <li>Light refreshments provided</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Get Creative</a>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">
+                        SEP<br>15
+                    </div>
+                    <div class="event-icon">📚</div>
+                    <h4>Reading Buddies Program Launch</h4>
+                    <p>Introducing our new reading program where older children are paired with younger ones to share stories and develop literacy skills together in a supportive, fun environment.</p>
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <span>🕐</span>
+                            <span>3:00 PM - 4:00 PM</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>📍</span>
+                            <span>Library Corner & Reading Nooks</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👥</span>
+                            <span>Mixed age groups</span>
+                        </div>
+                    </div>
+                    <ul class="event-features">
+                        <li>Peer learning opportunities</li>
+                        <li>Social skill development</li>
+                        <li>Weekly ongoing program</li>
+                        <li>Books provided by nursery</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="newsletter-content">
+                <div class="newsletter-info">
+                    <h3>Stay Informed with Our Monthly Newsletter</h3>
+                    <p>Our comprehensive monthly newsletter keeps families updated on nursery news, developmental insights, upcoming events, and helpful parenting tips from our experienced team.</p>
+                    <ul class="newsletter-benefits">
+                        <li>Monthly updates on nursery activities and achievements</li>
+                        <li>Expert parenting tips and child development insights</li>
+                        <li>Early bird notifications for upcoming events</li>
+                        <li>Seasonal activity ideas for home</li>
+                        <li>Staff highlights and new team member introductions</li>
+                        <li>Community resources and support information</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Subscribe to Newsletter</a>
+                </div>
+                <div class="newsletter-recent">
+                    <h4>Recent Newsletter Editions</h4>
+                    <ul class="newsletter-list">
+                        <li>
+                            <a href="#" onclick="alert('Newsletter download coming soon')">Summer Adventures - July 2025</a>
+                            <span class="newsletter-date">July 2025</span>
+                        </li>
+                        <li>
+                            <a href="#" onclick="alert('Newsletter download coming soon')">Growing Together - June 2025</a>
+                            <span class="newsletter-date">June 2025</span>
+                        </li>
+                        <li>
+                            <a href="#" onclick="alert('Newsletter download coming soon')">Spring Celebrations - May 2025</a>
+                            <span class="newsletter-date">May 2025</span>
+                        </li>
+                        <li>
+                            <a href="#" onclick="alert('Newsletter download coming soon')">Easter Joy - April 2025</a>
+                            <span class="newsletter-date">April 2025</span>
+                        </li>
+                        <li>
+                            <a href="#" onclick="alert('Newsletter download coming soon')">New Beginnings - March 2025</a>
+                            <span class="newsletter-date">March 2025</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Preview -->
+        <section class="gallery-section">
+            <h3>Capture the Moments</h3>
+            <p>Browse through our photo galleries to see the joy, learning, and fun happening every day at our nursery. We regularly update our galleries with new photos from activities, events, and daily adventures.</p>
+            
+            <div class="gallery-preview">
+                <div class="gallery-item">
+                    <span>🎈</span>
+                    <h4>Recent Events</h4>
+                    <p>Photos from our latest celebrations, workshops, and special activities</p>
+                    <div class="gallery-count">45+ photos</div>
+                </div>
+                <div class="gallery-item">
+                    <span>🌱</span>
+                    <h4>Learning Activities</h4>
+                    <p>Discover how children engage with our educational programs and activities</p>
+                    <div class="gallery-count">60+ photos</div>
+                </div>
+                <div class="gallery-item">
+                    <span>🎨</span>
+                    <h4>Creative Projects</h4>
+                    <p>Showcase of children's artwork, crafts, and creative expressions</p>
+                    <div class="gallery-count">35+ photos</div>
+                </div>
+                <div class="gallery-item">
+                    <span>🌳</span>
+                    <h4>Outdoor Adventures</h4>
+                    <p>Exploring nature, playing in gardens, and outdoor learning experiences</p>
+                    <div class="gallery-count">50+ photos</div>
+                </div>
+            </div>
+            
+            <div class="gallery-btn">
+                <a href="#" onclick="alert('Photo gallery coming soon')">View All Photo Galleries</a>
+            </div>
+        </section>
+
+        <!-- Community Involvement -->
+        <section class="involvement-section">
+            <h3>Get Involved in Our Community</h3>
+            <p>We believe that strong partnerships between families, staff, and the wider community create the best environment for children to thrive. There are many ways to get involved and contribute to our nursery family.</p>
+            
+            <div class="involvement-options">
+                <div class="involvement-option">
+                    <span>👨‍👩‍👧‍👦</span>
+                    <h4>Parent Volunteers</h4>
+                    <p>Share your skills and expertise by volunteering for events, reading sessions, or special activities</p>
+                </div>
+                <div class="involvement-option">
+                    <span>💡</span>
+                    <h4>Suggestion Committee</h4>
+                    <p>Join our parent committee to provide feedback and suggestions for nursery improvements</p>
+                </div>
+                <div class="involvement-option">
+                    <span>🎭</span>
+                    <h4>Special Talents</h4>
+                    <p>Share your hobbies, profession, or cultural background through presentations or workshops</p>
+                </div>
+                <div class="involvement-option">
+                    <span>🌟</span>
+                    <h4>Fundraising Events</h4>
+                    <p>Help organize and support fundraising activities to enhance nursery resources and facilities</p>
+                </div>
+            </div>
+
+            <div class="involvement-benefits">
+                <h4>Benefits of Getting Involved</h4>
+                <ul class="benefits-list">
+                    <li>Build stronger connections with other families</li>
+                    <li>Gain deeper insight into your child's nursery experience</li>
+                    <li>Contribute to the nursery community development</li>
+                    <li>Share your expertise and learn from others</li>
+                    <li>Help create lasting positive memories for children</li>
+                    <li>Support nursery growth and improvement initiatives</li>
+                </ul>
+            </div>
+
+            <a href="contact.html" class="involvement-btn">Join Our Community Today</a>
+        </section>
     </div>
-    <a href="sessions-fees.html">Sessions & Fees</a>
-    <a href="#" class="active">News & Events</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
 
-  <!-- Top Strip -->
-  <div class="top-strip">
-    <img src="images/ofsted-placeholder.png" alt="Ofsted Outstanding Provider" class="ofsted-image" />
-    <h1>News & Events</h1>
-    <a href="contact.html" class="btn call-btn">Contact Us</a>
-  </div>
-
-  <!-- Main Content -->
-  <main class="content-layout" style="max-width: 900px; margin: 30px auto; padding: 0 20px;">
-
-    <section id="newsletters">
-      <h2>Latest Newsletters</h2>
-      <p>Our monthly newsletters keep you updated on nursery life, upcoming events, and useful parenting tips. <a href="newsletters.html">View our latest editions here.</a></p>
-    </section>
-
-    <section id="upcoming-events" style="margin-top: 40px;">
-      <h2>Upcoming Events</h2>
-      <ul>
-        <li><strong>Summer Family Fun Day</strong> – July 15th, 11am–3pm. Join us for games, activities, and refreshments.</li>
-        <li><strong>Parent-Teacher Meetings</strong> – August 10th–12th. Book your slot to discuss your child’s progress.</li>
-        <li><strong>Harvest Festival</strong> – October 5th. A celebration with crafts, songs, and seasonal treats.</li>
-      </ul>
-    </section>
-
-    <section id="photo-gallery" style="margin-top: 40px;">
-      <h2>Photo Gallery</h2>
-      <p>See highlights from recent events and everyday fun in our nursery. <a href="gallery.html">Browse our gallery here.</a></p>
-    </section>
-
-    <section id="volunteering" style="margin-top: 40px;">
-      <h2>Get Involved</h2>
-      <p>We welcome parent volunteers to help with events and share talents with the children. Contact us to learn more about upcoming opportunities.</p>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
- <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <h4>Contact</h4>
-        <p>68 Haslemere Avenue, Mitcham, CR4 3BA<br />London, UK<br />📞 020 8640 0822</p>
-      </div>
-      <div class="footer-column">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="parents.html">Parents Info</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Opening Hours</h4>
-        <p>Mon–Fri: 8:00 am – 6:00 pm<br />Sat & Sun: Closed</p>
-      </div>
-      <div class="footer-column">
-        <h4>Ofsted & Hygiene</h4>
-        <p>Ofsted Rated: Outstanding<br />Food Hygiene: 5 Stars</p>
-      </div>
-    </div>
-    <p class="copyright">&copy; 2025 Haslemere House Day Nursery</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contact Information</h4>
+                <p><strong>Haslemere House Day Nursery</strong></p>
+                <p>68 Haslemere Avenue<br>
+                Mitcham, CR4 3BA<br>
+                London, UK</p>
+                <p>📞 Phone: 020 8640 0822<br>
+                📧 Email: info@haslemerehousedaynursery.co.uk</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Opening Hours</h4>
+                <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
+                <p><strong>Weekends:</strong><br>Closed</p>
+                <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="parents.html">Parents Info</a></li>
+                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quality Assurance</h4>
+                <p><strong>Ofsted Rating:</strong><br>Outstanding</p>
+                <p><strong>Food Hygiene:</strong><br>5 Stars</p>
+                <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted | Outstanding Rating Maintained</p>
+        </div>
+    </footer>
 
 </body>
 </html>
