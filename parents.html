@@ -1,117 +1,725 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parents Info | Haslemere House Day Nursery</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parents Info - Haslemere House Day Nursery</title>
+    <style>
+        /* General Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #a28fc9;
+            padding: 12px 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar > a,
+        .navbar .dropdown > a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar > a:hover,
+        .navbar .dropdown > a:hover,
+        .navbar .active {
+            background-color: #c2b3e0;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f3f0f8;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(162, 143, 201, 0.2);
+            z-index: 999;
+            top: 100%;
+            left: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #555 !important;
+            padding: 12px 18px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e9f1f8;
+        }
+
+        /* Top Strip */
+        .top-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            border-bottom: 3px solid #a28fc9;
+        }
+
+        .top-strip h1 {
+            font-size: 36px;
+            color: #a28fc9;
+            font-weight: 700;
+            text-align: center;
+            flex: 1;
+        }
+
+        .ofsted-image {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Buttons */
+        .btn, .call-btn {
+            background-color: #a28fc9;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid #a28fc9;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .call-btn {
+            background-color: #f3f0f8;
+            color: #a28fc9;
+        }
+
+        .btn:hover, .call-btn:hover {
+            background-color: #9073be;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #a28fc9 0%, #c2b3e0 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(162, 143, 201, 0.3);
+        }
+
+        .hero-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Quick Links Section */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .quick-link-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-left: 5px solid #a28fc9;
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .quick-link-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .quick-link-card h3 {
+            font-size: 20px;
+            color: #a28fc9;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .quick-link-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .quick-link-card a {
+            color: #a28fc9;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 16px;
+            border: 2px solid #a28fc9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .quick-link-card a:hover {
+            background: #a28fc9;
+            color: white;
+        }
+
+        /* Info Sections Grid */
+        .info-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            border-left: 5px solid #a28fc9;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .info-card h3 {
+            font-size: 24px;
+            color: #a28fc9;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .info-icon {
+            font-size: 28px;
+        }
+
+        /* Important Notice Section */
+        .important-notice {
+            background: linear-gradient(135deg, #9073be 0%, #a28fc9 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(162, 143, 201, 0.3);
+        }
+
+        .important-notice h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .important-notice p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .notice-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .notice-btn {
+            background: white;
+            color: #a28fc9;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .notice-btn:hover {
+            background: #f3f0f8;
+            transform: translateY(-2px);
+        }
+
+        /* Downloadable Resources */
+        .resources-section {
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .resources-section h3 {
+            text-align: center;
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .resource-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .resource-item h4 {
+            font-size: 18px;
+            color: #a28fc9;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .resource-item p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .resource-item a {
+            color: #a28fc9;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 16px;
+            border: 1px solid #a28fc9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-item a:hover {
+            background: #a28fc9;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #a28fc9;
+            color: white;
+            padding: 50px 30px 20px;
+            font-size: 16px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1 1 250px;
+            min-width: 220px;
+        }
+
+        .footer-column h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #fff;
+            border-bottom: 2px solid #f4e8f4;
+            padding-bottom: 6px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #fafafa;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #eee;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-strip {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .top-strip h1 {
+                font-size: 28px;
+            }
+
+            .hero-section {
+                padding: 30px 20px;
+            }
+
+            .hero-section h2 {
+                font-size: 28px;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+
+            .info-sections {
+                grid-template-columns: 1fr;
+            }
+
+            .resources-section {
+                padding: 30px 20px;
+            }
+
+            .notice-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 10px;
+            }
+
+            .info-card {
+                padding: 25px 15px;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <div class="dropdown-content">
+                <a href="about.html">Aims & Objectives</a>
+                <a href="team.html">Our Team</a>
+                <a href="policy.html">Our Policy</a>
+                <a href="curriculum.html">Our Curriculum</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="active">Parents Info</a>
+            <div class="dropdown-content">
+                <a href="rooms.html">Rooms</a>
+                <a href="send.html">SEND</a>
+                <a href="support-for-parents.html">Support for Parents</a>
+            </div>
+        </div>
+        <a href="sessions-fees.html">Sessions & Fees</a>
+        <a href="news-events.html">News & Events</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <div class="dropdown">
-      <a href="about.html">About Us</a>
-      <div class="dropdown-content">
-        <a href="about.html">Aims & Objectives</a>
-        <a href="team.html">Our Team</a>
-        <a href="policy.html">Our Policy</a>
-        <a href="curriculum.html">Our Curriculum</a>
-      </div>
+    <!-- Top Strip -->
+    <div class="top-strip">
+        <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image">
+        <h1>Parents Information</h1>
+        <a href="contact.html" class="call-btn">CALL TODAY</a>
     </div>
-    <div class="dropdown">
-      <a href="#" class="active">Parents Info</a>
-      <div class="dropdown-content">
-        <a href="rooms.html">Rooms</a>
-        <a href="send.html">SEND</a>
-        <a href="support-for-parents.html">Support for Parents</a>
-      </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h2>Everything You Need to Know</h2>
+            <p>We believe in keeping parents fully informed and involved in their child's nursery journey. Here you'll find all the essential information about our policies, procedures, and what makes Haslemere House Day Nursery special.</p>
+        </section>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <div class="quick-link-card">
+                <div class="quick-link-icon">🏠</div>
+                <h3>Our Rooms</h3>
+                <p>Explore our age-appropriate rooms designed for different developmental stages</p>
+                <a href="rooms.html">View Rooms →</a>
+            </div>
+
+            <div class="quick-link-card">
+                <div class="quick-link-icon">🤗</div>
+                <h3>SEND Support</h3>
+                <p>Learn about our Special Educational Needs and Disabilities support services</p>
+                <a href="send.html">Learn More →</a>
+            </div>
+
+            <div class="quick-link-card">
+                <div class="quick-link-icon">👨‍👩‍👧‍👦</div>
+                <h3>Parent Support</h3>
+                <p>Resources and guidance to support you on your parenting journey</p>
+                <a href="support-for-parents.html">Get Support →</a>
+            </div>
+        </div>
+
+        <!-- Important Notice -->
+        <section class="important-notice">
+            <h3>🌟 Outstanding Ofsted Rating</h3>
+            <p>We're proud to maintain our Outstanding rating from Ofsted, demonstrating our commitment to providing exceptional care and education for your children.</p>
+            <div class="notice-buttons">
+                <a href="contact.html" class="notice-btn">Book a Tour</a>
+                <a href="sessions-fees.html" class="notice-btn">View Our Fees</a>
+            </div>
+        </section>
+
+        <!-- Main Info Sections -->
+        <div class="info-sections">
+            <div class="info-card">
+                <h3><span class="info-icon">📰</span>News & Events</h3>
+                <p>Stay up to date with our latest nursery news, seasonal events, and important announcements. We host regular family days, workshops, and celebrations throughout the year to keep parents involved and informed about their child's development and learning journey.</p>
+            </div>
+
+            <div class="info-card">
+                <h3><span class="info-icon">📋</span>Policies & Procedures</h3>
+                <p>Our comprehensive policies are designed to ensure a safe, nurturing, and inclusive environment. These include admissions, behavior management, health & safety, safeguarding, and confidentiality. All policies are regularly reviewed and updated.</p>
+            </div>
+
+            <div class="info-card">
+                <h3><span class="info-icon">🛡️</span>Child Protection</h3>
+                <p>Child safety is our highest priority. All staff are DBS-checked, trained in safeguarding, and adhere to strict protocols to protect children from harm. We work closely with local authorities to ensure best practice at all times.</p>
+            </div>
+
+            <div class="info-card">
+                <h3><span class="info-icon">🎓</span>Staff Qualifications</h3>
+                <p>Our team includes highly qualified childcare professionals holding NVQs, CACHE Diplomas, and early years teaching qualifications. Staff participate in ongoing training to stay current with the latest childcare standards and best practices.</p>
+            </div>
+
+            <div class="info-card">
+                <h3><span class="info-icon">👥</span>Staff-Child Ratios</h3>
+                <p>We maintain strict staff-to-child ratios that exceed statutory requirements to ensure personalized attention, safety, and support for every child's development. This allows us to provide the individual care each child deserves.</p>
+            </div>
+
+            <div class="info-card">
+                <h3><span class="info-icon">🏥</span>Health & Behavior</h3>
+                <p>We promote healthy habits, balanced nutrition, and positive behavior management. Our dedicated staff work closely with parents to support individual health needs and encourage respectful social interactions among all children.</p>
+            </div>
+
+            <div class="info-card">
+                <h3><span class="info-icon">🔒</span>Safety of Premises</h3>
+                <p>Our nursery environment is regularly inspected and maintained to be secure, clean, and stimulating. Daily safety checks, secure access systems, and hygienic practices are integral to our routine operations.</p>
+            </div>
+
+            <div class="info-card">
+                <h3><span class="info-icon">🌈</span>Equal Opportunities</h3>
+                <p>We foster an inclusive community where every child and family is respected regardless of background, culture, or ability. Our curriculum celebrates diversity and promotes equality at all levels of our practice.</p>
+            </div>
+        </div>
+
+        <!-- Downloadable Resources -->
+        <section class="resources-section">
+            <h3>Helpful Resources</h3>
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <span class="resource-icon">📄</span>
+                    <h4>Parent Handbook</h4>
+                    <p>Complete guide to nursery policies and procedures</p>
+                    <a href="#" onclick="alert('Document will be available soon')">Download PDF</a>
+                </div>
+
+                <div class="resource-item">
+                    <span class="resource-icon">📅</span>
+                    <h4>Term Dates</h4>
+                    <p>Important dates for the academic year</p>
+                    <a href="#" onclick="alert('Document will be available soon')">Download PDF</a>
+                </div>
+
+                <div class="resource-item">
+                    <span class="resource-icon">🍎</span>
+                    <h4>Menu & Nutrition</h4>
+                    <p>Weekly menu and nutritional information</p>
+                    <a href="#" onclick="alert('Document will be available soon')">Download PDF</a>
+                </div>
+
+                <div class="resource-item">
+                    <span class="resource-icon">📝</span>
+                    <h4>Registration Forms</h4>
+                    <p>Enrollment and admission forms</p>
+                    <a href="#" onclick="alert('Document will be available soon')">Download PDF</a>
+                </div>
+
+                <div class="resource-item">
+                    <span class="resource-icon">🎯</span>
+                    <h4>Learning Goals</h4>
+                    <p>EYFS learning and development guidelines</p>
+                    <a href="#" onclick="alert('Document will be available soon')">Download PDF</a>
+                </div>
+
+                <div class="resource-item">
+                    <span class="resource-icon">📞</span>
+                    <h4>Emergency Contacts</h4>
+                    <p>Important numbers and procedures</p>
+                    <a href="#" onclick="alert('Document will be available soon')">Download PDF</a>
+                </div>
+            </div>
+        </section>
     </div>
-    <a href="sessions-fees.html">Sessions & Fees</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
 
-  <!-- Top Strip -->
-  <div class="top-strip">
-    <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image" />
-    <h1>Parents Info</h1>
-    <a href="contact.html" class="btn call-btn">CALL TODAY</a>
-  </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>
+                    68 Haslemere Avenue<br>
+                    Mitcham, London<br>
+                    CR4 3BA<br><br>
+                    <a href="mailto:Haslemere.daynursery@googlemail.com">
+                        Haslemere.daynursery@googlemail.com
+                    </a><br>
+                    📞 <a href="tel:02086400822">020 8640 0822</a>
+                </p>
+            </div>
 
-  <!-- Main Content -->
-  <main class="content-layout" style="max-width: 900px; margin: 30px auto; padding: 0 20px;">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="parents.html">Parents Info</a></li>
+                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                    <li><a href="news-events.html">News & Events</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
 
-    <section id="news">
-      <h2>News & Events</h2>
-      <p>Stay up to date with our latest nursery news, seasonal events, and important announcements. We host regular family days, workshops, and celebrations throughout the year to keep parents involved and informed.</p>
-    </section>
+            <div class="footer-column">
+                <h4>Opening Hours</h4>
+                <p>
+                    Mon – Fri: 8:00 am – 6:00 pm<br>
+                    Sat & Sun: Closed
+                </p>
 
-    <section id="policies" style="margin-top: 40px;">
-      <h2>Policies & Procedures</h2>
-      <p>Our comprehensive policies are designed to ensure a safe, nurturing, and inclusive environment. These include admissions, behaviour management, health & safety, safeguarding, and confidentiality. Please contact us for a full copy or to discuss any concerns.</p>
-    </section>
+                <br>
+                <h4>Ofsted & Hygiene</h4>
+                <p>
+                    Ofsted Rated: Outstanding<br>
+                    Food Hygiene: 5 Stars
+                </p>
+            </div>
+        </div>
 
-    <section id="protection" style="margin-top: 40px;">
-      <h2>Child Protection Policies</h2>
-      <p>Child safety is our highest priority. All staff are DBS-checked, trained in safeguarding, and adhere to strict protocols to protect children from harm. We work closely with local authorities to ensure best practice at all times.</p>
-    </section>
-
-    <section id="staff" style="margin-top: 40px;">
-      <h2>Staff Qualifications</h2>
-      <p>Our team includes highly qualified childcare professionals holding NVQs, CACHE Diplomas, and early years teaching qualifications. Staff participate in ongoing training to stay current with the latest childcare standards.</p>
-    </section>
-
-    <section id="ratios" style="margin-top: 40px;">
-      <h2>Staff‑Child Ratios</h2>
-      <p>We maintain strict staff-to-child ratios exceeding statutory requirements to ensure personalised attention, safety, and support for every child’s development.</p>
-    </section>
-
-    <section id="health" style="margin-top: 40px;">
-      <h2>Health & Behaviour</h2>
-      <p>We promote healthy habits, balanced nutrition, and positive behaviour management. Our dedicated staff work with parents to support individual health needs and encourage respectful social interactions.</p>
-    </section>
-
-    <section id="premises" style="margin-top: 40px;">
-      <h2>Safety of Premises</h2>
-      <p>Our nursery environment is regularly inspected and maintained to be secure, clean, and stimulating. Safety checks, secure access, and hygienic practices are integral to our daily routine.</p>
-    </section>
-
-    <section id="equal" style="margin-top: 40px;">
-      <h2>Equal Opportunities</h2>
-      <p>We foster an inclusive community where every child and family is respected regardless of background, culture, or ability. Our curriculum celebrates diversity and promotes equality at all levels.</p>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <h4>Contact</h4>
-        <p>123 Nursery Lane<br />London, UK<br />📞 01234 567890</p>
-      </div>
-      <div class="footer-column">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="sessions-fees.html">Sessions & Fees</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Opening Hours</h4>
-        <p>Mon–Fri: 7:30 am – 6:00 pm<br />Sat & Sun: Closed</p>
-      </div>
-      <div class="footer-column">
-        <h4>Ofsted & Hygiene</h4>
-        <p>Ofsted Rated: Outstanding<br />Food Hygiene: 5 Stars</p>
-      </div>
-    </div>
-    <p class="copyright">&copy; 2025 Haslemere House Day Nursery</p>
-  </footer>
-
+        <p class="copyright">
+            &copy; 2025 Haslemere House Day Nursery. All content on this website (including images) are owned by us. Do not attempt to copy without our consent.
+        </p>
+    </footer>
 </body>
 </html>

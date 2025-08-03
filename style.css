@@ -520,3 +520,109 @@ footer p {
 .team-section {
   text-align: center;
 }
+
+
+.quick-links-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-links-column a {
+  color: white;
+  text-decoration: none;
+}
+
+.quick-links-column a:hover {
+  text-decoration: underline;
+}
+.quick-links-column .quick-links-flex {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* reduce this value */
+}
+
+@media (max-width: 768px) {
+  .quick-links-column .quick-links-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: rem;
+  }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #a28fc9;
+    color: white;
+    padding: 50px 30px 20px;
+    font-size: 16px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1 1 250px;
+    min-width: 220px;
+}
+
+.footer-column h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #fff;
+    border-bottom: 2px solid #f4e8f4;
+    padding-bottom: 6px;
+}
+
+.footer-column p,
+.footer-column a {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #fafafa;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+/* Quick Links - flex sub-columns */
+.quick-links-flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.quick-links-flex ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quick-links-flex li {
+    margin-bottom: 10px;
+}
+
+.quick-links-flex a {
+    color: #fafafa;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.quick-links-flex a:hover {
+    color: #f4e8f4;
+}
+
+/* Copyright */
+footer .copyright {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #eee;
+}

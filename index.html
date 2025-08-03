@@ -1,11 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haslemere House Day Nursery</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #a28fc9;
+            padding: 12px 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar > a,
+        .navbar .dropdown > a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar > a:hover,
+        .navbar .dropdown > a:hover {
+            background-color: #c2b3e0;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f3f0f8;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(162, 143, 201, 0.2);
+            z-index: 999;
+            top: 100%;
+            left: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #555 !important;
+            padding: 12px 18px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e9f1f8;
+        }
+
+        .nav-line {
+            height: 3px;
+            background-color: #a28fc9;
+            border: none;
+        }
+
+        /* Top Strip */
+        .top-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #f3f0f8;
+        }
+
+        .logo-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: #f4e8f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #a28fc9;
+            font-size: 18px;
+            border: 2px solid #a28fc9;
+        }
+
+        .ofsted-image {
+            height: 60px;
+            width: auto;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 30px;
+            flex-wrap: wrap;
+        }
+
+        .cta-box {
+            flex: 1;
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(162, 143, 201, 0.2);
+        }
+
+        .visit-box {
+            background-color: #e9f1f8;
+            color: #555;
+        }
+
+        .notice-box {
+            background-color: #f4e8f4;
+            color: #a28fc9;
+        }
+
+        /* Buttons - Consolidated */
+        .btn, .call-btn {
+            background-color: #a28fc9;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid #a28fc9;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .call-btn {
+            background-color: #f3f0f8;
+            color: #a28fc9;
+        }
+
+        .btn:hover, .call-btn:hover {
+            background-color: #9073be;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Welcome Section */
+        .welcome {
+            padding: 60px 30px;
+            text-align: center;
+            background-color: #f3f0f8;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(162, 143, 201, 0.15);
+            margin: 20px 0;
+        }
+
+        .welcome h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #a28fc9;
+        }
+
+        .welcome p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Activities Section */
+        .activities {
+            text-align: center;
+            background-color: #f3f0f8;
+            padding: 60px 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .activities h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #a28fc9;
+        }
+
+        .activity-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .activity-placeholder {
+            width: 160px;
+            height: 160px;
+            border: 2px solid #a28fc9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #555;
+            background-color: #e9f1f8;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-placeholder:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #a28fc9;
+            color: white;
+            padding: 50px 30px 20px;
+            font-size: 16px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1 1 250px;
+            min-width: 220px;
+        }
+
+        .footer-column h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #fff;
+            border-bottom: 2px solid #f4e8f4;
+            padding-bottom: 6px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #fafafa;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        /* Quick Links */
+        .quick-links-flex {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .quick-links-flex ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links-flex li {
+            margin-bottom: 10px;
+        }
+
+        .quick-links-flex a {
+            color: #fafafa;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .quick-links-flex a:hover {
+            color: #f4e8f4;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #eee;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-strip {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .cta-section {
+                flex-direction: column;
+            }
+
+            .welcome h2 {
+                font-size: 28px;
+            }
+
+            .welcome p {
+                font-size: 16px;
+            }
+
+            .activity-gallery {
+                gap: 15px;
+            }
+
+            .activity-placeholder {
+                width: 140px;
+                height: 140px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .quick-links-flex {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            .top-strip {
+                padding: 15px;
+            }
+
+            .logo-circle {
+                width: 100px;
+                height: 100px;
+                font-size: 14px;
+            }
+
+            .welcome, .activities {
+                padding: 40px 20px;
+            }
+
+            .cta-section {
+                padding: 15px;
+            }
+        }
+    </style>
     <script>
         function scrollToAboutUs() {
             document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
@@ -14,7 +388,7 @@
 </head>
 
 <body>
-        <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <a href="index.html">Home</a>
         <div class="dropdown">
@@ -37,10 +411,8 @@
     <div class="top-strip">
         <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image">
         <div class="logo-circle">LOGO</div>
-        <a href="contact.html" class="btn call-btn">CALL TODAY</a>
+        <a href="contact.html" class="call-btn">CALL TODAY</a>
     </div>
-
-
 
     <!-- Dual CTA Section -->
     <section class="cta-section">
@@ -58,49 +430,74 @@
         <p>At Haslemere House, we are a privately owned day nursery and pre-school run by passionate young parents who truly understand the importance of nurturing, inspiring start in life. Our vision is simple – to offer every child the best possible foundation in both education and care.</p>
         <p>We welcome children from 9 months to 5 years old, providing a safe, stimulating, and loving environment where they can learn, grow and thrive. Our nursery is open Monday to Friday from 8:00am to 6:00pm, 51 weeks of the year, to support busy families with flexible, dependable care.</p>
         <p>Children enjoy warm, healthy lunches and teas and take part in enriching activities tailored to their age and stage of development. Our aim is to nurture confident, resilient little people – independent thinkers who feel secure, valued and ready for the next step in their journey.</p>
-        <p>We’d love to welcome you and your little one into our nursery family.</p>
+        <p>We'd love to welcome you and your little one into our nursery family.</p>
     </section>
 
     <!-- Activities Section -->
     <section class="activities">
         <h2>SOME OF OUR ACTIVITIES</h2>
         <div class="activity-gallery">
-            <div class="activity-placeholder">image</div>
-            <div class="activity-placeholder">image</div>
-            <div class="activity-placeholder">image</div>
-            <div class="activity-placeholder">image</div>
+            <div class="activity-placeholder">Reading Corner</div>
+            <div class="activity-placeholder">Art & Crafts</div>
+            <div class="activity-placeholder">Outdoor Play</div>
+            <div class="activity-placeholder">Music Time</div>
         </div>
     </section>
 
-    <!-- Footer (same as existing, just tweaked alignment) -->
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
+            <!-- Column 1: Contact -->
             <div class="footer-column">
-                <h4>Contact Us</h4>
-                <p>123 Nursery Lane<br>London, UK<br>📞 01234 567890</p>
+                <h4>Contact</h4>
+                <p>
+                    68 Haslemere Avenue<br>
+                    Mitcham, London<br>
+                    CR4 3BA<br><br>
+                    <a href="mailto:Haslemere.daynursery@googlemail.com">
+                        Haslemere.daynursery@googlemail.com
+                    </a><br>
+                    📞 <a href="tel:02086400822">020 8640 0822</a>
+                </p>
             </div>
-            <div class="footer-column">
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-column quick-links-column">
                 <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="rooms.html">Rooms</a></li>
-                    <li><a href="parents.html">Parents</a></li>
-                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+                <div class="quick-links-flex">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="parents.html">Parents Info</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                        <li><a href="news-events.html">News & Events</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
             </div>
+
+            <!-- Column 3: Opening Hours + Ofsted -->
             <div class="footer-column">
                 <h4>Opening Hours</h4>
-                <p>Mon – Fri: 7:30am – 6:00pm<br>Sat & Sun: Closed</p>
-            </div>
-            <div class="footer-column">
+                <p>
+                    Mon – Fri: 8:00 am – 6:00 pm<br>
+                    Sat & Sun: Closed
+                </p>
+
+                <br>
                 <h4>Ofsted & Hygiene</h4>
-                <p>Ofsted Rated: Outstanding<br>Food Hygiene: 5 Stars</p>
+                <p>
+                    Ofsted Rated: Outstanding<br>
+                    Food Hygiene: 5 Stars
+                </p>
             </div>
         </div>
-        <p class="copyright">&copy; 2025 Haslemere House Day Nursery. All content on this website is owned and licensed.</p>
+
+        <p class="copyright">
+            &copy; 2025 Haslemere House Day Nursery. All content on this website (including images) are owned by us. Do not attempt to copy without our consent.
+        </p>
     </footer>
 </body>
-
-
 </html>

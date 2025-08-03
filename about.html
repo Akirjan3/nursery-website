@@ -1,83 +1,606 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aims & Objectives</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Haslemere House Day Nursery</title>
+    <style>
+        /* General Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #a28fc9;
+            padding: 12px 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar > a,
+        .navbar .dropdown > a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar > a:hover,
+        .navbar .dropdown > a:hover {
+            background-color: #c2b3e0;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f3f0f8;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(162, 143, 201, 0.2);
+            z-index: 999;
+            top: 100%;
+            left: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #555 !important;
+            padding: 12px 18px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e9f1f8;
+        }
+
+        /* Top Strip */
+        .top-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            border-bottom: 3px solid #a28fc9;
+        }
+
+        .top-strip h1 {
+            font-size: 36px;
+            color: #a28fc9;
+            font-weight: 700;
+            text-align: center;
+            flex: 1;
+        }
+
+        .ofsted-image {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Buttons */
+        .btn, .call-btn {
+            background-color: #a28fc9;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid #a28fc9;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .call-btn {
+            background-color: #f3f0f8;
+            color: #a28fc9;
+        }
+
+        .btn:hover, .call-btn:hover {
+            background-color: #9073be;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #a28fc9 0%, #c2b3e0 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(162, 143, 201, 0.3);
+        }
+
+        .hero-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Content Sections */
+        .section {
+            background: white;
+            padding: 50px 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            border-left: 5px solid #a28fc9;
+        }
+
+        .section h3 {
+            font-size: 28px;
+            color: #a28fc9;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: white;
+        }
+
+        .feature-card h4 {
+            font-size: 22px;
+            color: #a28fc9;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .values-section h3 {
+            text-align: center;
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 40px;
+        }
+
+        .values-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .value-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
+        }
+
+        .value-item h5 {
+            font-size: 18px;
+            color: #a28fc9;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .value-item p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #9073be 0%, #a28fc9 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-section h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #a28fc9;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #f3f0f8;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #a28fc9;
+            color: white;
+            padding: 50px 30px 20px;
+            font-size: 16px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1 1 250px;
+            min-width: 220px;
+        }
+
+        .footer-column h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #fff;
+            border-bottom: 2px solid #f4e8f4;
+            padding-bottom: 6px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #fafafa;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #eee;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-strip {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .top-strip h1 {
+                font-size: 28px;
+            }
+
+            .hero-section {
+                padding: 40px 20px;
+            }
+
+            .hero-section h2 {
+                font-size: 32px;
+            }
+
+            .hero-section p {
+                font-size: 18px;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            .values-section {
+                padding: 40px 20px;
+            }
+
+            .cta-section {
+                padding: 30px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 10px;
+            }
+
+            .hero-section h2 {
+                font-size: 26px;
+            }
+
+            .section h3 {
+                font-size: 24px;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-      <a href="index.html">Home</a>
-      <div class="dropdown">
-          <a href="about.html">About Us</a>
-          <div class="dropdown-content">
-              <a href="about.html">Aims & Objectives</a>
-              <a href="team.html">Our Team</a>
-              <a href="policy.html">Our Policy</a>
-              <a href="curriculum.html">Our Curriculum</a>
-          </div>
-      </div>
-      <a href="parents.html">Parents Info</a>
-      <a href="sessions-fees.html">Sessions & Fees</a>
-      <a href="news-events.html">News & Events</a>
-      <a href="contact.html">Contact Us</a>
-  </nav>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <div class="dropdown-content">
+                <a href="about.html">Aims & Objectives</a>
+                <a href="team.html">Our Team</a>
+                <a href="policy.html">Our Policy</a>
+                <a href="curriculum.html">Our Curriculum</a>
+            </div>
+        </div>
+        <a href="parents.html">Parents Info</a>
+        <a href="sessions-fees.html">Sessions & Fees</a>
+        <a href="news-events.html">News & Events</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
 
-  <!-- Top Strip -->
-  <div class="top-strip">
-      <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image">
-      <h1>Aims & Objectives</h1>
-      <a href="contact.html" class="btn call-btn">CALL TODAY</a>
-  </div>
-
-  <!-- Page Body -->
-  <div class="content-layout">
-    <div class="image-box"></div>
-    <div class="description">
-      <p>
-        At our nursery, we are committed to delivering high-quality early years education in line with the Early Years Foundation Stage (EYFS) framework. We strive to create a safe, nurturing, and stimulating environment where every child can thrive, develop, and learn through play and exploration.
-      </p>
-      <p>
-        Our curriculum is carefully planned to support children’s personal, social, and emotional development, communication and language skills, and physical growth, while also promoting literacy, mathematics, and understanding of the world.
-      </p>
-      <p>
-        We uphold the standards and expectations outlined by Ofsted, ensuring that children are well-cared for, engaged in meaningful learning experiences, and supported by knowledgeable and skilled practitioners.
-      </p>
-      <p>
-        Our aim is to offer inclusive, high-quality education where every child is valued and encouraged to reach their full potential.
-      </p>
+    <!-- Top Strip -->
+    <div class="top-strip">
+        <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image">
+        <h1>About Haslemere House Day Nursery</h1>
+        <a href="contact.html" class="call-btn">CALL TODAY</a>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <h4>Contact Us</h4>
-        <p>123 Nursery Lane<br>London, UK<br>📞 01234 567890</p>
-      </div>
-      <div class="footer-column">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="sessions.html">Sessions & Fees</a></li>
-          <li><a href="parents.html">Parents Info</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Opening Hours</h4>
-        <p>Mon – Fri: 7:30am – 6:00pm<br>Sat & Sun: Closed</p>
-      </div>
-      <div class="footer-column">
-        <h4>Ofsted & Hygiene</h4>
-        <p>Ofsted Rated: Outstanding<br>Food Hygiene: 5 Stars</p>
-      </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h2>Our Mission & Vision</h2>
+            <p>At Haslemere House Day Nursery, we are passionate about providing exceptional early years education that nurtures every child's unique potential. We believe in creating a foundation for lifelong learning through play, exploration, and meaningful connections.</p>
+        </section>
+
+        <!-- Our Commitment Section -->
+        <section class="section">
+            <h3>Our Commitment to Excellence</h3>
+            <p>We are committed to delivering high-quality early years education in line with the Early Years Foundation Stage (EYFS) framework. Our approach combines structured learning with child-led exploration, ensuring that every child develops the skills, confidence, and curiosity they need for their educational journey.</p>
+            <p>Our curriculum is carefully planned to support children's personal, social, and emotional development, communication and language skills, and physical growth, while also promoting literacy, mathematics, and understanding of the world around them.</p>
+        </section>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h4>Individual Focus</h4>
+                <p>Every child is unique. We tailor our approach to meet each child's individual needs, interests, and learning style.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌟</div>
+                <h4>Outstanding Care</h4>
+                <p>Our Ofsted Outstanding rating reflects our commitment to providing the highest standards of care and education.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h4>Family Partnership</h4>
+                <p>We work closely with families to ensure consistency and support your child's development both at nursery and at home.</p>
+            </div>
+        </div>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <h3>Our Core Values</h3>
+            <div class="values-list">
+                <div class="value-item">
+                    <h5>Safety & Security</h5>
+                    <p>Creating a safe, secure environment where children feel confident to explore and learn.</p>
+                </div>
+                <div class="value-item">
+                    <h5>Inclusive Learning</h5>
+                    <p>Celebrating diversity and ensuring every child feels valued and included in our nursery family.</p>
+                </div>
+                <div class="value-item">
+                    <h5>Play-Based Learning</h5>
+                    <p>Learning through play, allowing children to develop naturally while having fun and building friendships.</p>
+                </div>
+                <div class="value-item">
+                    <h5>Professional Excellence</h5>
+                    <p>Our skilled practitioners are committed to continuous professional development and best practices.</p>
+                </div>
+                <div class="value-item">
+                    <h5>Community Connection</h5>
+                    <p>Building strong relationships with families and the wider community to support each child's journey.</p>
+                </div>
+                <div class="value-item">
+                    <h5>Future Ready</h5>
+                    <p>Preparing children for their next steps in education with confidence, resilience, and a love of learning.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Standards Section -->
+        <section class="section">
+            <h3>Quality Standards & Recognition</h3>
+            <p>We uphold the highest standards outlined by Ofsted, ensuring that children are well-cared for, engaged in meaningful learning experiences, and supported by knowledgeable and skilled practitioners. Our Outstanding Ofsted rating and 5-star food hygiene rating demonstrate our commitment to excellence in all areas.</p>
+            <p>Our team regularly participates in professional development to stay current with best practices in early years education, safeguarding, and child development. We maintain strong partnerships with local schools and services to ensure smooth transitions for our children.</p>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <h3>Ready to Join Our Nursery Family?</h3>
+            <p>We'd love to show you around our nurturing environment and discuss how we can support your child's development.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-btn">Book a Tour</a>
+                <a href="sessions-fees.html" class="cta-btn">View Sessions & Fees</a>
+                <a href="tel:02086400822" class="cta-btn">Call Us Today</a>
+            </div>
+        </section>
     </div>
-    <p class="copyright">&copy; 2025 Haslemere House Day Nursery. All rights reserved.</p>
-  </footer>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>
+                    68 Haslemere Avenue<br>
+                    Mitcham, London<br>
+                    CR4 3BA<br><br>
+                    <a href="mailto:Haslemere.daynursery@googlemail.com">
+                        Haslemere.daynursery@googlemail.com
+                    </a><br>
+                    📞 <a href="tel:02086400822">020 8640 0822</a>
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="parents.html">Parents Info</a></li>
+                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                    <li><a href="news-events.html">News & Events</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Opening Hours</h4>
+                <p>
+                    Mon – Fri: 8:00 am – 6:00 pm<br>
+                    Sat & Sun: Closed
+                </p>
+
+                <br>
+                <h4>Ofsted & Hygiene</h4>
+                <p>
+                    Ofsted Rated: Outstanding<br>
+                    Food Hygiene: 5 Stars
+                </p>
+            </div>
+        </div>
+
+        <p class="copyright">
+            &copy; 2025 Haslemere House Day Nursery. All content on this website (including images) are owned by us. Do not attempt to copy without our consent.
+        </p>
+    </footer>
 </body>
 </html>

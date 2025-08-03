@@ -1,110 +1,791 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sessions & Fees | Haslemere House Day Nursery</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessions & Fees - Haslemere House Day Nursery</title>
+    <style>
+        /* General Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #a28fc9;
+            padding: 12px 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar > a,
+        .navbar .dropdown > a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar > a:hover,
+        .navbar .dropdown > a:hover,
+        .navbar .active {
+            background-color: #c2b3e0;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f3f0f8;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(162, 143, 201, 0.2);
+            z-index: 999;
+            top: 100%;
+            left: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #555 !important;
+            padding: 12px 18px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e9f1f8;
+        }
+
+        /* Top Strip */
+        .top-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            border-bottom: 3px solid #a28fc9;
+        }
+
+        .top-strip h1 {
+            font-size: 36px;
+            color: #a28fc9;
+            font-weight: 700;
+            text-align: center;
+            flex: 1;
+        }
+
+        .ofsted-image {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Buttons */
+        .btn, .call-btn {
+            background-color: #a28fc9;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid #a28fc9;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .call-btn {
+            background-color: #f3f0f8;
+            color: #a28fc9;
+        }
+
+        .btn:hover, .call-btn:hover {
+            background-color: #9073be;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #a28fc9 0%, #c2b3e0 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(162, 143, 201, 0.3);
+        }
+
+        .hero-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Session Options Grid */
+        .session-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .session-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-left: 5px solid #a28fc9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .session-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .session-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+        }
+
+        .session-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: white;
+        }
+
+        .session-card h3 {
+            font-size: 24px;
+            color: #a28fc9;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .session-time {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .session-price {
+            font-size: 28px;
+            color: #a28fc9;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .session-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .session-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .session-features li {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .session-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #a28fc9;
+            font-weight: bold;
+        }
+
+        /* Funding Section */
+        .funding-section {
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .funding-section h3 {
+            text-align: center;
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .funding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .funding-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .funding-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .funding-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .funding-card h4 {
+            font-size: 20px;
+            color: #a28fc9;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .funding-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .funding-amount {
+            font-size: 24px;
+            color: #a28fc9;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Additional Services Section */
+        .additional-services {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .additional-services h3 {
+            text-align: center;
+            font-size: 28px;
+            color: #a28fc9;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #a28fc9;
+        }
+
+        .service-item span {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .service-text {
+            flex: 1;
+        }
+
+        .service-text h4 {
+            font-size: 16px;
+            color: #a28fc9;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .service-text p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Important Notice */
+        .important-notice {
+            background: linear-gradient(135deg, #9073be 0%, #a28fc9 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(162, 143, 201, 0.3);
+        }
+
+        .important-notice h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .important-notice p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .notice-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .notice-btn {
+            background: white;
+            color: #a28fc9;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .notice-btn:hover {
+            background: #f3f0f8;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #a28fc9;
+            color: white;
+            padding: 50px 30px 20px;
+            font-size: 16px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1 1 250px;
+            min-width: 220px;
+        }
+
+        .footer-column h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #fff;
+            border-bottom: 2px solid #f4e8f4;
+            padding-bottom: 6px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #fafafa;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #eee;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-strip {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .top-strip h1 {
+                font-size: 28px;
+            }
+
+            .hero-section {
+                padding: 30px 20px;
+            }
+
+            .hero-section h2 {
+                font-size: 28px;
+            }
+
+            .session-options {
+                grid-template-columns: 1fr;
+            }
+
+            .funding-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .funding-section {
+                padding: 30px 20px;
+            }
+
+            .notice-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 10px;
+            }
+
+            .session-card {
+                padding: 25px 15px;
+            }
+
+            .additional-services {
+                padding: 25px 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <div class="dropdown">
-      <a href="about.html">About Us</a>
-      <div class="dropdown-content">
-        <a href="about.html">Aims & Objectives</a>
-        <a href="team.html">Our Team</a>
-        <a href="policy.html">Our Policy</a>
-        <a href="curriculum.html">Our Curriculum</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <a href="parents.html">Parents Info</a>
-      <div class="dropdown-content">
-        <a href="rooms.html">Rooms</a>
-        <a href="send.html">SEND</a>
-        <a href="support-for-parents.html">Support for Parents</a>
-      </div>
-    </div>
-    <a href="sessions-fees.html" class="active">Sessions & Fees</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
-
-  <!-- Top Strip -->
-  <div class="top-strip">
-    <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image" />
-    <h1>Sessions & Fees</h1>
-    <a href="contact.html" class="btn call-btn">CALL TODAY</a>
-  </div>
-
-  <!-- Main Content -->
-  <div class="content-layout">
-    <div class="description" style="max-width: 700px; margin: auto; padding: 20px;">
-      <p>
-        At Haslemere House Day Nursery, we offer flexible sessions to suit your family's needs. We understand that every family is different, which is why we offer a range of options — from full-day care to shorter morning or afternoon sessions.
-      </p>
-
-      <h2>Session Options</h2>
-      <div class="session-options">
-        <div class="session-box">
-          <h3>Full Day</h3>
-          <p>8:00am – 6:00pm</p>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <div class="dropdown-content">
+                <a href="about.html">Aims & Objectives</a>
+                <a href="team.html">Our Team</a>
+                <a href="policy.html">Our Policy</a>
+                <a href="curriculum.html">Our Curriculum</a>
+            </div>
         </div>
-        <div class="session-box">
-          <h3>Morning Session</h3>
-          <p>8:00am – 1:00pm</p>
+        <div class="dropdown">
+            <a href="parents.html">Parents Info</a>
+            <div class="dropdown-content">
+                <a href="rooms.html">Rooms</a>
+                <a href="send.html">SEND</a>
+                <a href="support-for-parents.html">Support for Parents</a>
+            </div>
         </div>
-        <div class="session-box">
-          <h3>Afternoon Session</h3>
-          <p>1:00pm – 6:00pm</p>
+        <a href="sessions-fees.html" class="active">Sessions & Fees</a>
+        <a href="news-events.html">News & Events</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <!-- Top Strip -->
+    <div class="top-strip">
+        <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image">
+        <h1>Sessions & Fees</h1>
+        <a href="contact.html" class="call-btn">CALL TODAY</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h2>Flexible Care Options for Every Family</h2>
+            <p>At Haslemere House Day Nursery, we understand that every family has unique needs. That's why we offer flexible session options and competitive rates, with various funding opportunities available to support your childcare journey.</p>
+        </section>
+
+        <!-- Session Options -->
+        <div class="session-options">
+            <div class="session-card">
+                <div class="session-icon">🌅</div>
+                <h3>Full Day Care</h3>
+                <div class="session-time">8:00 AM - 6:00 PM</div>
+                <div class="session-price">£65.00</div>
+                <div class="session-description">Perfect for working parents who need comprehensive childcare throughout the day.</div>
+                <ul class="session-features">
+                    <li>Breakfast, lunch & afternoon snack included</li>
+                    <li>Indoor & outdoor play activities</li>
+                    <li>Educational activities & learning time</li>
+                    <li>Rest time for younger children</li>
+                    <li>Regular progress updates</li>
+                </ul>
+            </div>
+
+            <div class="session-card">
+                <div class="session-icon">🌤️</div>
+                <h3>Morning Session</h3>
+                <div class="session-time">8:00 AM - 1:00 PM</div>
+                <div class="session-price">£38.00</div>
+                <div class="session-description">Ideal for children who benefit from morning learning and social interaction.</div>
+                <ul class="session-features">
+                    <li>Breakfast & lunch included</li>
+                    <li>Structured learning activities</li>
+                    <li>Creative play & development</li>
+                    <li>Outdoor exploration time</li>
+                    <li>Social skills development</li>
+                </ul>
+            </div>
+
+            <div class="session-card">
+                <div class="session-icon">🌆</div>
+                <h3>Afternoon Session</h3>
+                <div class="session-time">1:00 PM - 6:00 PM</div>
+                <div class="session-price">£38.00</div>
+                <div class="session-description">Great for families who prefer afternoon care with active play and learning.</div>
+                <ul class="session-features">
+                    <li>Lunch & afternoon snack included</li>
+                    <li>Physical activities & games</li>
+                    <li>Arts & crafts sessions</li>
+                    <li>Story time & quiet activities</li>
+                    <li>Preparation for home time</li>
+                </ul>
+            </div>
         </div>
-      </div>
 
-      <h2>Fees & Funding</h2>
-      <p>
-        We are committed to providing exceptional care at competitive rates. We accept various funding options, including 15 and 30 hours of government-funded childcare for eligible 2, 3, and 4-year-olds.
-      </p>
-      <ul class="fees-list">
-        <li><strong>Full Day:</strong> £65.00</li>
-        <li><strong>Morning Session:</strong> £38.00</li>
-        <li><strong>Afternoon Session:</strong> £38.00</li>
-        <li><strong>Funded Sessions:</strong> Available – please enquire</li>
-      </ul>
+        <!-- Government Funding Section -->
+        <section class="funding-section">
+            <h3>Government Funding Available</h3>
+            <div class="funding-grid">
+                <div class="funding-card">
+                    <span class="funding-icon">👶</span>
+                    <h4>2-Year-Old Funding</h4>
+                    <div class="funding-amount">15 Hours Free</div>
+                    <p>Available for eligible 2-year-olds from working families or those receiving certain benefits.</p>
+                </div>
 
-      <a href="contact.html" class="btn" style="display: inline-block; margin-top: 20px;">Enquire Now</a>
+                <div class="funding-card">
+                    <span class="funding-icon">🧒</span>
+                    <h4>Universal 3 & 4-Year-Old</h4>
+                    <div class="funding-amount">15 Hours Free</div>
+                    <p>All 3 and 4-year-olds are entitled to 15 hours of free early education per week.</p>
+                </div>
+
+                <div class="funding-card">
+                    <span class="funding-icon">👨‍👩‍👧‍👦</span>
+                    <h4>Working Parents</h4>
+                    <div class="funding-amount">30 Hours Free</div>
+                    <p>Extended funding for 3 & 4-year-olds of working parents, subject to eligibility criteria.</p>
+                </div>
+
+                <div class="funding-card">
+                    <span class="funding-icon">💰</span>
+                    <h4>Tax-Free Childcare</h4>
+                    <div class="funding-amount">Up to £2,000</div>
+                    <p>Government scheme providing £2 for every £8 you pay towards childcare costs.</p>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 16px; color: #666; margin-top: 20px;">
+                <strong>Please contact us to discuss your funding options and eligibility.</strong>
+            </p>
+        </section>
+
+        <!-- Additional Services -->
+        <section class="additional-services">
+            <h3>Additional Services & Information</h3>
+            <div class="services-list">
+                <div class="service-item">
+                    <span>🍎</span>
+                    <div class="service-text">
+                        <h4>Nutritious Meals</h4>
+                        <p>All meals and snacks included in session fees</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span>🧷</span>
+                    <div class="service-text">
+                        <h4>Nappy & Wipes</h4>
+                        <p>Provided for all children as needed</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span>📚</span>
+                    <div class="service-text">
+                        <h4>Learning Resources</h4>
+                        <p>Educational materials and activities included</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span>🎨</span>
+                    <div class="service-text">
+                        <h4>Art & Craft Supplies</h4>
+                        <p>Creative materials for all artistic activities</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span>📱</span>
+                    <div class="service-text">
+                        <h4>Daily Updates</h4>
+                        <p>Regular communication about your child's day</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span>🏥</span>
+                    <div class="service-text">
+                        <h4>First Aid Trained</h4>
+                        <p>All staff qualified in pediatric first aid</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Important Notice -->
+        <section class="important-notice">
+            <h3>📞 Ready to Get Started?</h3>
+            <p>Contact us today to discuss your childcare needs, available sessions, and funding options. We're here to help you find the perfect solution for your family.</p>
+            <div class="notice-buttons">
+                <a href="contact.html" class="notice-btn">Book a Tour</a>
+                <a href="contact.html" class="notice-btn">Enquire Now</a>
+                <a href="about.html" class="notice-btn">Learn More</a>
+            </div>
+        </section>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <h4>Contact Us</h4>
-        <p>123 Nursery Lane<br />London, UK<br />📞 01234 567890</p>
-      </div>
-      <div class="footer-column">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="sessions-fees.html">Sessions & Fees</a></li>
-          <li><a href="parents.html">Parents Info</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Opening Hours</h4>
-        <p>Mon – Fri: 7:30am – 6:00pm<br />Sat & Sun: Closed</p>
-      </div>
-      <div class="footer-column">
-        <h4>Ofsted & Hygiene</h4>
-        <p>Ofsted Rated: Outstanding<br />Food Hygiene: 5 Stars</p>
-      </div>
-    </div>
-    <p class="copyright">&copy; 2025 Haslemere House Day Nursery. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>
+                    68 Haslemere Avenue<br>
+                    Mitcham, London<br>
+                    CR4 3BA<br><br>
+                    <a href="mailto:Haslemere.daynursery@googlemail.com">
+                        Haslemere.daynursery@googlemail.com
+                    </a><br>
+                    📞 <a href="tel:02086400822">020 8640 0822</a>
+                </p>
+            </div>
 
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="parents.html">Parents Info</a></li>
+                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                    <li><a href="news-events.html">News & Events</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Opening Hours</h4>
+                <p>
+                    Mon – Fri: 8:00 am – 6:00 pm<br>
+                    Sat & Sun: Closed
+                </p>
+
+                <br>
+                <h4>Ofsted & Hygiene</h4>
+                <p>
+                    Ofsted Rated: Outstanding<br>
+                    Food Hygiene: 5 Stars
+                </p>
+            </div>
+        </div>
+
+        <p class="copyright">
+            &copy; 2025 Haslemere House Day Nursery. All content on this website (including images) are owned by us. Do not attempt to copy without our consent.
+        </p>
+    </footer>
 </body>
 </html>
