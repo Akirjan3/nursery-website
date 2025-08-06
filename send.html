@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEND Support - Haslemere House Day Nursery</title>
+    <style>
+        /* General Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html, body {
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #fafafa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Main wrapper to push footer down */
+        .page-wrapper {
+            flex: 1;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #a28fc9;
+            padding: 12px 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar > a,
+        .navbar .dropdown > a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar > a:hover,
+        .navbar .dropdown > a:hover {
+            background-color: #c2b3e0;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f3f0f8;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(162, 143, 201, 0.2);
+            z-index: 999;
+            top: 100%;
+            left: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #555 !important;
+            padding: 12px 18px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e9f1f8;
+        }
+
+        /* Top Strip */
+        .top-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            border-bottom: 3px solid #a28fc9;
+        }
+
+        .top-strip h1 {
+            font-size: 36px;
+            color: #a28fc9;
+            font-weight: 700;
+            text-align: center;
+            flex: 1;
+        }
+
+        .ofsted-image {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Buttons */
+        .btn, .call-btn {
+            background-color: #a28fc9;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid #a28fc9;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .call-btn {
+            background-color: #f3f0f8;
+            color: #a28fc9;
+        }
+
+        .btn:hover, .call-btn:hover {
+            background-color: #9073be;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #a28fc9 0%, #c2b3e0 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(162, 143, 201, 0.3);
+        }
+
+        .hero-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Content Sections */
+        .section {
+            background: white;
+            padding: 50px 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            border-left: 5px solid #a28fc9;
+        }
+
+        .section h3 {
+            font-size: 28px;
+            color: #a28fc9;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* SEND Support Areas Grid */
+        .send-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .send-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .send-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .send-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: white;
+        }
+
+        .send-card h4 {
+            font-size: 22px;
+            color: #a28fc9;
+            margin-bottom: 15px;
+        }
+
+        .send-card p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Support Process Section */
+        .process-section {
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .process-section h3 {
+            text-align: center;
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 40px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .process-step {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: #a28fc9;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .process-step h5 {
+            font-size: 20px;
+            color: #a28fc9;
+            margin: 20px 0 15px;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Expertise Section */
+        .expertise-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .expertise-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
+            border-left: 4px solid #a28fc9;
+        }
+
+        .expertise-item h5 {
+            font-size: 18px;
+            color: #a28fc9;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .expertise-item p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Partnerships Section */
+        .partnerships-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            margin: 30px 0;
+        }
+
+        .partnerships-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .partnership-badge {
+            background: linear-gradient(135deg, #f3f0f8, #e9f1f8);
+            padding: 15px 20px;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px solid #a28fc9;
+            color: #a28fc9;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .partnership-badge:hover {
+            background: #a28fc9;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Resources Section */
+        .resources-section {
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .resources-section h3 {
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 20px;
+        }
+
+        .resources-section p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .resource-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .resource-tab {
+            background: white;
+            color: #a28fc9;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #a28fc9;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resource-tab:hover {
+            background: #a28fc9;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .resource-icon {
+            font-size: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #9073be 0%, #a28fc9 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-section h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #a28fc9;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #f3f0f8;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h4 {
+            color: #a28fc9;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-column p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #a28fc9;
+        }
+
+        .copyright {
+            border-top: 1px solid #34495e;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .copyright p {
+            color: #95a5a6;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-strip {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .top-strip h1 {
+                font-size: 28px;
+            }
+
+            .hero-section {
+                padding: 40px 20px;
+            }
+
+            .hero-section h2 {
+                font-size: 32px;
+            }
+
+            .hero-section p {
+                font-size: 18px;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            .process-section {
+                padding: 40px 20px;
+            }
+
+            .resources-section {
+                padding: 40px 20px;
+            }
+
+            .cta-section {
+                padding: 30px 20px;
+            }
+
+            .resource-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .partnerships-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 10px;
+            }
+
+            .hero-section h2 {
+                font-size: 26px;
+            }
+
+            .section h3 {
+                font-size: 24px;
+            }
+
+            .send-card {
+                padding: 20px;
+            }
+
+            .partnerships-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="about.html">About Us</a>
+                <div class="dropdown-content">
+                    <a href="aims_&_objectives.html">Aims & Objectives</a>
+                    <a href="team.html">Our Team</a>
+                    <a href="policy.html">Our Policy</a>
+                    <a href="curriculum.html">Our Curriculum</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="parents.html">Parents Info</a>
+                <div class="dropdown-content">
+                    <a href="rooms.html">Rooms</a>
+                    <a href="send.html">SEND</a>
+                    <a href="support-for-parents.html">Support for Parents</a>
+                </div>
+            </div>
+            <a href="sessions-fees.html">Sessions & Fees</a>
+            <a href="news-events.html">News & Events</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+
+        <!-- Top Strip -->
+        <div class="top-strip">
+            <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image">
+            <h1>SEND Support & Inclusion</h1>
+            <a href="contact.html" class="call-btn">CALL TODAY</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h2>Supporting Every Child's Journey</h2>
+                <p>At Haslemere House Day Nursery, we are committed to providing inclusive, high-quality care and education for all children, including those with Special Educational Needs and Disabilities (SEND). Every child deserves the opportunity to thrive, learn, and reach their full potential.</p>
+            </section>
+
+            <!-- SEND Overview Section -->
+            <section class="section">
+                <h3>Our SEND Philosophy</h3>
+                <p>We believe that every child is unique and special, with individual needs, interests, and abilities. Our approach to SEND support is built on the principles of inclusion, early identification, and collaborative working with families and external professionals to ensure the best possible outcomes for each child.</p>
+                <p>Our experienced SEND team works closely with children, families, and specialist services to create personalized support plans that promote independence, confidence, and learning. We celebrate diversity and ensure that all children feel valued, supported, and included in our nurturing nursery community.</p>
+            </section>
+
+            <!-- SEND Support Areas -->
+            <div class="send-grid">
+                <div class="send-card">
+                    <div class="send-icon">🎯</div>
+                    <h4>Individual Support Plans</h4>
+                    <p>Tailored support plans developed in partnership with families, focusing on each child's specific needs, strengths, and developmental goals.</p>
+                </div>
+                <div class="send-card">
+                    <div class="send-icon">👂</div>
+                    <h4>Communication & Language</h4>
+                    <p>Specialized support for children with speech, language, and communication needs, including alternative communication methods.</p>
+                </div>
+                <div class="send-card">
+                    <div class="send-icon">🧠</div>
+                    <h4>Learning Difficulties</h4>
+                    <p>Adapted learning approaches and resources to support children with various learning differences and cognitive needs.</p>
+                </div>
+                <div class="send-card">
+                    <div class="send-icon">🏃‍♂️</div>
+                    <h4>Physical & Sensory Needs</h4>
+                    <p>Environmental adaptations and specialized equipment to support children with physical disabilities and sensory processing needs.</p>
+                </div>
+                <div class="send-card">
+                    <div class="send-icon">❤️</div>
+                    <h4>Social & Emotional Support</h4>
+                    <p>Targeted interventions to support children's emotional regulation, social skills, and behavioral development.</p>
+                </div>
+                <div class="send-card">
+                    <div class="send-icon">🌟</div>
+                    <h4>Autism Support</h4>
+                    <p>Specialized understanding and support for children on the autism spectrum, including structured routines and sensory considerations.</p>
+                </div>
+            </div>
+
+            <!-- Support Process -->
+            <section class="process-section">
+                <h3>Our SEND Support Process</h3>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h5>Early Identification</h5>
+                        <p>Through careful observation and assessment, we identify children who may benefit from additional support, working closely with parents from the start.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h5>Assessment & Planning</h5>
+                        <p>We conduct comprehensive assessments and develop individual support plans in collaboration with families and external professionals.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h5>Implementation</h5>
+                        <p>Trained staff implement targeted interventions and adaptations, monitoring progress and adjusting support as needed.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h5>Review & Progress</h5>
+                        <p>Regular reviews ensure support remains effective and relevant, celebrating achievements and planning next steps.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Staff Expertise -->
+            <section class="section">
+                <h3>Our SEND Expertise</h3>
+                <p>Our dedicated team includes qualified SEND practitioners with specialized training and extensive experience in supporting children with diverse needs. We maintain high standards through continuous professional development and regular training updates.</p>
+                
+                <div class="expertise-section">
+                    <div class="expertise-item">
+                        <h5>Qualified SENCO</h5>
+                        <p>Our Special Educational Needs Coordinator holds relevant qualifications and leads our SEND provision with expertise and compassion.</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h5>Specialized Training</h5>
+                        <p>All staff receive regular SEND training including autism awareness, behavior support, and communication strategies.</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h5>Makaton Communication</h5>
+                        <p>Team members are trained in Makaton signing to support children with communication difficulties.</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h5>Sensory Integration</h5>
+                        <p>Understanding of sensory processing needs and techniques to support children with sensory differences.</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h5>Behavior Support</h5>
+                        <p>Positive behavior support strategies and understanding of underlying causes of challenging behaviors.</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h5>Transition Planning</h5>
+                        <p>Specialized support for transitions between settings, ensuring smooth progressions for children with SEND.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- External Partnerships -->
+            <div class="partnerships-section">
+                <h3>Professional Partnerships</h3>
+                <p>We work closely with a network of external professionals and services to provide comprehensive support for children and families.</p>
+                
+                <div class="partnerships-grid">
+                    <div class="partnership-badge">Speech & Language Therapists</div>
+                    <div class="partnership-badge">Occupational Therapists</div>
+                    <div class="partnership-badge">Educational Psychologists</div>
+                    <div class="partnership-badge">Pediatricians</div>
+                    <div class="partnership-badge">Local Authority SEND Team</div>
+                    <div class="partnership-badge">Portage Services</div>
+                    <div class="partnership-badge">Child Development Centers</div>
+                    <div class="partnership-badge">Specialist Schools</div>
+                    <div class="partnership-badge">Family Support Services</div>
+                    <div class="partnership-badge">Health Visitors</div>
+                </div>
+            </div>
+
+            <!-- Resources and Information -->
+            <section class="resources-section">
+                <h3>SEND Resources & Information</h3>
+                <p>Access helpful resources, guides, and information to support your child's SEND journey. We provide comprehensive documentation and guidance for families.</p>
+                
+                <div class="resource-tabs">
+                    <a href="documents/send-policy.pdf" class="resource-tab" target="_blank">
+                        <span class="resource-icon">📄</span>
+                        <span>SEND Policy</span>
+                    </a>
+                    <a href="documents/send-information-report.pdf" class="resource-tab" target="_blank">
+                        <span class="resource-icon">📊</span>
+                        <span>SEND Information Report</span>
+                    </a>
+                    <a href="documents/local-offer-guide.pdf" class="resource-tab" target="_blank">
+                        <span class="resource-icon">🗺️</span>
+                        <span>Local Offer Guide</span>
+                    </a>
+                    <a href="documents/transition-support-guide.pdf" class="resource-tab" target="_blank">
+                        <span class="resource-icon">🔄</span>
+                        <span>Transition Support</span>
+                    </a>
+                </div>
+                
+                <p style="font-size: 14px; color: #666; margin-top: 20px;">
+                    <em>All documents are available in PDF format and can be provided in alternative formats upon request.</em>
+                </p>
+            </section>
+
+            <!-- Parent Partnership -->
+            <section class="section">
+                <h3>Partnership with Families</h3>
+                <p>We believe that parents and carers are the first educators of their children and their insights are invaluable in supporting their child's development. We work in genuine partnership, ensuring open communication, shared decision-making, and collaborative planning throughout your child's journey with us.</p>
+                <p>Regular meetings, progress reviews, and informal discussions ensure that families are fully involved in their child's support plan. We provide guidance, resources, and emotional support to help families navigate their SEND journey with confidence.</p>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="cta-section">
+                <h3>Ready to Discuss Your Child's Needs?</h3>
+                <p>Our SEND team is here to answer your questions and discuss how we can support your child's unique journey. Contact us for a confidential discussion about our inclusive provision.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="cta-btn">Speak to Our SENCO</a>
+                    <a href="contact.html" class="cta-btn">Arrange a Visit</a>
+                    <a href="tel:02086400822" class="cta-btn">Call Us Today</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Contact Information</h4>
+                <p><strong>Haslemere House Day Nursery</strong></p>
+                <p>68 Haslemere Avenue<br>
+                Mitcham, CR4 3BA<br>
+                London, UK</p>
+                <p>📞 Phone: 020 8640 0822<br>
+                📧 Email: Haslemere.daynursery@googlemail.com</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Opening Hours</h4>
+                <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
+                <p><strong>Weekends:</strong><br>Closed</p>
+                <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="parents.html">Parents Info</a></li>
+                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quality Assurance</h4>
+                <p><strong>Ofsted Rating:</strong><br>Outstanding</p>
+                <p><strong>Food Hygiene:</strong><br>5 Stars</p>
+                <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted | Outstanding Rating Maintained</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -80,7 +80,70 @@
         .dropdown-content a:hover {
             background-color: #e9f1f8;
         }
+        /* Quick Links Section */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
 
+        .quick-link-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-left: 5px solid #a28fc9;
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .quick-link-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #a28fc9, #c2b3e0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .quick-link-card h3 {
+            font-size: 20px;
+            color: #a28fc9;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .quick-link-card p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .quick-link-card a {
+            color: #a28fc9;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 16px;
+            border: 2px solid #a28fc9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .quick-link-card a:hover {
+            background: #a28fc9;
+            color: white;
+        }
         /* Top Strip */
         .top-strip {
             display: flex;
@@ -453,7 +516,7 @@
         <div class="dropdown">
             <a href="about.html">About Us</a>
             <div class="dropdown-content">
-                <a href="about.html">Aims & Objectives</a>
+                <a href="aims_&_objectives.html">Aims & Objectives</a>
                 <a href="team.html">Our Team</a>
                 <a href="policy.html">Our Policy</a>
                 <a href="curriculum.html">Our Curriculum</a>
@@ -471,93 +534,125 @@
         <a href="news-events.html">News & Events</a>
         <a href="contact.html">Contact Us</a>
     </nav>
+
     <!-- Top Strip -->
     <div class="top-strip">
         <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image">
-        <h1>About Haslemere House Day Nursery</h1>
+        <h1>About Haslemere House</h1>
         <a href="contact.html" class="call-btn">CALL TODAY</a>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
+
         <!-- Hero Section -->
         <section class="hero-section">
-            <h2>Our Mission & Vision</h2>
-            <p>At Haslemere House Day Nursery, we are passionate about providing exceptional early years education that nurtures every child's unique potential. We believe in creating a foundation for lifelong learning through play, exploration, and meaningful connections.</p>
+            <h2>Welcome to Haslemere House Day Nursery</h2>
+            <p>With decades of experience in early childhood care and education, we take pride in providing a warm, nurturing environment where children can flourish, develop, and thrive through joyful exploration and discovery.</p>
         </section>
+                <!-- Quick Links -->
+        <div class="quick-links">
+            <div class="quick-link-card">
+                <div class="quick-link-icon">🎯</div>
+                <h3>Our Aims & Objectives</h3>
+                <p></p>
+                <a href="aims_&_objectives.html">View Rooms →</a>
+            </div>
 
-        <!-- Our Commitment Section -->
+            <div class="quick-link-card">
+                <div class="quick-link-icon">👤</div>
+                <h3>Meet our team</h3>
+                <p></p>
+                <a href="team.html">Learn More →</a>
+            </div>
+
+            <div class="quick-link-card">
+                <div class="quick-link-icon">📄</div>
+                <h3>Our Policy</h3>
+                <p></p>
+                <a href="policy".html">Get Support →</a>
+
+            </div>
+                <div class="quick-link-card">
+                <div class="quick-link-icon">📚</div>
+                <h3>Curriculum</h3>
+                <p></p>
+                <a href="curriculum.html">Get Support →</a>
+            </div>
+        </div>
+
+        <!-- Our Story -->
         <section class="section">
-            <h3>Our Commitment to Excellence</h3>
-            <p>We are committed to delivering high-quality early years education in line with the Early Years Foundation Stage (EYFS) framework. Our approach combines structured learning with child-led exploration, ensuring that every child develops the skills, confidence, and curiosity they need for their educational journey.</p>
-            <p>Our curriculum is carefully planned to support children's personal, social, and emotional development, communication and language skills, and physical growth, while also promoting literacy, mathematics, and understanding of the world around them.</p>
+            <h3>Our Story</h3>
+            <p>Founded in the heart of Mitcham, Haslemere House Day Nursery has been a cherished part of the local community for over 25 years. What began as a small initiative to support working families has blossomed into a vibrant, inclusive, and highly respected setting known for its caring team, outstanding education, and child-first ethos.</p>
+            <p>We are proud of our roots and continue to grow with the community—offering a safe and stimulating environment that meets the highest standards of care and learning.</p>
         </section>
 
-        <!-- Features Grid -->
+        <!-- What Makes Us Unique -->
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h4>Individual Focus</h4>
-                <p>Every child is unique. We tailor our approach to meet each child's individual needs, interests, and learning style.</p>
+                <div class="feature-icon">👶</div>
+                <h4>Experienced Staff</h4>
+                <p>Our practitioners are not only qualified and experienced—they are passionate about making a positive impact in every child’s life.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🌟</div>
-                <h4>Outstanding Care</h4>
-                <p>Our Ofsted Outstanding rating reflects our commitment to providing the highest standards of care and education.</p>
+                <div class="feature-icon">🏡</div>
+                <h4>Home-from-Home</h4>
+                <p>We offer a comforting, homely atmosphere where children feel safe, valued, and excited to learn every day.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🤝</div>
-                <h4>Family Partnership</h4>
-                <p>We work closely with families to ensure consistency and support your child's development both at nursery and at home.</p>
+                <div class="feature-icon">📚</div>
+                <h4>Enriched Curriculum</h4>
+                <p>Our curriculum blends EYFS guidance with hands-on experiences, outdoor play, creative arts, and much more.</p>
             </div>
         </div>
 
         <!-- Values Section -->
         <section class="values-section">
-            <h3>Our Core Values</h3>
+            <h3>What We Believe In</h3>
             <div class="values-list">
                 <div class="value-item">
-                    <h5>Safety & Security</h5>
-                    <p>Creating a safe, secure environment where children feel confident to explore and learn.</p>
+                    <h5>Child-Centred Learning</h5>
+                    <p>We follow the interests of each child, supporting their natural curiosity and promoting active learning.</p>
                 </div>
                 <div class="value-item">
-                    <h5>Inclusive Learning</h5>
-                    <p>Celebrating diversity and ensuring every child feels valued and included in our nursery family.</p>
+                    <h5>Strong Relationships</h5>
+                    <p>We value strong, trusting relationships with children and families—laying the foundation for lifelong success.</p>
                 </div>
                 <div class="value-item">
-                    <h5>Play-Based Learning</h5>
-                    <p>Learning through play, allowing children to develop naturally while having fun and building friendships.</p>
+                    <h5>Inclusive Practice</h5>
+                    <p>Every child is celebrated for who they are. We are an inclusive setting that supports all needs and backgrounds.</p>
                 </div>
                 <div class="value-item">
-                    <h5>Professional Excellence</h5>
-                    <p>Our skilled practitioners are committed to continuous professional development and best practices.</p>
+                    <h5>Outdoor Exploration</h5>
+                    <p>Our garden spaces and nature walks promote physical wellbeing, environmental awareness, and adventurous play.</p>
                 </div>
                 <div class="value-item">
-                    <h5>Community Connection</h5>
-                    <p>Building strong relationships with families and the wider community to support each child's journey.</p>
+                    <h5>Holistic Development</h5>
+                    <p>We nurture the whole child—emotionally, socially, physically, and intellectually—so they can grow in all areas.</p>
                 </div>
                 <div class="value-item">
-                    <h5>Future Ready</h5>
-                    <p>Preparing children for their next steps in education with confidence, resilience, and a love of learning.</p>
+                    <h5>Partnership with Parents</h5>
+                    <p>We view parents as key partners and actively involve them in their child’s early learning journey.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Quality Standards Section -->
+        <!-- Testimonials -->
         <section class="section">
-            <h3>Quality Standards & Recognition</h3>
-            <p>We uphold the highest standards outlined by Ofsted, ensuring that children are well-cared for, engaged in meaningful learning experiences, and supported by knowledgeable and skilled practitioners. Our Outstanding Ofsted rating and 5-star food hygiene rating demonstrate our commitment to excellence in all areas.</p>
-            <p>Our team regularly participates in professional development to stay current with best practices in early years education, safeguarding, and child development. We maintain strong partnerships with local schools and services to ensure smooth transitions for our children.</p>
+            <h3>What Parents Say</h3>
+            <p>“My daughter has blossomed at Haslemere House. The staff are amazing, the environment is warm and welcoming, and I always feel confident she’s in the best hands.” – Parent, 2025</p>
+            <p>“We couldn’t have asked for a better start for our son. He’s made friends, learned so much, and always comes home smiling.” – Parent, 2025</p>
         </section>
 
         <!-- Call to Action -->
         <section class="cta-section">
-            <h3>Ready to Join Our Nursery Family?</h3>
-            <p>We'd love to show you around our nurturing environment and discuss how we can support your child's development.</p>
+            <h3>Come Visit Us!</h3>
+            <p>We’d love to meet you and your little one. Book a visit or give us a call—we’re here to help answer your questions and welcome you into our nursery family.</p>
             <div class="cta-buttons">
-                <a href="contact.html" class="cta-btn">Book a Tour</a>
-                <a href="sessions-fees.html" class="cta-btn">View Sessions & Fees</a>
-                <a href="tel:02086400822" class="cta-btn">Call Us Today</a>
+                <a href="contact.html" class="cta-btn">Book a Visit</a>
+                <a href="team.html" class="cta-btn">Meet Our Team</a>
+                <a href="tel:02086400822" class="cta-btn">Call Us</a>
             </div>
         </section>
     </div>
@@ -606,4 +701,5 @@
         </div>
     </footer>
 </body>
+</html>
 </html>
