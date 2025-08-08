@@ -606,6 +606,127 @@
                 padding: 30px 20px;
             }
         }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            margin: 40px 0;
+            border-left: 5px solid #a28fc9;
+        }
+
+        .faq-section h3 {
+            font-size: 28px;
+            color: #a28fc9;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 2px solid #f3f0f8;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #a28fc9;
+            box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
+        }
+
+        .faq-question {
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #555;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #e9f1f8 0%, #dde8f0 100%);
+            color: #a28fc9;
+        }
+
+        .faq-question.active {
+            background: #a28fc9;
+            color: white;
+        }
+
+        .faq-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+            color: #a28fc9;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(45deg);
+            color: white;
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .faq-answer.active {
+            padding: 25px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-highlight {
+            background: linear-gradient(135deg, #f8f5ff 0%, #f0ebff 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #a28fc9;
+            margin: 15px 0;
+        }
+
+        /* Responsive FAQ */
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 30px 20px;
+            }
+            
+            .faq-question {
+                padding: 15px 20px;
+                font-size: 15px;
+            }
+            
+            .faq-answer.active {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -806,6 +927,122 @@
                 <p>We believe that parents and carers are the first educators of their children and their insights are invaluable in supporting their child's development. We work in genuine partnership, ensuring open communication, shared decision-making, and collaborative planning throughout your child's journey with us.</p>
                 <p>Regular meetings, progress reviews, and informal discussions ensure that families are fully involved in their child's support plan. We provide guidance, resources, and emotional support to help families navigate their SEND journey with confidence.</p>
             </section>
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-container">
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How do I know if my child needs SEND support?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Every child develops at their own pace, but there are some signs that may indicate additional support could be beneficial:</p>
+                            <div class="faq-highlight">
+                                <p><strong>Early signs may include:</strong> Delays in speech and language development, difficulty with social interactions, challenges with physical coordination, sensory sensitivities, or differences in learning patterns compared to peers.</p>
+                            </div>
+                            <p>Our experienced team conducts regular observations and assessments. If we notice any areas where your child might benefit from additional support, we'll discuss this with you sensitively and work together to determine the best approach.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What happens during the SEND assessment process?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our assessment process is thorough yet child-friendly, designed to understand your child's unique strengths and needs:</p>
+                            <p><strong>Initial Discussion:</strong> We meet with you to discuss your concerns and observations about your child's development.</p>
+                            <p><strong>Observation & Assessment:</strong> Our qualified SENCO conducts structured observations and assessments during your child's normal activities.</p>
+                            <p><strong>External Referrals:</strong> If needed, we can refer to specialist services like Speech & Language Therapy or Educational Psychology.</p>
+                            <p><strong>Support Plan Development:</strong> Based on all information gathered, we create a personalized support plan with clear goals and strategies.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How do you support children with autism spectrum conditions?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We have extensive experience supporting children on the autism spectrum and understand the importance of individualized approaches:</p>
+                            <div class="faq-highlight">
+                                <p><strong>Our autism support includes:</strong> Visual schedules and social stories, sensory-friendly environments, structured routines, communication support (including Makaton), and gradual introduction to changes.</p>
+                            </div>
+                            <p>We work closely with families to understand each child's specific needs, preferences, and triggers. Our staff receive regular autism awareness training and use evidence-based strategies to support communication, social skills, and emotional regulation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Do you provide one-to-one support for children?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We assess each child's needs individually and provide appropriate levels of support, which may include one-to-one assistance when necessary.</p>
+                            <p><strong>Our approach includes:</strong> Small group interventions, individual targeted support sessions, enhanced adult-child ratios in specific areas, and specialist intervention programs.</p>
+                            <p>The level of support is always discussed with families and reviewed regularly to ensure it meets your child's changing needs while promoting independence and inclusion within the group.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How do you prepare children with SEND for school transitions?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Transition planning is crucial for children with SEND, and we start preparing well in advance:</p>
+                            <p><strong>Transition Support includes:</strong> School visits and familiarization, detailed transition documents, meetings with receiving schools, gradual transition activities, and ongoing liaison with new settings.</p>
+                            <div class="faq-highlight">
+                                <p><strong>We also provide:</strong> Social stories about starting school, practice with school routines, communication passport creation, and post-transition follow-up support.</p>
+                            </div>
+                            <p>Our goal is to ensure every child feels confident and prepared for their next educational setting.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What training do your staff have for SEND support?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>All our team members receive comprehensive SEND training as part of their ongoing professional development:</p>
+                            <p><strong>Training includes:</strong> SEND awareness and inclusion, autism spectrum understanding, behavior support strategies, communication techniques including Makaton, sensory processing awareness, and safeguarding vulnerable children.</p>
+                            <p>Our SENCO holds relevant qualifications and attends regular training updates. We also provide specialized training based on the specific needs of children in our care.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How much does SEND support cost?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>SEND support is included as part of our inclusive nursery provision at no additional cost to families.</p>
+                            <div class="faq-highlight">
+                                <p><strong>What's included:</strong> Initial assessments, individual support plans, staff training, environmental adaptations, and regular review meetings.</p>
+                            </div>
+                            <p>For children requiring intensive one-to-one support, we may discuss additional funding options including Early Years Pupil Premium, local authority support, or other funding streams available.</p>
+                            <p>We believe every child deserves access to quality support and will work with families to ensure financial barriers don't prevent access to the care their child needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can you accommodate children with physical disabilities?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we welcome children with physical disabilities and make reasonable adjustments to ensure full participation in nursery activities.</p>
+                            <p><strong>Our accommodations may include:</strong> Accessible equipment and resources, environmental modifications, partnership with occupational therapists, individualized care plans, and staff training on specific needs.</p>
+                            <p>We conduct accessibility assessments and work with families and professionals to ensure your child can access all areas of our provision safely and confidently.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
 
             <!-- Call to Action -->
             <section class="cta-section">
@@ -863,5 +1100,41 @@
             <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted | Outstanding Rating Maintained</p>
         </div>
     </footer>
+
+        <!-- Add the JavaScript here -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentNode;
+                const faqAnswer = faqItem.querySelector('.faq-answer');
+                const faqIcon = this.querySelector('.faq-icon');
+                
+                // Toggle active state
+                const isActive = faqAnswer.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-answer').forEach(answer => {
+                    answer.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-icon').forEach(icon => {
+                    icon.textContent = '+';
+                });
+                
+                // If this item wasn't active, open it
+                if (!isActive) {
+                    faqAnswer.classList.add('active');
+                    this.classList.add('active');
+                    faqIcon.textContent = '×';
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>

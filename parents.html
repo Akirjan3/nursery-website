@@ -312,45 +312,82 @@
             transform: translateY(-2px);
         }
 
-        /* Downloadable Resources */
+        /* Resources Section - Styled like Stats Section from Index */
         .resources-section {
             background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
-            padding: 50px 40px;
+            padding: 60px 40px;
             border-radius: 15px;
             margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resources-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(162, 143, 201, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .resources-section h3 {
             text-align: center;
-            font-size: 32px;
+            font-size: 28px;
             color: #a28fc9;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            position: relative;
             font-weight: 600;
         }
 
         .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .resource-item {
             background: white;
-            padding: 25px;
+            padding: 30px 20px;
             border-radius: 10px;
-            box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
             text-align: center;
+            box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #a28fc9 0%, #c2b3e0 100%);
+            transform: scaleY(0);
+            transform-origin: top;
             transition: transform 0.3s ease;
         }
 
+        .resource-item:hover::before {
+            transform: scaleY(1);
+        }
+
         .resource-item:hover {
-            transform: translateY(-3px);
+            transform: translateX(5px);
+            box-shadow: 0 5px 25px rgba(162, 143, 201, 0.15);
         }
 
         .resource-icon {
-            font-size: 40px;
+            font-size: 36px;
             margin-bottom: 15px;
             display: block;
+            color: #a28fc9;
         }
 
         .resource-item h4 {
@@ -479,7 +516,13 @@
             }
 
             .resources-section {
-                padding: 30px 20px;
+                padding: 40px 20px;
+                margin: 20px 10px;
+            }
+
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
 
             .notice-buttons {
@@ -504,6 +547,11 @@
 
             .resources-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .resources-section {
+                padding: 30px 15px;
+                margin: 15px 5px;
             }
         }
     </style>
@@ -627,7 +675,7 @@
             </div>
         </div>
 
-        <!-- Downloadable Resources -->
+        <!-- Resources Section - Updated to match stats section format -->
         <section class="resources-section">
             <h3>Helpful Resources</h3>
             <div class="resources-grid">
