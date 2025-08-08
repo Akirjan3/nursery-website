@@ -236,6 +236,19 @@
             padding: 60px 40px;
             border-radius: 15px;
             margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .values-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(162, 143, 201, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
         }
 
         .values-section h3 {
@@ -243,11 +256,12 @@
             font-size: 32px;
             color: #a28fc9;
             margin-bottom: 40px;
+            position: relative;
         }
 
         .values-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
@@ -256,6 +270,31 @@
             padding: 25px;
             border-radius: 10px;
             box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #a28fc9 0%, #c2b3e0 100%);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+
+        .value-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .value-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 25px rgba(162, 143, 201, 0.15);
         }
 
         .value-item h5 {
@@ -270,7 +309,7 @@
             color: #666;
             line-height: 1.6;
         }
-
+        
         /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #9073be 0%, #a28fc9 100%);
