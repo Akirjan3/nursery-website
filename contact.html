@@ -41,8 +41,7 @@
         }
 
         .navbar > a:hover,
-        .navbar .dropdown > a:hover,
-        .navbar .active {
+        .navbar .dropdown > a:hover {
             background-color: #c2b3e0;
         }
 
@@ -98,11 +97,13 @@
             font-weight: 700;
             text-align: center;
             flex: 1;
+            text-shadow: 1px 1px 2px rgba(162, 143, 201, 0.1);
         }
 
         .ofsted-image {
             height: 60px;
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(162, 143, 201, 0.2));
         }
 
         /* Buttons */
@@ -129,9 +130,10 @@
             background-color: #9073be;
             color: white;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(162, 143, 201, 0.3);
         }
 
-        /* Main Content */
+        /* Main Content Area */
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -142,57 +144,55 @@
         .hero-section {
             background: linear-gradient(135deg, #a28fc9 0%, #c2b3e0 100%);
             color: white;
-            padding: 50px 40px;
+            padding: 60px 40px;
             border-radius: 15px;
             text-align: center;
             margin-bottom: 40px;
             box-shadow: 0 10px 30px rgba(162, 143, 201, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-section h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
+            font-size: 42px;
+            margin-bottom: 20px;
             font-weight: 700;
+            position: relative;
         }
 
         .hero-section p {
-            font-size: 18px;
-            max-width: 600px;
+            font-size: 20px;
+            max-width: 800px;
             margin: 0 auto;
             line-height: 1.7;
+            position: relative;
         }
 
-        /* Contact Grid */
-        .contact-grid {
+        /* Quick Contact Cards */
+        .quick-contact {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        /* Contact Info Cards */
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
-        .info-card {
+        .quick-contact-card {
             background: white;
-            padding: 30px;
+            padding: 30px 20px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             border-left: 5px solid #a28fc9;
+            position: relative;
+            overflow: hidden;
         }
 
-        .info-card:hover {
-            transform: translateY(-5px);
+        .quick-contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(162, 143, 201, 0.2);
         }
 
-        .info-icon {
+        .contact-icon {
             width: 60px;
             height: 60px;
             background: linear-gradient(135deg, #a28fc9, #c2b3e0);
@@ -203,39 +203,118 @@
             margin: 0 auto 20px;
             font-size: 24px;
             color: white;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(162, 143, 201, 0.3);
         }
 
-        .info-card h3 {
-            font-size: 22px;
+        .quick-contact-card h3 {
+            font-size: 18px;
             color: #a28fc9;
             margin-bottom: 15px;
             font-weight: 600;
+            position: relative;
+            z-index: 2;
         }
 
-        .info-card p {
+        .quick-contact-card p {
             font-size: 16px;
-            color: #555;
+            color: #666;
             line-height: 1.6;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
         }
 
-        .info-card a {
+        .quick-contact-card a {
             color: #a28fc9;
             text-decoration: none;
             font-weight: 600;
+            font-size: 16px;
+            padding: 8px 16px;
+            border: 2px solid #a28fc9;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            display: inline-block;
         }
 
-        .info-card a:hover {
-            text-decoration: underline;
+        .quick-contact-card a:hover {
+            background: #a28fc9;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Content Sections */
+        .section {
+            background: white;
+            padding: 50px 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            border-left: 5px solid #a28fc9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(162, 143, 201, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+
+        .section h3 {
+            font-size: 28px;
+            color: #a28fc9;
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        /* Form and Map Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         /* Contact Form */
         .contact-form {
             background: white;
-            padding: 40px;
+            padding: 50px 40px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
             border-left: 5px solid #a28fc9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(162, 143, 201, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
         }
 
         .contact-form h3 {
@@ -243,6 +322,7 @@
             color: #a28fc9;
             margin-bottom: 25px;
             font-weight: 600;
+            position: relative;
         }
 
         .form-group {
@@ -267,6 +347,7 @@
             font-size: 16px;
             transition: border-color 0.3s ease;
             font-family: inherit;
+            position: relative;
         }
 
         .form-group input:focus,
@@ -274,6 +355,7 @@
         .form-group select:focus {
             outline: none;
             border-color: #a28fc9;
+            box-shadow: 0 0 0 3px rgba(162, 143, 201, 0.1);
         }
 
         .form-group textarea {
@@ -290,11 +372,24 @@
         /* Map Section */
         .map-section {
             background: white;
-            padding: 40px;
+            padding: 50px 40px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
             border-left: 5px solid #a28fc9;
-            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(162, 143, 201, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
         }
 
         .map-section h3 {
@@ -302,13 +397,14 @@
             color: #a28fc9;
             margin-bottom: 25px;
             font-weight: 600;
-            text-align: center;
+            position: relative;
         }
 
         .map-container {
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(162, 143, 201, 0.2);
+            position: relative;
         }
 
         .map-container iframe {
@@ -317,67 +413,203 @@
             border: none;
         }
 
-        /* Opening Hours */
+        /* Opening Hours Section - Improved */
         .hours-section {
-            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
-            padding: 40px;
+            background: linear-gradient(135deg, #f8f5ff 0%, #f0ebff 100%);
+            padding: 60px 40px;
             border-radius: 15px;
-            text-align: center;
-            margin-bottom: 40px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hours-section::before {
+            content: '🕐';
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            font-size: 80px;
+            opacity: 0.1;
         }
 
         .hours-section h3 {
-            font-size: 28px;
+            text-align: center;
+            font-size: 32px;
             color: #a28fc9;
-            margin-bottom: 25px;
-            font-weight: 600;
+            margin-bottom: 40px;
+            position: relative;
         }
 
         .hours-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 600px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .hours-item {
             background: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hours-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #a28fc9 0%, #c2b3e0 100%);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+
+        .hours-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .hours-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 25px rgba(162, 143, 201, 0.15);
         }
 
         .hours-item .day {
             font-weight: 600;
             color: #a28fc9;
-            font-size: 16px;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
         .hours-item .time {
             color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Visit Us Section */
+        .visit-section {
+            background: linear-gradient(135deg, #f3f0f8 0%, #e9f1f8 100%);
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visit-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(162, 143, 201, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .visit-section h3 {
+            text-align: center;
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .visit-section p {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .visit-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .visit-feature {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visit-feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #a28fc9 0%, #c2b3e0 100%);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+
+        .visit-feature:hover::before {
+            transform: scaleY(1);
+        }
+
+        .visit-feature:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 25px rgba(162, 143, 201, 0.15);
+        }
+
+        .visit-feature-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .visit-feature h5 {
+            font-size: 18px;
+            color: #a28fc9;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .visit-feature p {
             font-size: 15px;
-            margin-top: 5px;
+            color: #666;
+            line-height: 1.6;
         }
 
         /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #9073be 0%, #a28fc9 100%);
             color: white;
-            padding: 40px;
+            padding: 50px 40px;
             border-radius: 15px;
             text-align: center;
-            margin-bottom: 40px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
         }
 
         .cta-section h3 {
             font-size: 28px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            position: relative;
         }
 
         .cta-section p {
             font-size: 18px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            position: relative;
         }
 
         .cta-buttons {
@@ -395,11 +627,14 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
         }
 
         .cta-btn:hover {
             background: #f3f0f8;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
         }
 
         /* Footer */
@@ -465,6 +700,13 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .quick-contact {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -481,6 +723,23 @@
                 font-size: 28px;
             }
 
+            .hero-section {
+                padding: 40px 20px;
+            }
+
+            .hero-section h2 {
+                font-size: 32px;
+            }
+
+            .hero-section p {
+                font-size: 18px;
+            }
+
+            .quick-contact {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -491,17 +750,11 @@
                 gap: 15px;
             }
 
-            .hero-section {
-                padding: 30px 20px;
-            }
-
-            .hero-section h2 {
-                font-size: 28px;
-            }
-
+            .section,
             .contact-form,
             .map-section,
-            .hours-section {
+            .hours-section,
+            .visit-section {
                 padding: 30px 20px;
             }
 
@@ -511,7 +764,7 @@
             }
 
             .footer-container {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 text-align: center;
             }
         }
@@ -521,15 +774,20 @@
                 padding: 20px 10px;
             }
 
-            .contact-info {
-                grid-template-columns: 1fr;
+            .hero-section h2 {
+                font-size: 26px;
             }
 
-            .info-card {
-                padding: 25px 15px;
+            .section h3 {
+                font-size: 24px;
             }
 
-            .hours-grid {
+            .quick-contact-card {
+                padding: 20px 15px;
+            }
+
+            .hours-grid,
+            .visit-features {
                 grid-template-columns: 1fr;
             }
         }
@@ -566,57 +824,64 @@
     <div class="top-strip">
         <img src="images/ofsted-placeholder.png" alt="Ofsted Outstanding Provider" class="ofsted-image">
         <h1>Contact Us</h1>
-        <a href="tel:02086400822" class="call-btn">Call Us</a>
+        <a href="tel:02086400822" class="call-btn">CALL TODAY</a>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
+
         <!-- Hero Section -->
         <section class="hero-section">
-            <h2>Get in Touch</h2>
-            <p>We'd love to hear from you! Whether you're interested in enrolling your child, have questions about our programs, or would like to book a tour, we're here to help.</p>
+            <h2>Get in Touch with Haslemere House</h2>
+            <p>We'd love to hear from you! Whether you're interested in enrolling your child, have questions about our programs, or would like to book a tour of our nurturing environment, we're here to help and support your family's journey.</p>
         </section>
 
-        <!-- Contact Information Cards -->
-        <div class="contact-info">
-            <div class="info-card">
-                <div class="info-icon">📍</div>
-                <h3>Visit Us</h3>
-                <p>68 Haslemere Avenue<br>
-                Mitcham, London<br>
-                CR4 3BA</p>
+        <!-- Quick Contact Cards -->
+        <div class="quick-contact">
+            <div class="quick-contact-card">
+                <div class="contact-icon">📞</div>
+                <h3>Call Us Today</h3>
+                <p>Speak directly with our friendly team about availability, programs, or any questions you may have.</p>
+                <a href="tel:02086400822">020 8640 0822</a>
+            </div>
+
+            <div class="quick-contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>Email Enquiry</h3>
+                <p>Send us a detailed message and we'll respond within 24 hours during working days.</p>
+                <a href="mailto:Haslemere.daynursery@googlemail.com">Send Email</a>
             </div>
             
-            <div class="info-card">
-                <div class="info-icon">📞</div>
-                <h3>Call Us</h3>
-                <p><a href="tel:02086400822">020 8640 0822</a></p>
-                <p>Mon-Fri: 8:00 AM - 6:00 PM</p>
-            </div>
-            
-            <div class="info-card">
-                <div class="info-icon">✉️</div>
-                <h3>Email Us</h3>
-                <p><a href="mailto:Haslemere.daynursery@googlemail.com">Haslemere.daynursery@googlemail.com</a></p>
-                <p>We aim to respond within 24 hours</p>
+            <div class="quick-contact-card">
+                <div class="contact-icon">🏡</div>
+                <h3>Visit Our Nursery</h3>
+                <p>Book a personal tour to see our facilities and meet our dedicated team in person.</p>
+                <a href="#contactForm">Book a Tour</a>
             </div>
         </div>
+
+        <!-- Our Location -->
+        <section class="section">
+            <h3>Our Location</h3>
+            <p>Haslemere House Day Nursery is conveniently located in the heart of Mitcham, easily accessible by public transport and with parking available nearby. Our purpose-built facility provides a safe, secure, and stimulating environment for children aged 9 months to 5 years.</p>
+            <p>We are situated at 68 Haslemere Avenue, Mitcham, CR4 3BA, in a quiet residential area that offers the perfect balance of accessibility and tranquility for your child's early learning journey.</p>
+        </section>
 
         <!-- Opening Hours -->
         <section class="hours-section">
             <h3>Opening Hours</h3>
             <div class="hours-grid">
                 <div class="hours-item">
-                    <div class="day">Monday - Friday</div>
-                    <div class="time">8:00 AM - 6:00 PM</div>
+                    <div class="day">Monday to Friday</div>
+                    <div class="time">8:00 AM - 6:00 PM<br>Full day care available</div>
                 </div>
                 <div class="hours-item">
-                    <div class="day">Saturday - Sunday</div>
-                    <div class="time">Closed</div>
+                    <div class="day">Weekends</div>
+                    <div class="time">Closed<br>Family time is important</div>
                 </div>
                 <div class="hours-item">
-                    <div class="day">Open</div>
-                    <div class="time">51 weeks per year</div>
+                    <div class="day">Annual Schedule</div>
+                    <div class="time">Open 51 weeks per year<br>Closed major holidays only</div>
                 </div>
             </div>
         </section>
@@ -657,6 +922,7 @@
                             <option value="enrollment">Enrollment Information</option>
                             <option value="tour">Book a Tour</option>
                             <option value="fees">Sessions & Fees</option>
+                            <option value="curriculum">Curriculum Questions</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
@@ -675,7 +941,7 @@
                     
                     <div class="form-group">
                         <label for="message">Message *</label>
-                        <textarea id="message" name="message" placeholder="Please tell us how we can help you..." required></textarea>
+                        <textarea id="message" name="message" placeholder="Please tell us how we can help you and your family..." required></textarea>
                     </div>
                     
                     <button type="submit" class="btn">Send Message</button>
@@ -691,20 +957,60 @@
                             loading="lazy">
                     </iframe>
                 </div>
-                <p style="text-align: center; margin-top: 20px; color: #666; font-size: 14px;">
-                    Easily accessible by public transport and with parking available nearby
+                <p style="text-align: center; margin-top: 20px; color: #666; font-size: 16px; position: relative;">
+                    <strong>68 Haslemere Avenue, Mitcham, CR4 3BA</strong><br>
+                    Easily accessible by public transport with parking nearby
                 </p>
             </section>
         </div>
 
+        <!-- Why Visit Us Section -->
+        <section class="visit-section">
+            <h3>Why Visit Haslemere House?</h3>
+            <p>A personal visit gives you the opportunity to see our nurturing environment, meet our passionate team, and experience firsthand what makes our nursery so special.</p>
+            
+            <div class="visit-features">
+                <div class="visit-feature">
+                    <div class="visit-feature-icon">👀</div>
+                    <h5>See Our Facilities</h5>
+                    <p>Explore our bright, spacious rooms, outdoor play areas, and child-friendly learning environments designed for safety and discovery.</p>
+                </div>
+                <div class="visit-feature">
+                    <div class="visit-feature-icon">👩‍🏫</div>
+                    <h5>Meet Our Team</h5>
+                    <p>Get to know our qualified, experienced practitioners who are passionate about providing exceptional care and education for your child.</p>
+                </div>
+                <div class="visit-feature">
+                    <div class="visit-feature-icon">📚</div>
+                    <h5>Experience Our Approach</h5>
+                    <p>See how we bring our enriched EYFS curriculum to life through play-based learning, creativity, and child-centered activities.</p>
+                </div>
+                <div class="visit-feature">
+                    <div class="visit-feature-icon">❓</div>
+                    <h5>Ask Questions</h5>
+                    <p>Discuss our policies, daily routines, meal plans, and how we can support your child's individual needs and development journey.</p>
+                </div>
+                <div class="visit-feature">
+                    <div class="visit-feature-icon">🏡</div>
+                    <h5>Feel the Atmosphere</h5>
+                    <p>Experience the warm, welcoming, home-from-home environment where children feel safe, valued, and excited to learn every day.</p>
+                </div>
+                <div class="visit-feature">
+                    <div class="visit-feature-icon">📅</div>
+                    <h5>Plan Your Journey</h5>
+                    <p>Learn about our flexible session options, settling-in process, and how we support both children and parents during the transition.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Call to Action -->
         <section class="cta-section">
-            <h3>Ready to Visit?</h3>
-            <p>We'd love to show you around our nursery and meet you in person!</p>
+            <h3>Ready to Connect?</h3>
+            <p>We're excited to meet you and your little one! Choose the best way to get in touch and begin your journey with Haslemere House Day Nursery.</p>
             <div class="cta-buttons">
-                <a href="tel:02086400822" class="cta-btn">📞 Call to Book Tour</a>
+                <a href="tel:02086400822" class="cta-btn">📞 Call Us Now</a>
                 <a href="sessions-fees.html" class="cta-btn">💰 View Our Fees</a>
-                <a href="about.html" class="cta-btn">🌟 Learn More About Us</a>
+                <a href="about.html" class="cta-btn">🌟 Learn More</a>
             </div>
         </section>
     </div>
@@ -754,11 +1060,56 @@
     </footer>
 
     <script>
-        // Simple form handling
+        // Form handling with better user experience
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! We will get back to you within 24 hours.');
+            
+            // Get form data
+            const formData = new FormData(this);
+            const subject = formData.get('subject');
+            const firstName = formData.get('firstName');
+            
+            // Show success message
+            let message = `Thank you ${firstName}! Your message regarding "${subject}" has been received. `;
+            message += "We'll get back to you within 24 hours during working days. ";
+            message += "If you need immediate assistance, please call us at 020 8640 0822.";
+            
+            alert(message);
+            
+            // Reset form
             this.reset();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add form field validation styling
+        document.querySelectorAll('input[required], textarea[required], select[required]').forEach(field => {
+            field.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = '#e74c3c';
+                } else {
+                    this.style.borderColor = '#27ae60';
+                }
+            });
+            
+            field.addEventListener('focus', function() {
+                this.style.borderColor = '#a28fc9';
+            });
         });
     </script>
 </body>
