@@ -357,6 +357,50 @@
             font-size: 24px;
             margin-right: 15px;
         }
+        .contact-prompt {
+            background: linear-gradient(135deg, #f8f5ff 0%, #f0ebff 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-prompt h4 {
+            color: #a28fc9;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .contact-prompt p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: #a28fc9;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: #9073be;
+            transform: translateY(-1px);
+        }
 
         .service-text {
             flex: 1;
@@ -374,6 +418,105 @@
             color: #666;
             margin: 0;
         }
+                /* Additional Services Section */
+        .additional-services {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .additional-services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(162, 143, 201, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(50px, -50px);
+        }
+
+        .additional-services h3 {
+            text-align: center;
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 40px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f5f6f7 100%);
+            border-radius: 12px;
+            border-left: 4px solid #a28fc9;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(162, 143, 201, 0.05) 0%, transparent 50%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(162, 143, 201, 0.1);
+        }
+
+        .service-item span {
+            font-size: 28px;
+            margin-right: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-text {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-text h4 {
+            font-size: 18px;
+            color: #a28fc9;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .service-text p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+
 
         /* Important Notice */
         .important-notice {
@@ -547,6 +690,73 @@
                 padding: 25px 15px;
             }
         }
+        /* Pricing Information Section */
+        .pricing-info {
+            background: linear-gradient(135deg, #f8f5ff 0%, #f0ebff 100%);
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-info::before {
+            content: '£';
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 120px;
+            color: rgba(162, 143, 201, 0.08);
+            font-weight: bold;
+        }
+
+        .pricing-info h3 {
+            font-size: 32px;
+            color: #a28fc9;
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .pricing-info p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .pricing-contact {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .pricing-contact-btn {
+            background: #a28fc9;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-contact-btn:hover {
+            background: #9073be;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(162, 143, 201, 0.3);
+        }
     </style>
 </head>
 
@@ -589,6 +799,23 @@
         <section class="hero-section">
             <h2>Flexible Care Options for Every Family</h2>
             <p>At Haslemere House Day Nursery, we understand that every family has unique needs. That's why we offer flexible session options and competitive rates, with various funding opportunities available to support your childcare journey.</p>
+        </section>
+
+        <!-- Pricing Information Section -->
+        <section class="pricing-info">
+            <h3>💰 Competitive & Transparent Pricing</h3>
+            <p>We believe in providing exceptional value for money with no hidden costs. Our fees are competitive and transparent, covering all meals, snacks, nappies, and educational activities. We're happy to discuss our rates and help you find the best option for your family's needs and budget.</p>
+            <div class="pricing-contact">
+                <a href="tel:02086400822" class="pricing-contact-btn">
+                    📞 Call for Pricing
+                </a>
+                <a href="mailto:Haslemere.daynursery@googlemail.com" class="pricing-contact-btn">
+                    📧 Email for Rates
+                </a>
+                <a href="contact.html" class="pricing-contact-btn">
+                    📋 Request Quote
+                </a>
+            </div>
         </section>
 
         <!-- Session Options -->
@@ -667,65 +894,132 @@
                     <div class="funding-amount">Up to £2,000</div>
                     <p>Government scheme providing £2 for every £8 you pay towards childcare costs.</p>
                 </div>
+                            </div>
+            <div style="text-align: center; margin-top: 30px; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(162, 143, 201, 0.1);">
+                <p style="font-size: 18px; color: #666; margin-bottom: 20px; font-weight: 500;">
+                    <strong>🤝 Need Help with Funding Applications?</strong>
+                </p>
+                <p style="font-size: 16px; color: #555; margin-bottom: 20px;">
+                    Our experienced team can help you understand your funding options, check eligibility, and guide you through the application process to maximize your benefits.
+                </p>
+                <div class="pricing-contact">
+                <a href="tel:02086400822" class="pricing-contact-btn">
+                    📞 Call for Funding Help
+                </a>
+                <a href="contact.html" class="pricing-contact-btn">
+                    📋 Book Funding Consultation
+                </a>
             </div>
-            <p style="text-align: center; font-size: 16px; color: #666; margin-top: 20px;">
-                <strong>Please contact us to discuss your funding options and eligibility.</strong>
-            </p>
+            </div>            
         </section>
 
-        <!-- Additional Services -->
+        <!-- Additional Services Section -->
         <section class="additional-services">
-            <h3>Additional Services & Information</h3>
+            <h3>What's Included in Your Fees</h3>
             <div class="services-list">
                 <div class="service-item">
                     <span>🍎</span>
                     <div class="service-text">
-                        <h4>Nutritious Meals</h4>
-                        <p>All meals and snacks included in session fees</p>
+                        <h4>Nutritious Meals & Snacks</h4>
+                        <p>All meals and snacks included - breakfast, lunch, and afternoon snacks with special dietary requirements catered for</p>
                     </div>
                 </div>
 
                 <div class="service-item">
                     <span>🧷</span>
                     <div class="service-text">
-                        <h4>Nappy & Wipes</h4>
-                        <p>Provided for all children as needed</p>
+                        <h4>Nappies & Wipes</h4>
+                        <p>All nappies, wipes, and changing supplies provided for children who need them - no extra charges</p>
                     </div>
                 </div>
 
                 <div class="service-item">
                     <span>📚</span>
                     <div class="service-text">
-                        <h4>Learning Resources</h4>
-                        <p>Educational materials and activities included</p>
+                        <h4>Educational Resources</h4>
+                        <p>All learning materials, books, educational toys, and EYFS curriculum resources included in session fees</p>
                     </div>
                 </div>
 
                 <div class="service-item">
                     <span>🎨</span>
                     <div class="service-text">
-                        <h4>Art & Craft Supplies</h4>
-                        <p>Creative materials for all artistic activities</p>
+                        <h4>Arts & Craft Supplies</h4>
+                        <p>Creative materials, paint, paper, and all artistic supplies for daily creative activities and projects</p>
                     </div>
                 </div>
 
                 <div class="service-item">
                     <span>📱</span>
                     <div class="service-text">
-                        <h4>Daily Updates</h4>
-                        <p>Regular communication about your child's day</p>
+                        <h4>Daily Updates & Reports</h4>
+                        <p>Regular communication about your child's day, development progress, and learning achievements</p>
                     </div>
                 </div>
 
                 <div class="service-item">
                     <span>🏥</span>
                     <div class="service-text">
-                        <h4>First Aid Trained</h4>
-                        <p>All staff qualified in pediatric first aid</p>
+                        <h4>Qualified Staff Care</h4>
+                        <p>All staff are pediatric first aid trained, DBS checked, and qualified in early years education</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span>🌳</span>
+                    <div class="service-text">
+                        <h4>Outdoor Activities</h4>
+                        <p>Daily outdoor play in our secure garden area and regular nature walks - all weather gear provided</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span>📋</span>
+                    <div class="service-text">
+                        <h4>Development Tracking</h4>
+                        <p>Regular assessments, learning journals, and progress reports shared with parents at no additional cost</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Flexible Payment Options -->
+        <section class="additional-services" style="background: linear-gradient(135deg, #f8f5ff 0%, #f0ebff 100%);">
+            <h3>💳 Flexible Payment Options</h3>
+            <div class="services-list">
+                <div class="service-item">
+                    <span>📅</span>
+                    <div class="service-text">
+                        <h4>Monthly Direct Debit</h4>
+                        <p>Convenient monthly payments via direct debit - spread costs evenly throughout the year</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span>💳</span>
+                    <div class="service-text">
+                        <h4>Childcare Vouchers</h4>
+                        <p>We accept childcare vouchers from all major providers to help reduce your childcare costs</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span>🏛️</span>
+                    <div class="service-text">
+                        <h4>Tax-Free Childcare Payments</h4>
+                        <p>Direct payments accepted through the government Tax-Free Childcare scheme for maximum savings</p>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span>📋</span>
+                    <div class="service-text">
+                        <h4>Flexible Billing</h4>
+                        <p>Term-time only options available, plus holiday care arrangements to suit your family's needs</p>
+                    </div>
+                </div>
+            </div>
+        </section>        
 
         <!-- Important Notice -->
         <section class="important-notice">
@@ -784,3 +1078,6 @@
     </footer>
 </body>
 </html>
+
+
+
