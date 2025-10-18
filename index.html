@@ -158,8 +158,8 @@ body {
 .call-btn {
     background-color: #f8fafc;
     color: #1e3a8a;
-    white-space: nowrap;
-    flex-shrink: 0;
+    position: absolute;
+    right: 30px;
 }
 
 .btn:hover, .call-btn:hover {
@@ -677,17 +677,12 @@ footer {
         gap: 10px;
     }
 
-.top-strip {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    padding: 20px;
-}
-
-.call-btn {
-    position: static;
-    margin: 0 auto;
-}
+    .top-strip {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 20px;
+    }
 
     .logo-circle {
         width: 100px;
@@ -797,7 +792,7 @@ footer {
     display: flex;
     gap: 15px;
     margin-top: 20px;
-    justify-content: left; /* Add this if not present */
+    justify-content: center; /* Add this if not present */
 }
 
 .social-icon {
