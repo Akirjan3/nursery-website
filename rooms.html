@@ -372,7 +372,20 @@ body {
     display: block;
     animation: bounce 2s infinite;
 }
-
+/* Slideshow indicator */
+.gallery-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(30, 58, 138, 0.8);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 10;
+}
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
@@ -398,7 +411,7 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .room-capacity {
@@ -409,8 +422,8 @@ body {
     font-size: 14px;
     font-weight: 600;
     color: #555;
+    margin-bottom: 15px;
 }
-
 .room-content {
     padding: 30px;
 }
@@ -455,22 +468,35 @@ body {
 }
 
 .gallery-placeholder {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    position: relative;
+    width: 100%;
+    height: 200px;
     margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 2px dashed #cbd5e1;
+}
+
+.gallery-placeholder:hover {
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
 }
 
 .gallery-item {
-    height: 80px;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border: 2px dashed #cbd5e1;
-    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 60px;
     color: #94a3b8;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    transition: opacity 0.5s ease;
 }
 
 .room-educator {
@@ -1115,12 +1141,17 @@ table tbody tr:hover {
         gap: 10px;
     }
 
-    .top-strip {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-        padding: 20px;
-    }
+.top-strip {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.call-btn {
+    position: static;
+    margin: 0 auto;
+}
 
     .top-strip h1 {
         font-size: 28px;
@@ -1241,7 +1272,7 @@ table tbody tr:hover {
     display: flex;
     gap: 15px;
     margin-top: 20px;
-    justify-content: left; /* Add this if not present */
+    justify-content: center; /* Add this if not present */
 }
 
 .social-icon {
@@ -1513,5 +1544,39 @@ table tbody tr:hover {
         <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted </p>
     </div>
 </footer>
+
+
+<script>
+// Room Gallery Slideshow
+document.addEventListener('DOMContentLoaded', function() {
+    const galleries = document.querySelectorAll('.gallery-placeholder');
+    
+    galleries.forEach((gallery, galleryIndex) => {
+        const items = gallery.querySelectorAll('.gallery-item');
+        let currentSlide = 0;
+        
+        // Initialize - show first image
+        items.forEach((item, index) => {
+            item.style.display = index === 0 ? 'flex' : 'none';
+        });
+        
+        // Auto advance every 3 seconds
+        setInterval(() => {
+            items[currentSlide].style.display = 'none';
+            currentSlide = (currentSlide + 1) % items.length;
+            items[currentSlide].style.display = 'flex';
+        }, 3000);
+        
+        // Click to advance
+        gallery.addEventListener('click', function() {
+            items[currentSlide].style.display = 'none';
+            currentSlide = (currentSlide + 1) % items.length;
+            items[currentSlide].style.display = 'flex';
+        });
+    });
+});
+</script>
+
+
 </body>
 </html>

@@ -778,12 +778,17 @@ footer {
         gap: 10px;
     }
 
-    .top-strip {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-        padding: 20px;
-    }
+.top-strip {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.call-btn {
+    position: static;
+    margin: 0 auto;
+}
 
     .top-strip h1 {
         font-size: 28px;
@@ -890,7 +895,7 @@ footer {
     display: flex;
     gap: 15px;
     margin-top: 20px;
-    justify-content: left; /* Add this if not present */
+    justify-content: center; /* Add this if not present */
 }
 
 .social-icon {
@@ -950,7 +955,7 @@ footer {
         <a href="tel:02086400822" class="call-btn">CALL TODAY</a>
     </div>
 
-    <!-- Main Content -->
+<!-- Main Content -->
     <div class="main-content">
         <!-- Hero Section -->
         <section class="hero-section">
@@ -958,213 +963,9 @@ footer {
             <p>Discover what's happening at Haslemere House Day Nursery through our latest news, upcoming events, and community activities. We believe in keeping families informed and engaged in their child's nursery journey.</p>
         </section>
 
-        <!-- Featured Event -->
-        <section class="featured-section">
-            <div class="featured-badge">🌟 Featured Event</div>
-            <h3>Summer Family Fun Day 2025</h3>
-            <p>Join us for our biggest celebration of the year! This special day brings together children, families, and staff for an unforgettable experience filled with games, activities, delicious food, and wonderful memories. It's a perfect opportunity to meet other families and celebrate our nursery community.</p>
-            <div class="event-details">
-                <div class="event-detail">
-                    <span>📅</span>
-                    <span>Saturday, July 15th 2025</span>
-                </div>
-                <div class="event-detail">
-                    <span>🕐</span>
-                    <span>11:00 AM - 3:00 PM</span>
-                </div>
-                <div class="event-detail">
-                    <span>📍</span>
-                    <span>Nursery Gardens & Main Hall</span>
-                </div>
-                <div class="event-detail">
-                    <span>🎫</span>
-                    <span>Free for All Families</span>
-                </div>
-            </div>
-            <a href="contact.html" class="btn">Register Your Family Today</a>
-        </section>
-
-        <!-- Latest News -->
-        <section class="section">
-            <h3>Latest Nursery News</h3>
-            <p>Stay up to date with the latest developments, achievements, and exciting news from our nursery community. We're proud to share our successes and milestones with our families.</p>
-            <div class="news-grid">
-                <div class="news-item">
-                    <div class="news-date">July 28, 2025</div>
-                    <h4>New Outdoor Learning Area Opens</h4>
-                    <p>We're excited to announce the opening of our brand new outdoor learning space, complete with natural play equipment, vegetable gardens, and weather protection areas for year-round learning adventures.</p>
-                    <a href="#" onclick="alert('Full article coming soon')">Read More →</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-date">July 20, 2025</div>
-                    <h4>Outstanding Ofsted Rating Maintained</h4>
-                    <p>We're proud to announce that our recent Ofsted inspection has confirmed our Outstanding rating, highlighting our exceptional care standards and educational provision that puts children first.</p>
-                    <a href="#" onclick="alert('Full article coming soon')">Read More →</a>
-                </div>
-                <div class="news-item">
-                    <div class="news-date">July 15, 2025</div>
-                    <h4>Summer Reading Challenge Success</h4>
-                    <p>Congratulations to all our children who participated in this year's summer reading challenge! Over 85% of families took part, fostering a genuine love of books and storytelling.</p>
-                    <a href="#" onclick="alert('Full article coming soon')">Read More →</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Upcoming Events -->
-        <section class="section">
-            <h3>Upcoming Events & Activities</h3>
-            <p>Mark your calendars for these exciting upcoming events and activities. We love bringing our nursery community together for memorable experiences that support children's development and strengthen family connections.</p>
-            
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">
-                        AUG<br>10-12
-                    </div>
-                    <div class="event-icon">👨‍👩‍👧‍👦</div>
-                    <h4>Parent-Teacher Consultation Week</h4>
-                    <p>Schedule individual meetings with your child's key person to discuss their progress, development milestones, and future learning goals. These important conversations help us work together.</p>
-                    <div class="event-meta">
-                        <div class="meta-item">
-                            <span>🕐</span>
-                            <span>Various times available throughout the week</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>📍</span>
-                            <span>Individual meeting rooms</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👥</span>
-                            <span>Parents & Key Persons</span>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="btn">Book Your Slot</a>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-date">
-                        AUG<br>18
-                    </div>
-                    <div class="event-icon">🌱</div>
-                    <h4>Little Gardeners Workshop</h4>
-                    <p>Children will learn about plants, nature, and the environment through hands-on gardening activities. They'll plant seeds, water plants, and discover how things grow in our specially designed garden area.</p>
-                    <div class="event-meta">
-                        <div class="meta-item">
-                            <span>🕐</span>
-                            <span>10:00 AM - 11:30 AM</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>📍</span>
-                            <span>Outdoor Learning Garden</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👥</span>
-                            <span>Ages 2-5 years</span>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="btn">Register Interest</a>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-date">
-                        AUG<br>25
-                    </div>
-                    <div class="event-icon">🎭</div>
-                    <h4>Storytelling & Drama Session</h4>
-                    <p>Professional storytellers will captivate children with interactive tales, encouraging imagination and language development through dramatic play and creative expression.</p>
-                    <div class="event-meta">
-                        <div class="meta-item">
-                            <span>🕐</span>
-                            <span>2:00 PM - 3:00 PM</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>📍</span>
-                            <span>Main Activity Hall</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👥</span>
-                            <span>All age groups welcome</span>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="btn">Save The Date</a>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-date">
-                        SEP<br>01
-                    </div>
-                    <div class="event-icon">🍎</div>
-                    <h4>Healthy Eating Workshop</h4>
-                    <p>Learn about nutrition and healthy food choices through fun cooking activities. Children will prepare simple, nutritious snacks while learning about different food groups.</p>
-                    <div class="event-meta">
-                        <div class="meta-item">
-                            <span>🕐</span>
-                            <span>9:30 AM - 11:00 AM</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>📍</span>
-                            <span>Nursery Kitchen & Dining Room</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👥</span>
-                            <span>Ages 3-5 years</span>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="btn">Join The Fun</a>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-date">
-                        SEP<br>08
-                    </div>
-                    <div class="event-icon">🎨</div>
-                    <h4>Creative Arts Festival</h4>
-                    <p>Celebrate creativity with a special arts festival featuring painting, crafts, music, and movement activities. Children will create masterpieces to take home and display.</p>
-                    <div class="event-meta">
-                        <div class="meta-item">
-                            <span>🕐</span>
-                            <span>10:00 AM - 2:00 PM</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>📍</span>
-                            <span>All Nursery Areas</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👥</span>
-                            <span>Families welcome to join</span>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="btn">Get Creative</a>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-date">
-                        SEP<br>15
-                    </div>
-                    <div class="event-icon">📚</div>
-                    <h4>Reading Buddies Program Launch</h4>
-                    <p>Introducing our new reading program where older children are paired with younger ones to share stories and develop literacy skills together in a supportive environment.</p>
-                    <div class="event-meta">
-                        <div class="meta-item">
-                            <span>🕐</span>
-                            <span>3:00 PM - 4:00 PM</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>📍</span>
-                            <span>Library Corner & Reading Nooks</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👥</span>
-                            <span>Mixed age groups</span>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="btn">Learn More</a>
-                </div>
-            </div>
-        </section>
-
         <!-- Newsletter Section -->
         <section class="newsletter-section">
-            <h3>Stay Informed with Our Monthly Newsletter</h3>
+            <h3>Our Monthly Newsletters</h3>
             <div class="newsletter-content">
                 <div class="newsletter-info">
                     <p>Our comprehensive monthly newsletter keeps families updated on nursery news, developmental insights, upcoming events, and helpful parenting tips from our experienced team.</p>
@@ -1176,91 +977,34 @@ footer {
                         <li>Staff highlights and new team member introductions</li>
                         <li>Community resources and support information</li>
                     </ul>
-                    <a href="contact.html" class="btn">Subscribe to Newsletter</a>
                 </div>
                 <div class="newsletter-recent">
-                    <h4>Recent Newsletter Editions</h4>
+                    <h4>Download Our Newsletters</h4>
                     <ul class="newsletter-list">
                         <li>
-                            <a href="#" onclick="alert('Newsletter download coming soon')">Summer Adventures - July 2025</a>
+                            <a href="path/to/your/july-2025-newsletter.pdf" target="_blank">Summer Adventures - July 2025</a>
                             <span class="newsletter-date">July 2025</span>
                         </li>
                         <li>
-                            <a href="#" onclick="alert('Newsletter download coming soon')">Growing Together - June 2025</a>
+                            <a href="path/to/your/june-2025-newsletter.pdf" target="_blank">Growing Together - June 2025</a>
                             <span class="newsletter-date">June 2025</span>
                         </li>
                         <li>
-                            <a href="#" onclick="alert('Newsletter download coming soon')">Spring Celebrations - May 2025</a>
+                            <a href="path/to/your/may-2025-newsletter.pdf" target="_blank">Spring Celebrations - May 2025</a>
                             <span class="newsletter-date">May 2025</span>
                         </li>
                         <li>
-                            <a href="#" onclick="alert('Newsletter download coming soon')">Easter Joy - April 2025</a>
+                            <a href="path/to/your/april-2025-newsletter.pdf" target="_blank">Easter Joy - April 2025</a>
                             <span class="newsletter-date">April 2025</span>
                         </li>
                         <li>
-                            <a href="#" onclick="alert('Newsletter download coming soon')">New Beginnings - March 2025</a>
+                            <a href="path/to/your/march-2025-newsletter.pdf" target="_blank">New Beginnings - March 2025</a>
                             <span class="newsletter-date">March 2025</span>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Community Involvement -->
-        <section class="section">
-            <h3>Get Involved in Our Community</h3>
-            <p>We believe that strong partnerships between families, staff, and the wider community create the best environment for children to thrive. There are many ways to get involved and contribute to our nursery family, from volunteering your time to sharing your skills and expertise.</p>
-            
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-icon">👨‍👩‍👧‍👦</div>
-                    <h4>Parent Volunteers</h4>
-                    <p>Share your skills and expertise by volunteering for events, reading sessions, or special activities. We welcome parents with all backgrounds and experiences.</p>
-                    <div class="event-meta">
-                        <div class="meta-item">
-                            <span>📅</span>
-                            <span>Flexible scheduling available</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>⏱️</span>
-                            <span>As little as 1 hour per month</span>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="btn">Get Involved</a>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-icon">💡</div>
-                    <h4>Parent Advisory Committee</h4>
-                    <p>Join our parent committee to provide feedback and suggestions for nursery improvements, helping shape the future of our learning environment.</p>
-                    <div class="event-meta">
-                        <div class="meta-item">
-                            <span>📅</span>
-                            <span>Monthly evening meetings</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👥</span>
-                            <span>Small, focused group</span>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="btn">Join Committee</a>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-icon">🎭</div>
-                    <h4>Share Your Talents</h4>
-                    <p>Share your hobbies, profession, or cultural background through presentations or workshops that enrich our children's learning experiences.</p>
-                    <div class="event-meta">
-                        <div class="meta-item">
-                            <span>🎯</span>
-                            <span>One-off or regular sessions</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>📚</span>
-                            <span>Educational & fun activities</span>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="btn">Share Skills</a>
+                    <p style="font-size: 14px; color: #666; margin-top: 20px; font-style: italic;">
+                        All newsletters are available in PDF format. Click to download and read.
+                    </p>
                 </div>
             </div>
         </section>

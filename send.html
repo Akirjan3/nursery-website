@@ -362,7 +362,7 @@ body {
 
 .process-steps {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
@@ -875,12 +875,22 @@ footer {
         gap: 10px;
     }
 
-    .top-strip {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-        padding: 20px;
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
+
+.top-strip {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.call-btn {
+    position: static;
+    margin: 0 auto;
+}
 
     .top-strip h1 {
         font-size: 28px;
