@@ -82,14 +82,16 @@
         }
 
         /* Top Strip */
-        .top-strip {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border-bottom: 3px solid #1e3a8a;
-        }
+.top-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-bottom: 3px solid #1e3a8a;
+    position: relative;
+    overflow: hidden;
+}
 
         .top-strip h1 {
             font-size: 36px;
@@ -120,11 +122,12 @@
             display: inline-block;
             cursor: pointer;
         }
-
-        .call-btn {
-            background-color: #f8fafc;
-            color: #1e3a8a;
-        }
+.call-btn {
+    background-color: #f8fafc;
+    color: #1e3a8a;
+    position: absolute;
+    right: 30px;
+}
 
         .btn:hover, .call-btn:hover {
             background-color: #1e40af;
@@ -275,17 +278,18 @@
             overflow: hidden;
         }
 
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, rgba(162, 143, 201, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            transform: translate(30px, -30px);
-        }
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30px, -30px);
+}
+        
 
         .section h3 {
             font-size: 28px;
@@ -665,11 +669,11 @@
             margin-bottom: 10px;
         }
 
-        .footer-column ul li a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+.footer-column ul li a {
+    color: #ffffff;  
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
         .footer-column ul li a:hover {
             color: #1e3a8a;
@@ -790,6 +794,36 @@
                 gap: 15px;
             }
         }
+
+        /* Social Media Icons */
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
     </style>
 </head>
 
@@ -821,9 +855,8 @@
 
     <!-- Top Strip -->
     <div class="top-strip">
-        <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image">
         <h1>About Haslemere House</h1>
-        <a href="contact.html" class="call-btn">CALL TODAY</a>
+        <a href="tel:02086400822" class="call-btn">CALL TODAY</a>
     </div>
 
     <!-- Main Content -->
@@ -870,7 +903,7 @@
         <section class="section">
             <h3>Our Story</h3>
             <p>Founded in the heart of Mitcham, Haslemere House Day Nursery has been a cherished part of the local community for over 25 years. What began as a small initiative to support working families has blossomed into a vibrant, inclusive, and highly respected setting known for its caring team, outstanding education, and child-first ethos.</p>
-            <p>We are proud of our roots and continue to grow with the community—offering a safe and stimulating environment that meets the highest standards of care and learning. Our journey has been shaped by the countless families we've had the privilege to serve and the remarkable children who have walked through our doors.</p>
+            <p>We are proud of our roots and continue to grow with the community - offering a safe and stimulating environment that meets the highest standards of care and learning. Our journey has been shaped by the countless families we've had the privilege to serve and the remarkable children who have walked through our doors.</p>
         </section>
 
         <!-- What Makes Us Unique -->
@@ -878,7 +911,7 @@
             <div class="feature-card">
                 <div class="feature-icon">👩‍🏫</div>
                 <h4>Experienced Staff</h4>
-                <p>Our practitioners are not only qualified and experienced—they are passionate about making a positive impact in every child's life through dedicated care and education.</p>
+                <p>Our practitioners are not only qualified and experienced - they are passionate about making a positive impact in every child's life through dedicated care and education.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🏡</div>
@@ -898,11 +931,11 @@
             <div class="values-list">
                 <div class="value-item">
                     <h5>Child-Centred Learning</h5>
-                    <p>We follow the interests of each child, supporting their natural curiosity and promoting active learning through personalized approaches.</p>
+                    <p>We follow the interests of each child, supporting their natural curiosity and promoting active learning through personalised approaches.</p>
                 </div>
                 <div class="value-item">
                     <h5>Strong Relationships</h5>
-                    <p>We value strong, trusting relationships with children and families—laying the foundation for lifelong success and wellbeing.</p>
+                    <p>We value strong, trusting relationships with children and families - laying the foundation for lifelong success and wellbeing.</p>
                 </div>
                 <div class="value-item">
                     <h5>Inclusive Practice</h5>
@@ -914,7 +947,7 @@
                 </div>
                 <div class="value-item">
                     <h5>Holistic Development</h5>
-                    <p>We nurture the whole child—emotionally, socially, physically, and intellectually—so they can grow confidently in all areas.</p>
+                    <p>We nurture the whole child - emotionally, socially, physically, and intellectually - so they can grow confidently in all areas.</p>
                 </div>
                 <div class="value-item">
                     <h5>Partnership with Parents</h5>
@@ -926,7 +959,7 @@
         <!-- Call to Action -->
         <section class="cta-section">
             <h3>Come Visit Us!</h3>
-            <p>We'd love to meet you and your little one. Book a visit or give us a call—we're here to help answer your questions and welcome you into our nursery family.</p>
+            <p>We would love to meet you and your little one. Book a visit or give us a call - we are here to help answer your questions and welcome you into our nursery family.</p>
             <div class="cta-buttons">
                 <a href="contact.html" class="cta-btn">Book a Visit</a>
                 <a href="team.html" class="cta-btn">Meet Our Team</a>
@@ -936,48 +969,63 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <h4>Contact Information</h4>
-                <p><strong>Haslemere House Day Nursery</strong></p>
-                <p>68 Haslemere Avenue<br>
-                Mitcham, CR4 3BA<br>
-                London, UK</p>
-                <p>📞 Phone: 020 8640 0822<br>
-                📧 Email: Haslemere.daynursery@googlemail.com</p>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Opening Hours</h4>
-                <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
-                <p><strong>Weekends:</strong><br>Closed</p>
-                <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="parents.html">Parents Info</a></li>
-                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Quality Assurance</h4>
-                <p><strong>Ofsted Rating:</strong><br>Outstanding</p>
-                <p><strong>Food Hygiene:</strong><br>5 Stars</p>
-                <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>Contact Information</h4>
+            <p><strong>Haslemere House Day Nursery</strong></p>
+            <p>68 Haslemere Avenue<br>
+            Mitcham, CR4 3BA<br>
+            London, UK</p>
+            <p>📞 Phone: 020 8640 0822</p>
+            <div class="social-media">
+                <a href="mailto:Haslemere.daynursery@googlemail.com" class="social-icon" aria-label="Email us">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/haslemerehousedaynursery/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@haslemerehouseday" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on TikTok">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
             </div>
         </div>
         
-        <div class="copyright">
-            <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted | Outstanding Rating Maintained</p>
+        <div class="footer-column">
+            <h4>Opening Hours</h4>
+            <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
+            <p><strong>Weekends:</strong><br>Closed</p>
+            <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
         </div>
-    </footer>
+        
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="parents.html">Parents Info</a></li>
+                <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h4>Quality Assurance</h4>
+            <p><strong>Services:</strong><br>Outstanding</p>
+            <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted </p>
+    </div>
+</footer>
 
     <script>
         // Testimonial Slideshow JavaScript

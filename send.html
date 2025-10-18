@@ -99,7 +99,7 @@ body {
 /* Top Strip */
 .top-strip {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 30px;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -157,6 +157,8 @@ body {
 .call-btn {
     background-color: #f8fafc;
     color: #1e3a8a;
+    position: absolute;
+    right: 30px;
 }
 
 .btn:hover, .call-btn:hover {
@@ -360,7 +362,7 @@ body {
 
 .process-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
 
@@ -578,7 +580,7 @@ body {
     font-size: 18px;
     color: #555;
     margin-bottom: 30px;
-    max-width: 600px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -723,7 +725,7 @@ footer {
 }
 
 .footer-column ul li a {
-    color: #bdc3c7;
+    color: #ffffff;  
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -961,6 +963,36 @@ footer {
         padding: 30px 20px;
     }
 }
+
+/* Social Media Icons */
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
     </style>
 </head>
 
@@ -993,9 +1025,8 @@ footer {
 
         <!-- Top Strip -->
         <div class="top-strip">
-            <img src="images/ofsted-placeholder.png" alt="Ofsted Good Provider" class="ofsted-image">
             <h1>SEND Support & Inclusion</h1>
-            <a href="contact.html" class="call-btn">CALL TODAY</a>
+            <a href="tel:02086400822" class="call-btn">CALL TODAY</a>
         </div>
 
         <!-- Main Content -->
@@ -1062,7 +1093,7 @@ footer {
                         <p>We conduct comprehensive assessments and develop individual support plans in collaboration with families and external professionals.</p>
                     </div>
                     <div class="process-step">
-                        <div class="step-number">3</div>
+                        <div class="step-number">3</div> 
                         <h5>Implementation</h5>
                         <p>Trained staff implement targeted interventions and adaptations, monitoring progress and adjusting support as needed.</p>
                     </div>
@@ -1077,7 +1108,7 @@ footer {
             <!-- Staff Expertise -->
             <section class="section">
                 <h3>Our SEND Expertise</h3>
-                <p>Our dedicated team includes qualified SEND practitioners with specialized training and extensive experience in supporting children with diverse needs. We maintain high standards through continuous professional development and regular training updates.</p>
+                <p>Our dedicated team includes qualified SEND practitioners with specialised training and extensive experience in supporting children with diverse needs. We maintain high standards through continuous professional development and regular training updates.</p>
                 
                 <div class="expertise-section">
                     <div class="expertise-item">
@@ -1085,24 +1116,16 @@ footer {
                         <p>Our Special Educational Needs Coordinator holds relevant qualifications and leads our SEND provision with expertise and compassion.</p>
                     </div>
                     <div class="expertise-item">
-                        <h5>Specialized Training</h5>
-                        <p>All staff receive regular SEND training including autism awareness, behavior support, and communication strategies.</p>
-                    </div>
-                    <div class="expertise-item">
-                        <h5>Makaton Communication</h5>
-                        <p>Team members are trained in Makaton signing to support children with communication difficulties.</p>
-                    </div>
-                    <div class="expertise-item">
-                        <h5>Sensory Integration</h5>
-                        <p>Understanding of sensory processing needs and techniques to support children with sensory differences.</p>
+                        <h5>Specialised Training</h5>
+                        <p>All staff receive regular SEND training, including autism awareness, behaviour support, communication strategies, and sensory needs.</p>
                     </div>
                     <div class="expertise-item">
                         <h5>Behavior Support</h5>
-                        <p>Positive behavior support strategies and understanding of underlying causes of challenging behaviors.</p>
+                        <p>Positive behaviour support strategies are used with an understanding of the sensory and emotional factors that may influence children’s responses.</p>
                     </div>
                     <div class="expertise-item">
                         <h5>Transition Planning</h5>
-                        <p>Specialized support for transitions between settings, ensuring smooth progressions for children with SEND.</p>
+                        <p>Specialised support for transitions between settings, ensuring smooth progressions for children with SEND.</p>
                     </div>
                 </div>
             </section>
@@ -1132,21 +1155,9 @@ footer {
                 <p>Access helpful resources, guides, and information to support your child's SEND journey. We provide comprehensive documentation and guidance for families.</p>
                 
                 <div class="resource-tabs">
-                    <a href="documents/send-policy.pdf" class="resource-tab" target="_blank">
+                    <a href="https://raw.githubusercontent.com/Akirjan3/nursery-website/main/documents/send/send-policy.pdf" class="resource-tab" target="_blank">
                         <span class="resource-icon">📄</span>
                         <span>SEND Policy</span>
-                    </a>
-                    <a href="documents/send-information-report.pdf" class="resource-tab" target="_blank">
-                        <span class="resource-icon">📊</span>
-                        <span>SEND Information Report</span>
-                    </a>
-                    <a href="documents/local-offer-guide.pdf" class="resource-tab" target="_blank">
-                        <span class="resource-icon">🗺️</span>
-                        <span>Local Offer Guide</span>
-                    </a>
-                    <a href="documents/transition-support-guide.pdf" class="resource-tab" target="_blank">
-                        <span class="resource-icon">🔄</span>
-                        <span>Transition Support</span>
                     </a>
                 </div>
                 
@@ -1283,7 +1294,6 @@ footer {
                 <h3>Ready to Discuss Your Child's Needs?</h3>
                 <p>Our SEND team is here to answer your questions and discuss how we can support your child's unique journey. Contact us for a confidential discussion about our inclusive provision.</p>
                 <div class="cta-buttons">
-                    <a href="contact.html" class="cta-btn">Speak to Our SENCO</a>
                     <a href="contact.html" class="cta-btn">Arrange a Visit</a>
                     <a href="tel:02086400822" class="cta-btn">Call Us Today</a>
                 </div>
@@ -1292,48 +1302,63 @@ footer {
     </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <h4>Contact Information</h4>
-                <p><strong>Haslemere House Day Nursery</strong></p>
-                <p>68 Haslemere Avenue<br>
-                Mitcham, CR4 3BA<br>
-                London, UK</p>
-                <p>📞 Phone: 020 8640 0822<br>
-                📧 Email: Haslemere.daynursery@googlemail.com</p>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Opening Hours</h4>
-                <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
-                <p><strong>Weekends:</strong><br>Closed</p>
-                <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="parents.html">Parents Info</a></li>
-                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Quality Assurance</h4>
-                <p><strong>Ofsted Rating:</strong><br>Outstanding</p>
-                <p><strong>Food Hygiene:</strong><br>5 Stars</p>
-                <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>Contact Information</h4>
+            <p><strong>Haslemere House Day Nursery</strong></p>
+            <p>68 Haslemere Avenue<br>
+            Mitcham, CR4 3BA<br>
+            London, UK</p>
+            <p>📞 Phone: 020 8640 0822</p>
+            <div class="social-media">
+                <a href="mailto:Haslemere.daynursery@googlemail.com" class="social-icon" aria-label="Email us">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/haslemerehousedaynursery/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@haslemerehouseday" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on TikTok">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
             </div>
         </div>
         
-        <div class="copyright">
-            <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted | Outstanding Rating Maintained</p>
+        <div class="footer-column">
+            <h4>Opening Hours</h4>
+            <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
+            <p><strong>Weekends:</strong><br>Closed</p>
+            <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
         </div>
-    </footer>
+        
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="parents.html">Parents Info</a></li>
+                <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h4>Quality Assurance</h4>
+            <p><strong>Services:</strong><br>Outstanding</p>
+            <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted </p>
+    </div>
+</footer>
 
         <!-- Add the JavaScript here -->
     <script>

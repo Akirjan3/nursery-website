@@ -87,7 +87,7 @@ body {
 /* Top Strip */
 .top-strip {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 30px;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -145,6 +145,8 @@ body {
 .call-btn {
     background-color: #f8fafc;
     color: #1e3a8a;
+    position: absolute;
+    right: 30px;
 }
 
 .btn:hover, .call-btn:hover {
@@ -562,6 +564,15 @@ body {
     overflow: hidden;
 }
 
+.management-section .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
 .management-section::before {
     content: '';
     position: absolute;
@@ -688,6 +699,7 @@ body {
     font-size: 16px;
 }
 
+
 .current-apprentices h5 {
     font-size: 20px;
     margin-bottom: 20px;
@@ -758,7 +770,13 @@ body {
     background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
     border-radius: 50%;
 }
-
+.team-values-section .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .values-content h3 {
     text-align: center;
     font-size: 32px;
@@ -957,7 +975,7 @@ footer {
 }
 
 .footer-column ul li a {
-    color: #bdc3c7;
+    color: #ffffff;  
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -1064,6 +1082,34 @@ footer {
     .join-team-section {
         padding: 40px 20px;
         margin: 20px 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .management-section .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .team-values-section .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .management-section .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-values-section .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .current-apprentices {
+        grid-template-columns: 1fr;
+    }
+    
+    .apprentice-card:nth-child(4) {
+        max-width: 100%;
     }
 }
 
@@ -1176,6 +1222,36 @@ footer {
         font-size: 28px;
     }
 }
+
+/* Social Media Icons */
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
     </style>
 </head>
 
@@ -1207,9 +1283,8 @@ footer {
 
     <!-- Top Strip -->
     <div class="top-strip">
-        <img src="images/ofsted-placeholder.png" alt="Ofsted Outstanding Provider" class="ofsted-image">
         <h1>Our Team</h1>
-        <a href="contact.html" class="call-btn">CONTACT US</a>
+        <a href="tel:02086400822" class="call-btn">CALL TODAY</a>
     </div>
 
     <!-- Main Content -->
@@ -1217,7 +1292,7 @@ footer {
         <!-- Hero Section -->
         <section class="hero-section">
             <h2>Meet Our Dedicated Team</h2>
-            <p>Our passionate and highly qualified team of childcare professionals are committed to providing exceptional care and education for your children. Every member of our staff is first aid trained with specialized pediatric first aid certification, ensuring the highest standards of safety and care.</p>
+            <p>Our passionate and highly qualified team of childcare professionals are committed to providing exceptional care and education for your children. Every member of our staff is first aid trained with specialised pediatric first aid certification, ensuring the highest standards of safety and care.</p>
         </section>
 
         <!-- Team Introduction -->
@@ -1230,7 +1305,7 @@ footer {
                         <li>100% of staff are pediatric first aid certified</li>
                         <li>Ongoing professional development and training</li>
                         <li>DBS checked and safeguarding trained</li>
-                        <li>Specialized SEND support qualifications</li>
+                        <li>Specialised SEND support qualifications</li>
                         <li>Regular supervision and mentoring programs</li>
                     </ul>
                 </div>
@@ -1292,8 +1367,7 @@ footer {
                     <div class="team-info">
                         <h4>Sara Clark</h4>
                         <div class="team-role">Nursery Manager</div>
-                        <p>Sara leads our nursery with exceptional organizational skills and a deep commitment to child development. Her Level 3 qualification and years of experience ensure smooth daily operations and high-quality care standards.</p>
-                        <div class="team-qualifications">Level 3 Qualified • Management Experience • Safeguarding Lead</div>
+                        <p>Sara leads our nursery with exceptional organisational skills and a deep commitment to child development. Her years of experience ensure smooth daily operations and high-quality care standards.</p>
                     </div>
                 </div>
 
@@ -1303,7 +1377,6 @@ footer {
                         <h4>Lizzie Hobbs</h4>
                         <div class="team-role">Deputy Manager & SENCO</div>
                         <p>As our Special Educational Needs Coordinator, Lizzie ensures inclusive care for all children. Her expertise in supporting children with additional needs makes her an invaluable member of our leadership team.</p>
-                        <div class="team-qualifications">Level 3 Qualified • SENCO Certification • Inclusion Specialist</div>
                     </div>
                 </div>
 
@@ -1313,7 +1386,6 @@ footer {
                         <h4>Sharon Thomas-Randall</h4>
                         <div class="team-role">Third in Charge</div>
                         <p>Sharon brings stability and expertise to our management structure, supporting both staff development and maintaining our high standards of childcare across all age groups.</p>
-                        <div class="team-qualifications">Level 3 Qualified • Team Leadership • Child Development</div>
                     </div>
                 </div>
             </div>
@@ -1327,83 +1399,86 @@ footer {
             </div>
             
             <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-photo">👩‍🎨</div>
-                    <div class="team-info">
-                        <h4>Micaela New</h4>
-                        <div class="team-role">Nursery Practitioner</div>
-                        <p>Micaela specializes in creative activities and artistic development, helping children explore their imagination through various art and craft projects.</p>
-                        <div class="team-qualifications">Level 3 Qualified • Creative Arts • Child Psychology</div>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-photo">👩‍🎨</div>
+                        <div class="team-info">
+                            <h4>Micaela New</h4>
+                            <div class="team-role">Nursery Practitioner</div>
+                            <p>Micaela specialises in creative activities and artistic development, helping children explore their imagination through various art and craft projects.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="team-card">
-                    <div class="team-photo">👩‍🔬</div>
-                    <div class="team-info">
-                        <h4>Sevvathy Mathanraaj</h4>
-                        <div class="team-role">Nursery Practitioner</div>
-                        <p>With a focus on early learning and development, Sewwathy creates engaging educational activities that support children's cognitive and social growth.</p>
-                        <div class="team-qualifications">Level 3 Qualified • Early Learning • Multilingual Support</div>
+                    <div class="team-card">
+                        <div class="team-photo">👩‍🔬</div>
+                        <div class="team-info">
+                            <h4>Sevvathy Mathanraaj</h4>
+                            <div class="team-role">Nursery Practitioner</div>
+                            <p>With a focus on early learning and development, Sewwathy creates engaging educational activities that support children's cognitive and social growth.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="team-card">
-                    <div class="team-photo">👩‍🌱</div>
-                    <div class="team-info">
-                        <h4>Kala Shuganthan</h4>
-                        <div class="team-role">Nursery Practitioner</div>
-                        <p>Kala brings expertise in outdoor learning and nature-based activities, encouraging children to explore and learn from their natural environment.</p>
-                        <div class="team-qualifications">Level 3 Qualified • Outdoor Learning • Environmental Education</div>
+                    <div class="team-card">
+                        <div class="team-photo">👩‍🌱</div>
+                        <div class="team-info">
+                            <h4>Kala Shuganthan</h4>
+                            <div class="team-role">Nursery Practitioner</div>
+                            <p>Kala brings expertise in outdoor learning and nature-based activities, encouraging children to explore and learn from their natural environment.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="team-card">
-                    <div class="team-photo">👩‍🏃</div>
-                    <div class="team-info">
-                        <h4>Nicole Morris</h4>
-                        <div class="team-role">Nursery Practitioner</div>
-                        <p>Nicole specializes in physical development and movement activities, helping children develop their motor skills through fun and engaging exercises.</p>
-                        <div class="team-qualifications">Level 3 Qualified • Physical Development • Health & Safety</div>
+                    <div class="team-card">
+                        <div class="team-photo">👩‍🏃</div>
+                        <div class="team-info">
+                            <h4>Nicole Morris</h4>
+                            <div class="team-role">Nursery Practitioner</div>
+                            <p>Nicole specialises in physical development and movement activities, helping children develop their motor skills through fun and engaging exercises.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="team-card">
-                    <div class="team-photo">👩‍📚</div>
-                    <div class="team-info">
-                        <h4>Shyamala Annalingam</h4>
-                        <div class="team-role">Nursery Practitioner</div>
-                        <p>Shyamala focuses on language development and literacy, creating storytelling sessions and reading activities that foster a love of books and communication.</p>
-                        <div class="team-qualifications">Level 3 Qualified • Language Development • Literacy Support</div>
+                    <div class="team-card">
+                        <div class="team-photo">👩‍📚</div>
+                        <div class="team-info">
+                            <h4>Shyamala Annalingam</h4>
+                            <div class="team-role">Nursery Practitioner</div>
+                            <p>Shyamala focuses on language development and literacy, creating storytelling sessions and reading activities that foster a love of books and communication.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="team-card">
-                    <div class="team-photo">👩‍🎵</div>
-                    <div class="team-info">
-                        <h4>Syeda Abbas</h4>
-                        <div class="team-role">Nursery Practitioner</div>
-                        <p>Syeda brings enthusiasm and dedication to daily childcare activities, with a special interest in music and movement that helps children express themselves creatively.</p>
-                        <div class="team-qualifications">Level 2 Qualified • Music & Movement • Creative Expression</div>
+                    <div class="team-card">
+                        <div class="team-photo">👩‍🎵</div>
+                        <div class="team-info">
+                            <h4>Syeda Abbas</h4>
+                            <div class="team-role">Nursery Practitioner</div>
+                            <p>Syeda brings enthusiasm and dedication to daily childcare activities, with a special interest in music and movement that helps children express themselves creatively.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="team-card">
-                    <div class="team-photo">👩‍🎭</div>
-                    <div class="team-info">
-                        <h4>Amy Barber</h4>
-                        <div class="team-role">Nursery Practitioner</div>
-                        <p>Amy specializes in dramatic play and storytelling, using imaginative activities to support children's social and emotional development.</p>
-                        <div class="team-qualifications">Level 2 Qualified • Dramatic Play • Social Development</div>
+                    <div class="team-card">
+                        <div class="team-photo">👩‍🎭</div>
+                        <div class="team-info">
+                            <h4>Amy Barber</h4>
+                            <div class="team-role">Nursery Practitioner</div>
+                            <p>Amy specialises in dramatic play and storytelling, using imaginative activities to support children's social and emotional development.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="team-card">
-                    <div class="team-photo">👩‍🧩</div>
-                    <div class="team-info">
-                        <h4>Denise Carta</h4>
-                        <div class="team-role">Nursery Practitioner</div>
-                        <p>Denise focuses on cognitive development through puzzles, games, and problem-solving activities that challenge and engage young minds.</p>
-                        <div class="team-qualifications">Level 2 Qualified • Cognitive Development • Problem Solving</div>
+                    <div class="team-card">
+                        <div class="team-photo">👩‍🧩</div>
+                        <div class="team-info">
+                            <h4>Denise Carta</h4>
+                            <div class="team-role">Nursery Practitioner</div>
+                            <p>Denise focuses on cognitive development through puzzles, games, and problem-solving activities that challenge and engage young minds.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-photo">👩‍💫</div>
+                        <div class="team-info">
+                            <h4>Kerry Inwood</h4>
+                            <div class="team-role">Nursery Practitioner</div>
+                            <p>Kerry brings warmth and dedication to our team, creating a nurturing environment where children feel safe, valued, and excited to learn every day.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1423,7 +1498,6 @@ footer {
                         <h4>Paula Moran</h4>
                         <div class="team-role">Head Cook</div>
                         <p>Paula prepares fresh, nutritious meals daily, accommodating dietary requirements and allergies while ensuring children enjoy healthy, delicious food that supports their growth and development.</p>
-                        <div class="team-qualifications">Food Safety Certified • Nutritional Planning • Allergy Awareness</div>
                     </div>
                 </div>
             </div>
@@ -1449,13 +1523,29 @@ footer {
                         </ul>
                     </div>
                     <div class="current-apprentices">
-                        <h5>Current Apprentice</h5>
+                        <h5>Current Apprentices</h5>
                         <div class="apprentice-card">
                             <div class="team-photo">👩‍🎓</div>
                             <div class="apprentice-details">
                                 <h6>Lillie-Jo Randel</h6>
                                 <div class="apprentice-level">Level 3 Apprentice</div>
                                 <p>Currently completing Level 3 qualification while gaining valuable hands-on experience working with children across different age groups.</p>
+                            </div>
+                        </div>
+                        <div class="apprentice-card" style="margin-top: 15px;">
+                            <div class="team-photo">👩‍🎓</div>
+                            <div class="apprentice-details">
+                                <h6>Amy Joanne</h6>
+                                <div class="apprentice-level">Level 3 Apprentice</div>
+                                <p>Developing her skills in early years education and gaining practical experience in supporting children's learning and development.</p>
+                            </div>
+                        </div>
+                        <div class="apprentice-card" style="margin-top: 15px;">
+                            <div class="team-photo">👩‍🎓</div>
+                            <div class="apprentice-details">
+                                <h6>Laya Oosthuizen</h6>
+                                <div class="apprentice-level">Level 3 Apprentice</div>
+                                <p>Building her expertise in childcare through hands-on learning and mentorship from our experienced team members.</p>
                             </div>
                         </div>
                     </div>
@@ -1498,7 +1588,6 @@ footer {
                 <h3>Join Our Amazing Team</h3>
                 <p>Are you passionate about early childhood education and looking for a rewarding career? We're always interested in hearing from qualified childcare professionals who share our values and commitment to excellence.</p>
                 <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-white">View Current Vacancies</a>
                     <a href="contact.html" class="btn btn-white">Send Your CV</a>
                 </div>
             </div>
@@ -1506,48 +1595,63 @@ footer {
     </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <h4>Contact Information</h4>
-                <p><strong>Haslemere House Day Nursery</strong></p>
-                <p>68 Haslemere Avenue<br>
-                Mitcham, CR4 3BA<br>
-                London, UK</p>
-                <p>📞 Phone: 020 8640 0822<br>
-                📧 Email: Haslemere.daynursery@googlemail.com</p>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Opening Hours</h4>
-                <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
-                <p><strong>Weekends:</strong><br>Closed</p>
-                <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="parents.html">Parents Info</a></li>
-                    <li><a href="sessions-fees.html">Sessions & Fees</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h4>Quality Assurance</h4>
-                <p><strong>Ofsted Rating:</strong><br>Outstanding</p>
-                <p><strong>Food Hygiene:</strong><br>5 Stars</p>
-                <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>Contact Information</h4>
+            <p><strong>Haslemere House Day Nursery</strong></p>
+            <p>68 Haslemere Avenue<br>
+            Mitcham, CR4 3BA<br>
+            London, UK</p>
+            <p>📞 Phone: 020 8640 0822</p>
+            <div class="social-media">
+                <a href="mailto:Haslemere.daynursery@googlemail.com" class="social-icon" aria-label="Email us">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/haslemerehousedaynursery/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@haslemerehouseday" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on TikTok">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
             </div>
         </div>
         
-        <div class="copyright">
-            <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted | Outstanding Rating Maintained</p>
+        <div class="footer-column">
+            <h4>Opening Hours</h4>
+            <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
+            <p><strong>Weekends:</strong><br>Closed</p>
+            <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
         </div>
-    </footer>
+        
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="parents.html">Parents Info</a></li>
+                <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h4>Quality Assurance</h4>
+            <p><strong>Services:</strong><br>Outstanding</p>
+            <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted </p>
+    </div>
+</footer>
 
 </body>
 </html>
