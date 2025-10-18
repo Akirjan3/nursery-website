@@ -1155,7 +1155,31 @@ if (hamburger) {
         dropdownLink.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
+                e.stopPropagation();
+                
+                // Close other dropdowns
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove('active');
+                    }
+                });
+                
+                // Toggle this dropdown
                 dropdown.classList.toggle('active');
+            }
+        });
+    });
+    
+    // Close menu when clicking a sub-item
+    const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                hamburger.classList.remove('active');
+                navbar.classList.remove('active');
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
             }
         });
     });
