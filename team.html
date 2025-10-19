@@ -707,6 +707,12 @@ body {
     text-align: center;
 }
 
+.apprentices-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
 .apprentice-card {
     background: rgba(255, 255, 255, 0.15);
     padding: 25px;
@@ -997,6 +1003,45 @@ footer {
     margin: 0;
 }
 
+/* Hamburger Menu - Mobile Only */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    padding: 15px;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(30, 58, 138, 0.9);
+    border-radius: 8px;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(9px, 9px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(9px, -9px);
+}
+
+.dropdown-toggle {
+    display: none;
+}
+
 /* Responsive Design for Team Page */
 @media (max-width: 768px) {
     .navbar {
@@ -1104,6 +1149,44 @@ footer {
     }
 }
 
+/* Hamburger Menu - Mobile Only */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    padding: 15px;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(30, 58, 138, 0.9);
+    border-radius: 8px;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(9px, 9px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(9px, -9px);
+}
+
+.dropdown-toggle {
+    display: none;
+}
 @media (max-width: 1024px) {
     .management-section .team-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1123,7 +1206,7 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .current-apprentices {
+    .apprentices-grid {
         grid-template-columns: 1fr;
     }
     
@@ -1131,6 +1214,7 @@ footer {
         max-width: 100%;
     }
 }
+
 
 /* Responsive Design for Team Page */
 @media (max-width: 768px) {
@@ -1535,7 +1619,7 @@ footer {
                     <div class="team-card">
                         <div class="team-photo">👩‍🔬</div>
                         <div class="team-info">
-                            <h4>Sevvathy Mathanraaj</h4>
+                            <h4>Sevvanthy Mathanraaj</h4>
                             <div class="team-role">Nursery Practitioner</div>
                             <p>With a focus on early learning and development, Sewwathy creates engaging educational activities that support children's cognitive and social growth.</p>
                         </div>
@@ -1577,23 +1661,6 @@ footer {
                         </div>
                     </div>
 
-                    <div class="team-card">
-                        <div class="team-photo">👩‍🎭</div>
-                        <div class="team-info">
-                            <h4>Amy Barber</h4>
-                            <div class="team-role">Nursery Practitioner</div>
-                            <p>Amy specialises in dramatic play and storytelling, using imaginative activities to support children's social and emotional development.</p>
-                        </div>
-                    </div>
-
-                    <div class="team-card">
-                        <div class="team-photo">👩‍🧩</div>
-                        <div class="team-info">
-                            <h4>Denise Carta</h4>
-                            <div class="team-role">Nursery Practitioner</div>
-                            <p>Denise focuses on cognitive development through puzzles, games, and problem-solving activities that challenge and engage young minds.</p>
-                        </div>
-                    </div>
 
                     <div class="team-card">
                         <div class="team-photo">👩‍💫</div>
@@ -1647,32 +1714,41 @@ footer {
                     </div>
                     <div class="current-apprentices">
                         <h5>Current Apprentices</h5>
-                        <div class="apprentice-card">
-                            <div class="team-photo">👩‍🎓</div>
-                            <div class="apprentice-details">
-                                <h6>Lillie-Jo Randel</h6>
-                                <div class="apprentice-level">Level 3 Apprentice</div>
-                                <p>Currently completing Level 3 qualification while gaining valuable hands-on experience working with children across different age groups.</p>
+                        <div class="apprentices-grid">
+                            <div class="apprentice-card">
+                                
+                                <div class="apprentice-details">
+                                    <h6>Lillie-Jo Randel 👩‍🎓</h6>
+                                    <div class="apprentice-level">Level 3 Apprentice</div>
+                                    <p>Currently completing Level 3 qualification while gaining valuable hands-on experience working with children across different age groups.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="apprentice-card" style="margin-top: 15px;">
-                            <div class="team-photo">👩‍🎓</div>
-                            <div class="apprentice-details">
-                                <h6>Amy Joanne</h6>
-                                <div class="apprentice-level">Level 3 Apprentice</div>
-                                <p>Developing her skills in early years education and gaining practical experience in supporting children's learning and development.</p>
+                            <div class="apprentice-card">
+                                
+                                <div class="apprentice-details">
+                                    <h6>Amy Barber 👩‍🎓</h6>
+                                    <div class="apprentice-level">Level 3 Apprentice</div>
+                                    <p>Developing her skills in early years education and gaining practical experience in supporting children's learning and development.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="apprentice-card" style="margin-top: 15px;">
-                            <div class="team-photo">👩‍🎓</div>
-                            <div class="apprentice-details">
-                                <h6>Laya Oosthuizen</h6>
-                                <div class="apprentice-level">Level 3 Apprentice</div>
-                                <p>Building her expertise in childcare through hands-on learning and mentorship from our experienced team members.</p>
+                            <div class="apprentice-card">
+                              
+                                <div class="apprentice-details">
+                                    <h6>Denise Carta 👩‍🎓</h6>
+                                    <div class="apprentice-level">Level 2 Apprentice</div>
+                                    <p>Building foundational skills in childcare and gaining practical experience in supporting early years development and learning.</p>
+                                </div>
+                            </div>
+                            <div class="apprentice-card">
+                               
+                                <div class="apprentice-details">
+                                    <h6>Ayla Oosthuizen 👩‍🎓</h6>
+                                    <div class="apprentice-level">Level 2 Apprentice</div>
+                                    <p>Developing her expertise in childcare through hands-on learning and mentorship from our experienced team members.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </section>
 
@@ -1731,6 +1807,11 @@ footer {
                 <a href="mailto:Haslemere.daynursery@googlemail.com" class="social-icon" aria-label="Email us">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Facebook">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                     </svg>
                 </a>
                 <a href="https://www.instagram.com/haslemerehousedaynursery/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Instagram">
