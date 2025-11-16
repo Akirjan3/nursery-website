@@ -94,10 +94,9 @@ body {
     border-bottom: 3px solid #1e3a8a;
     position: relative;
     overflow: hidden;
-    min-height: 500px; /* Adjust based on your needs */
+    min-height: 500px;
 }
 
-/* Background image layer - blurred */
 .top-strip::after {
     content: '';
     position: absolute;
@@ -105,16 +104,15 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/logos/Untitled.png'); /* Update with your image filename */
+    background-image: url('images/logos/Untitled.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(2px); /* Adjust blur amount (higher = more blur) */
-    opacity: 0.5; /* Adjust transparency (0-1, lower = more transparent) */
+    filter: blur(2px);
+    opacity: 0.5;
     z-index: 0;
 }
 
-/* Decorative overlay pattern */
 .top-strip::before {
     content: '';
     position: absolute;
@@ -127,7 +125,6 @@ body {
     z-index: 1;
 }
 
-/* Ensure content stays on top */
 .logo-circle {
     width: 280px;
     height: 280px;
@@ -145,12 +142,14 @@ body {
     position: relative;
     z-index: 2;
 }
+
 .logo-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
 }
+
 .logo-circle:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 30px rgba(30, 58, 138, 0.3);
@@ -221,8 +220,6 @@ body {
     transform-origin: left;
     transition: transform 0.3s ease;
 }
-
-
 
 .cta-box:hover {
     transform: translateY(-5px);
@@ -354,69 +351,186 @@ body {
 
 .activity-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.activity-placeholder {
-    width: 100%;
-    height: 200px;
-    border: 2px solid #1e3a8a;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    color: #555;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border-radius: 15px;
+.activity-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
-    cursor: pointer;
+    border-top: 4px solid #1e3a8a;
 }
 
-.activity-placeholder::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: scaleY(0);
-}
-
-.activity-placeholder:hover::before {
-    transform: scaleY(1);
-}
-
-.activity-placeholder:hover {
+.activity-card:hover {
     transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(30, 58, 138, 0.25);
+}
+
+.activity-header {
+    padding: 30px 20px 15px;
+    text-align: center;
 }
 
 .activity-icon {
-    font-size: 40px;
+    font-size: 60px;
     margin-bottom: 15px;
-    position: relative;
-    z-index: 2;
+    display: block;
 }
 
 .activity-title {
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
     color: #1e3a8a;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 8px;
 }
 
 .activity-description {
     font-size: 14px;
     color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.activity-gallery-wrapper {
     position: relative;
-    z-index: 2;
-    line-height: 1.4;
+    width: 100%;
+    padding-bottom: 100%;
+    height: 0px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 2px solid #cbd5e1;
+}
+
+.activity-gallery-wrapper:hover {
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+}
+
+.activity-gallery-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: #94a3b8;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    transition: opacity 0.5s ease;
+}
+
+.activity-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.activity-content {
+    padding: 0 20px 20px;
+}
+
+/* Modal/Lightbox for expanded images */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+    padding: 20px;
+}
+
+.image-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 95%;
+    max-height: 95vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #3b82f6;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Navigation arrows for modal */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 40px;
+    padding: 20px 15px;
+    cursor: pointer;
+    z-index: 10001;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-nav:hover {
+    background: rgba(59, 130, 246, 0.8);
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Quick Stats Section */
@@ -548,11 +662,6 @@ body {
 .testimonial.active {
     display: block;
     animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 .testimonial-text {
@@ -833,9 +942,13 @@ footer {
     }
 
     .logo-circle {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
         font-size: 14px;
+    }
+    
+    .top-strip {
+        min-height: 400px;
     }
 
     .cta-section {
@@ -862,12 +975,8 @@ footer {
     }
 
     .activity-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 20px;
-    }
-
-    .activity-placeholder {
-        height: 160px;
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .stats-section {
@@ -902,6 +1011,34 @@ footer {
     .social-media {
         justify-content: center;
     }
+    
+    .modal-nav {
+        font-size: 30px;
+        padding: 15px 10px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .modal-prev {
+        left: 10px;
+    }
+    
+    .modal-next {
+        right: 10px;
+    }
+    
+    .modal-close {
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .modal-content {
+        max-width: 98%;
+        max-height: 90vh;
+    }
 }
 
 @media (max-width: 480px) {
@@ -911,6 +1048,19 @@ footer {
 
     .top-strip {
         padding: 15px;
+        min-height: 350px;
+    }
+    
+    /* Make logo bigger on small phones */
+    .logo-circle {
+        width: 220px;
+        height: 220px;
+    }
+    
+    /* Reduce background image blur effect on mobile */
+    .top-strip::after {
+        filter: blur(3px);
+        opacity: 0.3;
     }
 
     .welcome, .activities, .stats-section, .testimonials-section {
@@ -934,6 +1084,10 @@ footer {
         display: block;
         margin: 10px 0;
     }
+    
+    .activity-card {
+        margin: 0 10px;
+    }
 }
 
 /* Social Media Icons */
@@ -941,7 +1095,7 @@ footer {
     display: flex;
     gap: 15px;
     margin-top: 20px;
-    justify-content: center; /* Add this if not present */
+    justify-content: center;
 }
 
 .social-icon {
@@ -1010,8 +1164,6 @@ footer {
         <a href="tel:02086400822" class="call-btn">CALL TODAY</a>
     </div>
 
-
-
     <!-- Enhanced Welcome Section -->
     <section class="welcome">
         <h2>WELCOME TO HASLEMERE HOUSE DAY NURSERY!</h2>
@@ -1050,30 +1202,85 @@ footer {
         </div>
     </section>
 
-    <!-- Enhanced Activities Section -->
+    <!-- Enhanced Activities Section with Gallery -->
     <section class="activities">
         <h2>DISCOVER OUR ACTIVITIES</h2>
         <div class="activity-gallery">
-            <div class="activity-placeholder">
-                <div class="activity-icon">📚</div>
-                <div class="activity-title">Reading Corner</div>
-                <div class="activity-description">Cozy storytelling and early literacy development</div>
+            
+            <!-- Reading Corner Card -->
+            <div class="activity-card">
+                <div class="activity-header">
+                    <span class="activity-icon">📚</span>
+                    <h3 class="activity-title">Reading Corner</h3>
+                    <p class="activity-description">Cozy storytelling and early literacy development</p>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-gallery-wrapper">
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/reading1.jpg" alt="Reading Corner 1">
+                        </div>
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/reading2.jpg" alt="Reading Corner 2">
+                        </div>
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/reading3.jpg" alt="Reading Corner 3">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="activity-placeholder">
-                <div class="activity-icon">🎨</div>
-                <div class="activity-title">Art & Crafts</div>
-                <div class="activity-description">Creative expression and fine motor skills</div>
+
+            <!-- Art & Crafts Card -->
+            <div class="activity-card">
+                <div class="activity-header">
+                    <span class="activity-icon">🎨</span>
+                    <h3 class="activity-title">Art & Crafts</h3>
+                    <p class="activity-description">Creative expression and fine motor skills</p>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-gallery-wrapper">
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/Nature_stamps_painting_little_lions_room1.jpeg" alt="Art & Crafts 1">
+                        </div>
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/Nature_stamps_painting_little_lions_room2.jpeg" alt="Art & Crafts 2">
+                        </div>
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/Nature_stamps_painting_little_lions_room3.jpeg" alt="Art & Crafts 3">
+                        </div>
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/Nature_stamps_painting_little_lions_room4.jpeg" alt="Art & Crafts 4">
+                        </div>
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/simple_garden_tuff_tray.jpg" alt="Art & Crafts 5">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="activity-placeholder">
-                <div class="activity-icon">🌳</div>
-                <div class="activity-title">Outdoor Play</div>
-                <div class="activity-description">Nature exploration and physical development</div>
+
+            <!-- Outdoor Play Card -->
+            <div class="activity-card">
+                <div class="activity-header">
+                    <span class="activity-icon">🌳</span>
+                    <h3 class="activity-title">Outdoor Play</h3>
+                    <p class="activity-description">Nature exploration and physical development</p>
+                </div>
+                <div class="activity-content">
+                    <div class="activity-gallery-wrapper">
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/outdoor1.jpg" alt="Outdoor Play 1">
+                        </div>
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/outdoor2.jpg" alt="Outdoor Play 2">
+                        </div>
+                        <div class="activity-gallery-item">
+                            <img src="images/activities/outdoor3.jpg" alt="Outdoor Play 3">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="activity-placeholder">
-                <div class="activity-icon">🎵</div>
-                <div class="activity-title">Music Time</div>
-                <div class="activity-description">Musical exploration and rhythm activities</div>
-            </div>
+
+
+
         </div>
     </section>
 
@@ -1094,7 +1301,6 @@ footer {
                     "Honestly! Thank you staff at Haslemere House Day Nursery, it's lovely to see my child progressing. It made my day! 😊"
                 </div>  
             </div>
-            
         </div>
         
         <div class="testimonial-controls">
@@ -1108,8 +1314,6 @@ footer {
     </section>
 
     <!-- Footer -->
-<!-- Footer -->
-<!-- Footer -->
 <footer>
     <div class="footer-container">
         <div class="footer-column">
@@ -1173,7 +1377,15 @@ footer {
     </div>
 </footer>
 
-    <script>
+<!-- Image Modal -->
+<div class="image-modal" id="imageModal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <button class="modal-nav modal-prev" id="modalPrev">&#8249;</button>
+    <button class="modal-nav modal-next" id="modalNext">&#8250;</button>
+    <img class="modal-content" id="modalImage" alt="Expanded view">
+</div>
+
+<script>
 // Hamburger menu - mobile only
 const hamburger = document.getElementById('hamburger');
 const navbar = document.getElementById('navbar');
@@ -1232,91 +1444,218 @@ if (hamburger) {
         }
     });
 }
-        // Testimonial Slideshow JavaScript
-        let slideIndex = 1;
-        let slideInterval;
 
-        document.addEventListener('DOMContentLoaded', function() {
-            if (document.querySelector('.testimonials-slider')) {
-                showSlide(slideIndex);
-                startAutoSlide();
-                
-                document.getElementById('prevBtn').addEventListener('click', function() {
-                    stopAutoSlide();
-                    plusSlides(-1);
-                    startAutoSlide();
-                });
-                
-                document.getElementById('nextBtn').addEventListener('click', function() {
-                    stopAutoSlide();
-                    plusSlides(1);
-                    startAutoSlide();
-                });
-            }
-        });
-
-        function showSlide(n) {
-            let slides = document.getElementsByClassName('testimonial');
-            let dots = document.getElementsByClassName('dot');
-            
-            if (slides.length === 0) return;
-            
-            if (n > slides.length) { slideIndex = 1; }
-            if (n < 1) { slideIndex = slides.length; }
-            
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove('active');
-            }
-            
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove('active');
-            }
-            
-            slides[slideIndex - 1].classList.add('active');
-            if (dots[slideIndex - 1]) dots[slideIndex - 1].classList.add('active');
-        }
-
-        function plusSlides(n) {
-            showSlide(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            stopAutoSlide();
-            showSlide(slideIndex = n);
-            startAutoSlide();
-        }
-
-        function nextSlide() {
-            slideIndex++;
-            if (slideIndex > document.getElementsByClassName('testimonial').length) {
-                slideIndex = 1;
-            }
-            showSlide(slideIndex);
-        }
-
-        function startAutoSlide() {
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-
-        function stopAutoSlide() {
-            clearInterval(slideInterval);
-        }
-
-        if (document.querySelector('.testimonials-slider')) {
-            document.querySelector('.testimonials-slider').addEventListener('mouseenter', stopAutoSlide);
-            document.querySelector('.testimonials-slider').addEventListener('mouseleave', startAutoSlide);
-        }
-
-        // Logo circle interaction
-        document.querySelector('.logo-circle').addEventListener('click', function() {
-            window.location.href = 'about.html';
-        });
-
-        // Smooth scrolling for internal links
-        function scrollToAboutUs() {
-            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-        }
+// Activity Gallery Slideshow with Modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+    const modalPrev = document.getElementById('modalPrev');
+    const modalNext = document.getElementById('modalNext');
+    const galleries = document.querySelectorAll('.activity-gallery-wrapper');
+    
+    let currentGalleryImages = [];
+    let currentImageIndex = 0;
+    
+    galleries.forEach((gallery) => {
+        const items = gallery.querySelectorAll('.activity-gallery-item');
+        let currentSlide = 0;
         
-    </script>
+        // Initialize - show first image
+        items.forEach((item, index) => {
+            item.style.display = index === 0 ? 'flex' : 'none';
+        });
+        
+        // Auto advance every 5 seconds
+        const slideInterval = setInterval(() => {
+            items[currentSlide].style.display = 'none';
+            currentSlide = (currentSlide + 1) % items.length;
+            items[currentSlide].style.display = 'flex';
+        }, 5000);
+        
+        // Click to expand image
+        gallery.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const currentItem = items[currentSlide];
+            const img = currentItem.querySelector('img');
+            
+            if (img && imageModal && modalImage) {
+                // Collect all images from this gallery
+                currentGalleryImages = Array.from(items)
+                    .map(item => item.querySelector('img'))
+                    .filter(img => img !== null);
+                
+                // Find the index of the current image
+                currentImageIndex = currentGalleryImages.findIndex(i => i.src === img.src);
+                
+                // Show modal with current image
+                modalImage.src = img.src;
+                modalImage.alt = img.alt;
+                imageModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Show/hide navigation arrows based on number of images
+                if (modalPrev && modalNext) {
+                    if (currentGalleryImages.length > 1) {
+                        modalPrev.style.display = 'flex';
+                        modalNext.style.display = 'flex';
+                    } else {
+                        modalPrev.style.display = 'none';
+                        modalNext.style.display = 'none';
+                    }
+                }
+            }
+        });
+    });
+    
+    // Navigate to previous image
+    if (modalPrev) {
+        modalPrev.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (currentGalleryImages.length > 0) {
+                currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+                const newImg = currentGalleryImages[currentImageIndex];
+                modalImage.src = newImg.src;
+                modalImage.alt = newImg.alt;
+            }
+        });
+    }
+    
+    // Navigate to next image
+    if (modalNext) {
+        modalNext.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (currentGalleryImages.length > 0) {
+                currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length;
+                const newImg = currentGalleryImages[currentImageIndex];
+                modalImage.src = newImg.src;
+                modalImage.alt = newImg.alt;
+            }
+        });
+    }
+    
+    // Close modal when clicking X
+    if (modalClose) {
+        modalClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            imageModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close modal when clicking outside the image
+    if (imageModal) {
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === imageModal) {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Close modal with Escape key, navigate with arrow keys
+    document.addEventListener('keydown', function(e) {
+        if (imageModal && imageModal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = '';
+            } else if (e.key === 'ArrowLeft') {
+                modalPrev.click();
+            } else if (e.key === 'ArrowRight') {
+                modalNext.click();
+            }
+        }
+    });
+});
+
+// Testimonial Slideshow JavaScript
+let slideIndex = 1;
+let slideInterval;
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.testimonials-slider')) {
+        showSlide(slideIndex);
+        startAutoSlide();
+        
+        document.getElementById('prevBtn').addEventListener('click', function() {
+            stopAutoSlide();
+            plusSlides(-1);
+            startAutoSlide();
+        });
+        
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            stopAutoSlide();
+            plusSlides(1);
+            startAutoSlide();
+        });
+    }
+});
+
+function showSlide(n) {
+    let slides = document.getElementsByClassName('testimonial');
+    let dots = document.getElementsByClassName('dot');
+    
+    if (slides.length === 0) return;
+    
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');
+    }
+    
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active');
+    }
+    
+    slides[slideIndex - 1].classList.add('active');
+    if (dots[slideIndex - 1]) dots[slideIndex - 1].classList.add('active');
+}
+
+function plusSlides(n) {
+    showSlide(slideIndex += n);
+}
+
+function currentSlide(n) {
+    stopAutoSlide();
+    showSlide(slideIndex = n);
+    startAutoSlide();
+}
+
+function nextSlide() {
+    slideIndex++;
+    if (slideIndex > document.getElementsByClassName('testimonial').length) {
+        slideIndex = 1;
+    }
+    showSlide(slideIndex);
+}
+
+function startAutoSlide() {
+    slideInterval = setInterval(nextSlide, 5000);
+}
+
+function stopAutoSlide() {
+    clearInterval(slideInterval);
+}
+
+if (document.querySelector('.testimonials-slider')) {
+    document.querySelector('.testimonials-slider').addEventListener('mouseenter', stopAutoSlide);
+    document.querySelector('.testimonials-slider').addEventListener('mouseleave', startAutoSlide);
+}
+
+// Logo circle interaction
+if (document.querySelector('.logo-circle')) {
+    document.querySelector('.logo-circle').addEventListener('click', function() {
+        window.location.href = 'about.html';
+    });
+}
+</script>
 </body>
 </html>
