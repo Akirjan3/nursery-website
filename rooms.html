@@ -328,8 +328,8 @@ body {
 
 .rooms-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
     margin-top: 40px;
 }
 
@@ -345,6 +345,54 @@ body {
 .room-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(30, 58, 138, 0.25);
+}
+
+/* Modal/Lightbox for expanded images */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+.image-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10000;
+}
+
+.modal-close:hover {
+    color: #3b82f6;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Room-specific styling */
@@ -470,13 +518,14 @@ body {
 .gallery-placeholder {
     position: relative;
     width: 100%;
-    height: 200px;
+    padding-bottom: 100%;
+    height: 0px;
     margin-bottom: 15px;
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border: 2px dashed #cbd5e1;
+    border: 3px dotted #cbd5e1;
 }
 
 .gallery-placeholder:hover {
@@ -496,7 +545,14 @@ body {
     font-size: 60px;
     color: #94a3b8;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    transition: opacity 0.5s ease;
+    transition: opacity 3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 .room-educator {
@@ -654,7 +710,7 @@ body {
 .enrollment-content p {
     font-size: 18px;
     line-height: 1.7;
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto 40px;
     position: relative;
     z-index: 2;
@@ -1172,19 +1228,146 @@ table tbody tr:hover {
 .dropdown-toggle {
     display: none;
 }
+/* Modal/Lightbox for expanded images */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+    padding: 20px;
+}
+
+.image-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 95%;
+    max-height: 95vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #3b82f6;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Navigation arrows for modal */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 40px;
+    padding: 20px 15px;
+    cursor: pointer;
+    z-index: 10001;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-nav:hover {
+    background: rgba(59, 130, 246, 0.8);
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
+
+@media (max-width: 768px) {
+    .modal-nav {
+        font-size: 30px;
+        padding: 15px 10px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .modal-prev {
+        left: 10px;
+    }
+    
+    .modal-next {
+        right: 10px;
+    }
+}
+
+
+/* Mobile responsive for modal */
+@media (max-width: 768px) {
+    .modal-close {
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .modal-content {
+        max-width: 98%;
+        max-height: 90vh;
+    }
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
     }
-        .overview-content {
+    
+    .overview-content {
         grid-template-columns: 1fr;
         gap: 30px;
     }
     
     .intro-visual {
-        order: -1; /* Move stats above text on mobile */
+        order: -1;
+    }
+    
+    .rooms-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
     
     .navbar {
@@ -1526,92 +1709,102 @@ table tbody tr:hover {
             </div>
             
             <div class="rooms-grid">
-                <!-- Tiny Turtles Room -->
-                <div class="room-card tiny-turtles">
-                    <div class="room-header">
-                        <span class="room-animal">🐢</span>
-                        <h4 class="room-name">Tiny Turtles</h4>
-                        <div class="room-age">9 Months - 2 Years</div>
-                    </div>
-                    <div class="room-content">
-                        <p class="room-description">Our youngest learners enjoy a calm, nurturing environment designed specifically for babies and toddlers. The Tiny Turtles room focuses on sensory exploration, early communication, and building secure attachments with our caring educators.</p>
-                        
-                        <ul class="room-features-list">
-                            <li>Baby-safe sensory play areas</li>
-                            <li>Flexible feeding and napping schedules</li>
-                            <li>Treasure basket and heuristic play</li>
-                            <li>Daily communication books with parents</li>
-                        </ul>
+                
+<!-- Tiny Turtles Room -->
+<div class="room-card tiny-turtles">
+    <div class="room-header">
+        <span class="room-animal">🐢</span>
+        <h4 class="room-name">Tiny Turtles</h4>
+        <div class="room-age">9 Months - 2 Years</div>
+    </div>
+    <div class="room-content">
+        <p class="room-description">Our youngest learners enjoy a calm, nurturing environment designed specifically for babies and toddlers. The Tiny Turtles room focuses on sensory exploration, early communication, and building secure attachments with our caring educators.</p>
+        
+        <ul class="room-features-list">
+            <li>Baby-safe sensory play areas</li>
+            <li>Flexible feeding and napping schedules</li>
+            <li>Treasure basket and heuristic play</li>
+            <li>Daily communication books with parents</li>
+        </ul>
 
-                        <div class="room-gallery">
-                            <h5>Room Gallery</h5>
-                            <div class="gallery-placeholder">
-                                <div class="gallery-item">📸</div>
-                                <div class="gallery-item">📸</div>
-                                <div class="gallery-item">📸</div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="room-gallery">
+            <h5>Room Gallery</h5>
+            <div class="gallery-placeholder">
+                <div class="gallery-item">📸</div>
+                <div class="gallery-item">📸</div>
+                <div class="gallery-item">📸</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Little Lions Room -->
+<div class="room-card little-lions">
+    <div class="room-header">
+        <span class="room-animal">🦁</span>
+        <h4 class="room-name">Little Lions</h4>
+        <div class="room-age">2 - 3 Years</div>
+    </div>
+    <div class="room-content">
+        <p class="room-description">Our brave Little Lions are discovering their independence! This room encourages exploration, creativity, and social skills development through structured play and learning activities designed for curious toddlers.</p>
+        
+        <ul class="room-features-list">
+            <li>Creative arts and messy play areas</li>
+            <li>Role play corner with home and shop setups</li>
+            <li>Interactive reading nook</li>
+            <li>Potty training support area</li>
+            <li>Individual learning journals</li>
+        </ul>
+
+        <div class="room-gallery">
+            <h5>Room Gallery</h5>
+            <div class="gallery-placeholder">
+                <div class="gallery-item">
+                    <img src="images/rooms/littlelion1.jpeg" alt="Little Lions Room 1">
                 </div>
-
-                <!-- Little Lions Room -->
-                <div class="room-card little-lions">
-                    <div class="room-header">
-                        <span class="room-animal">🦁</span>
-                        <h4 class="room-name">Little Lions</h4>
-                        <div class="room-age">2 - 3 Years</div>
-                    </div>
-                    <div class="room-content">
-                        <p class="room-description">Our brave Little Lions are discovering their independence! This room encourages exploration, creativity, and social skills development through structured play and learning activities designed for curious toddlers.</p>
-                        
-                        <ul class="room-features-list">
-                            <li>Creative arts and messy play areas</li>
-                            <li>Role play corner with home and shop setups</li>
-                            <li>Interactive reading nook</li>
-                            <li>Potty training support area</li>
-                            <li>Individual learning journals</li>
-                        </ul>
-
-                        <div class="room-gallery">
-                            <h5>Room Gallery</h5>
-                            <div class="gallery-placeholder">
-                                <div class="gallery-item">📸</div>
-                                <div class="gallery-item">📸</div>
-                                <div class="gallery-item">📸</div>
-                            </div>
-                        </div>
-
-                    </div>
+                <div class="gallery-item">
+                    <img src="images/rooms/littlelion2.jpeg" alt="Little Lions Room 2">
                 </div>
-
-                <!-- Busy Bees Room -->
-                <div class="room-card busy-bees">
-                    <div class="room-header">
-                        <span class="room-animal">🐝</span>
-                        <h4 class="room-name">Busy Bees</h4>
-                        <div class="room-age">3 - 5 Years</div>
-                    </div>
-                    <div class="room-content">
-                        <p class="room-description">Our pre-school Busy Bees are preparing for their next big adventure - school! This room focuses on school readiness, advanced learning concepts, and developing independence and confidence.</p>
-                        <ul class="room-features-list">
-                            <li>Dedicated maths and literacy zones</li>
-                            <li>Science and investigation station</li>
-                            <li>Construction and engineering area</li>
-                            <li>Garden-to-table growing activities</li>
-                            <li>School readiness programs</li>
-                            <li>Individual learning and development records</li>
-                        </ul>
-                        <div class="room-gallery">
-                            <h5>Room Gallery</h5>
-                            <div class="gallery-placeholder">
-                                <div class="gallery-item">📸</div>
-                                <div class="gallery-item">📸</div>
-                                <div class="gallery-item">📸</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="gallery-item">
+                    <img src="images/rooms/littlelion3.jpeg" alt="Little Lions Room 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/rooms/littlelion4.jpeg" alt="Little Lions Room 4">
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Busy Bees Room -->
+<div class="room-card busy-bees">
+    <div class="room-header">
+        <span class="room-animal">🐝</span>
+        <h4 class="room-name">Busy Bees</h4>
+        <div class="room-age">3 - 5 Years</div>
+    </div>
+    <div class="room-content">
+        <p class="room-description">Our pre-school Busy Bees are preparing for their next big adventure - school! This room focuses on school readiness, advanced learning concepts, and developing independence and confidence.</p>
+        
+        <ul class="room-features-list">
+            <li>Dedicated maths and literacy zones</li>
+            <li>Science and investigation station</li>
+            <li>Construction and engineering area</li>
+            <li>Garden-to-table growing activities</li>
+            <li>School readiness programs</li>
+            <li>Individual learning and development records</li>
+        </ul>
+        
+        <div class="room-gallery">
+            <h5>Room Gallery</h5>
+            <div class="gallery-placeholder">
+                <div class="gallery-item">📸</div>
+                <div class="gallery-item">📸</div>
+                <div class="gallery-item">📸</div>
+            </div>
+        </div>
+    </div>
+</div>
         </section>
 
 
@@ -1646,7 +1839,7 @@ table tbody tr:hover {
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                 </a>
-                                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Facebook">
+                                <a href="https://www.facebook.com/people/Haslemerehousedaynursery/61580962444749/?mibextid=wwXIfr&rdid=iohJh4upkaPRpXWf&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D5FxFGMr9%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Facebook">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                     </svg>
@@ -1695,8 +1888,15 @@ table tbody tr:hover {
 </footer>
 
 
+<div class="image-modal" id="imageModal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <button class="modal-nav modal-prev" id="modalPrev">&#8249;</button>
+    <button class="modal-nav modal-next" id="modalNext">&#8250;</button>
+    <img class="modal-content" id="modalImage" alt="Expanded view">
+</div>
+
 <script>
-    // Hamburger menu - mobile only
+// Hamburger menu - mobile only
 const hamburger = document.getElementById('hamburger');
 const navbar = document.getElementById('navbar');
 const dropdowns = document.querySelectorAll('.dropdown');
@@ -1754,11 +1954,20 @@ if (hamburger) {
         }
     });
 }
-// Room Gallery Slideshow
+
+// Image Modal functionality with navigation
 document.addEventListener('DOMContentLoaded', function() {
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+    const modalPrev = document.getElementById('modalPrev');
+    const modalNext = document.getElementById('modalNext');
     const galleries = document.querySelectorAll('.gallery-placeholder');
     
-    galleries.forEach((gallery, galleryIndex) => {
+    let currentGalleryImages = [];
+    let currentImageIndex = 0;
+    
+    galleries.forEach((gallery) => {
         const items = gallery.querySelectorAll('.gallery-item');
         let currentSlide = 0;
         
@@ -1767,23 +1976,115 @@ document.addEventListener('DOMContentLoaded', function() {
             item.style.display = index === 0 ? 'flex' : 'none';
         });
         
-        // Auto advance every 3 seconds
-        setInterval(() => {
+        // Auto advance every 5 seconds
+        const slideInterval = setInterval(() => {
             items[currentSlide].style.display = 'none';
             currentSlide = (currentSlide + 1) % items.length;
             items[currentSlide].style.display = 'flex';
-        }, 3000);
+        }, 5000);
         
-        // Click to advance
-        gallery.addEventListener('click', function() {
-            items[currentSlide].style.display = 'none';
-            currentSlide = (currentSlide + 1) % items.length;
-            items[currentSlide].style.display = 'flex';
+        // Click to expand image
+        gallery.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const currentItem = items[currentSlide];
+            const img = currentItem.querySelector('img');
+            
+            if (img && imageModal && modalImage) {
+                // Collect all images from this gallery
+                currentGalleryImages = Array.from(items)
+                    .map(item => item.querySelector('img'))
+                    .filter(img => img !== null);
+                
+                // Find the index of the current image
+                currentImageIndex = currentGalleryImages.findIndex(i => i.src === img.src);
+                
+                // Show modal with current image
+                modalImage.src = img.src;
+                modalImage.alt = img.alt;
+                imageModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Show/hide navigation arrows based on number of images
+                if (modalPrev && modalNext) {
+                    if (currentGalleryImages.length > 1) {
+                        modalPrev.style.display = 'flex';
+                        modalNext.style.display = 'flex';
+                    } else {
+                        modalPrev.style.display = 'none';
+                        modalNext.style.display = 'none';
+                    }
+                }
+            }
         });
+    });
+    
+    // Navigate to previous image
+    if (modalPrev) {
+        modalPrev.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (currentGalleryImages.length > 0) {
+                currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+                const newImg = currentGalleryImages[currentImageIndex];
+                modalImage.src = newImg.src;
+                modalImage.alt = newImg.alt;
+            }
+        });
+    }
+    
+    // Navigate to next image
+    if (modalNext) {
+        modalNext.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (currentGalleryImages.length > 0) {
+                currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length;
+                const newImg = currentGalleryImages[currentImageIndex];
+                modalImage.src = newImg.src;
+                modalImage.alt = newImg.alt;
+            }
+        });
+    }
+    
+    // Close modal when clicking X
+    if (modalClose) {
+        modalClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            imageModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close modal when clicking outside the image
+    if (imageModal) {
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === imageModal) {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (imageModal && imageModal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = '';
+            } else if (e.key === 'ArrowLeft') {
+                modalPrev.click();
+            } else if (e.key === 'ArrowRight') {
+                modalNext.click();
+            }
+        }
     });
 });
 </script>
-
 
 </body>
 </html>

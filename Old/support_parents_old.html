@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support for Parents - Haslemere House Day Nursery</title>
+    <style>
+/* General Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e3a8a;
+    padding: 12px 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 10px rgba(30, 58, 138, 0.2);
+}
+
+.navbar > a,
+.navbar .dropdown > a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar > a:hover,
+.navbar .dropdown > a:hover {
+    background-color: #3b82f6;
+    transform: translateY(-1px);
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8fafc;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(30, 58, 138, 0.2);
+    z-index: 999;
+    top: 100%;
+    left: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #555 !important;
+    padding: 12px 18px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #e2e8f0;
+}
+
+/* Top Strip */
+.top-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-bottom: 3px solid #1e3a8a;
+    position: relative;
+    overflow: hidden;
+}
+
+.top-strip::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.top-strip h1 {
+    font-size: 36px;
+    color: #1e3a8a;
+    font-weight: 700;
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.ofsted-image {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(30, 58, 138, 0.2));
+    position: relative;
+    z-index: 2;
+}
+
+/* Buttons */
+.btn, .call-btn {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid #1e3a8a;
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.call-btn {
+    background-color: #f8fafc;
+    color: #1e3a8a;
+    position: absolute;
+    right: 30px;
+}
+
+.btn:hover, .call-btn:hover {
+    background-color: #1e40af;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+/* Main Content Area */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 60px 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.hero-section h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section p {
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+
+/* Content Sections */
+.section {
+    background: white;
+    padding: 50px 40px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(30, 58, 138, 0.1);
+    border-left: 5px solid #1e3a8a;
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30px, -30px);
+}
+
+.section h3 {
+    font-size: 28px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.section p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Support Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(30, 58, 138, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    border-top: 4px solid #1e3a8a;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.02) 0%, transparent 50%);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+    transform: scaleY(1);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(30, 58, 138, 0.2);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 32px;
+    color: white;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+
+.service-card h4 {
+    font-size: 22px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* Contact Info Cards */
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.contact-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #1e3a8a;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #1e3a8a 0%, #3b82f6 100%);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover::before {
+    transform: scaleY(1);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.15);
+}
+
+.contact-card h5 {
+    color: #1e3a8a;
+    font-size: 20px;
+    margin-bottom: 18px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-card p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+    line-height: 1.6;
+}
+
+.contact-card a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: #1e40af;
+    text-decoration: underline;
+}
+
+/* Resources Section */
+.resources-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 60px 40px;
+    border-radius: 15px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.resources-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.resources-section h3 {
+    text-align: center;
+    font-size: 32px;
+    color: #1e3a8a;
+    margin-bottom: 40px;
+    position: relative;
+    font-weight: 600;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.resource-item {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(30, 58, 138, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid #1e3a8a;
+}
+
+.resource-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.03) 0%, transparent 50%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.resource-item:hover::before {
+    transform: scaleX(1);
+}
+
+.resource-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.15);
+}
+
+.resource-item h5 {
+    font-size: 20px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.resource-item p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.resource-btn {
+    background: #1e3a8a;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    border: 2px solid #1e3a8a;
+}
+
+.resource-btn:hover {
+    background: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+/* Emergency Contact Section */
+.emergency-section {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    padding: 50px 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin: 40px 0;
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.emergency-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.emergency-section h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.emergency-section p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    opacity: 0.95;
+    position: relative;
+    z-index: 2;
+    line-height: 1.6;
+}
+
+.emergency-contact {
+    font-size: 24px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 18px 30px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 12px;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.emergency-contact:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    color: white;
+    padding: 50px 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin: 40px 0;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.cta-section h3 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section p {
+    font-size: 20px;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 2;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-btn {
+    background: white;
+    color: #1e3a8a;
+    padding: 18px 35px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.cta-btn:hover {
+    background: #f8fafc;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 50px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-column h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-column p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ffffff;  
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #3b82f6;
+}
+
+.copyright {
+    border-top: 1px solid #34495e;
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.copyright p {
+    color: #95a5a6;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .top-strip {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .top-strip h1 {
+        font-size: 28px;
+    }
+
+    .hero-section {
+        padding: 40px 20px;
+        margin: 20px 10px;
+    }
+
+    .hero-section h2 {
+        font-size: 32px;
+    }
+
+    .hero-section p {
+        font-size: 18px;
+    }
+
+    .section {
+        padding: 30px 20px;
+        margin: 20px 10px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        margin: 20px 0;
+    }
+
+    .contact-cards {
+        grid-template-columns: 1fr;
+        margin: 20px 0;
+    }
+
+    .resources-section {
+        padding: 40px 20px;
+        margin: 20px 10px;
+    }
+
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .emergency-section {
+        padding: 30px 20px;
+        margin: 20px 10px;
+    }
+
+    .cta-section {
+        padding: 30px 20px;
+        margin: 20px 10px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 20px 10px;
+    }
+
+    .hero-section h2 {
+        font-size: 26px;
+    }
+
+    .section h3 {
+        font-size: 24px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .contact-card {
+        padding: 20px;
+    }
+
+    .resource-item {
+        padding: 25px;
+    }
+
+    .resources-section h3, 
+    .cta-section h3 {
+        font-size: 28px;
+    }
+
+    .emergency-contact {
+        font-size: 20px;
+        padding: 15px 25px;
+    }
+
+    .emergency-section h3 {
+        font-size: 24px;
+    }
+}
+
+/* Social Media Icons */
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <div class="dropdown-content">
+                <a href="aims_&_objectives.html">Aims & Objectives</a>
+                <a href="team.html">Our Team</a>
+                <a href="policy.html">Our Policy</a>
+                <a href="curriculum.html">Our Curriculum</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="parents.html">Parents Info</a>
+            <div class="dropdown-content">
+                <a href="rooms.html">Rooms</a>
+                <a href="send.html">SEND</a>
+                <a href="support-for-parents.html">Support for Parents</a>
+            </div>
+        </div>
+        <a href="sessions-fees.html">Sessions & Fees</a>
+        <a href="news-events.html">News & Events</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <!-- Top Strip -->
+    <div class="top-strip">
+        <h1>Support for Parents</h1>
+        <a href="tel:02086400822" class="call-btn">CALL TODAY</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h2>We are Here to Support You</h2>
+            <p>Parenting is a wonderful journey, but it's not always easy. At Haslemere House Day Nursery, we believe in supporting the whole family. We're here to provide guidance, resources, and a helping hand whenever you need it.</p>
+        </section>
+
+        <!-- Support Overview Section -->
+        <section class="section">
+            <h3>Comprehensive Family Support</h3>
+            <p>We understand that every family is unique, with different needs, challenges, and circumstances. Our support services are designed to complement your parenting journey and provide you with the tools, resources, and confidence you need to help your child thrive.</p>
+            <p>From practical advice on child development to emotional support during difficult times, our experienced team is committed to being your partner in your child's early years. We believe that when families are supported, children flourish.</p>
+        </section>
+
+        <!-- Support Services -->
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">👶</div>
+                <h4>Parenting Guidance</h4>
+                <p>Expert advice on child development, behavior management, sleep routines, and age-appropriate activities to support your child at home.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🗣️</div>
+                <h4>Communication Support</h4>
+                <p>Strategies to enhance communication with your child, including language development tips and techniques for children with additional needs.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <h4>Educational Resources</h4>
+                <p>Home learning activities, recommended books and apps, and guidance on preparing your child for their next educational steps.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤗</div>
+                <h4>Emotional Wellbeing</h4>
+                <p>Support for managing challenging behaviors, building resilience, and promoting positive mental health for the whole family.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h4>Family Liaison</h4>
+                <p>Regular check-ins with our family liaison team to discuss your child's progress and address any concerns or questions you may have.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h4>Community Links</h4>
+                <p>Connections to local services, support groups, and community resources that may benefit your family's specific needs.</p>
+            </div>
+        </div>
+
+        <!-- Key Support Contacts -->
+        <section class="section">
+            <h3>Who Can Help You</h3>
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <h5>Nursery Manager</h5>
+                    <p>Overall support and guidance on nursery policies, procedures, and your child's development.</p>
+                    <p><strong>Available:</strong> Monday-Friday, 8:00 AM - 6:00 PM</p>
+                    <p>📞 <a href="tel:02086400822">020 8640 0822</a></p>
+                </div>
+                <div class="contact-card">
+                    <h5>SENCO (Special Needs Coordinator)</h5>
+                    <p>Specialized support for children with additional needs and guidance for families navigating SEND services.</p>
+                    <p><strong>Available:</strong> By appointment</p>
+                    <p>📧 <a href="mailto:senco@haslemerehouse.co.uk">senco@haslemerehouse.co.uk</a></p>
+                </div>
+                <div class="contact-card">
+                    <h5>Room Leaders</h5>
+                    <p>Day-to-day support regarding your child's activities, progress, and daily experiences at nursery.</p>
+                    <p><strong>Available:</strong> During drop-off and pick-up times</p>
+                    <p>📞 <a href="tel:02086400822">020 8640 0822</a></p>
+                </div>
+                <div class="contact-card">
+                    <h5>Family Support Worker</h5>
+                    <p>Dedicated support for families facing challenges, offering practical advice and emotional support.</p>
+                    <p><strong>Available:</strong> Flexible hours by appointment</p>
+                    <p>📧 <a href="mailto:support@haslemerehouse.co.uk">support@haslemerehouse.co.uk</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="resources-section">
+            <h3>Helpful Resources & Tools</h3>
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <h5>Development Milestones</h5>
+                    <p>Track your child's development with our comprehensive milestone checklist and guidance.</p>
+                    <a href="resources/development-milestones.pdf" class="resource-btn">Download Guide</a>
+                </div>
+                <div class="resource-item">
+                    <h5>Home Learning Activities</h5>
+                    <p>Fun, educational activities you can do at home to support your child's learning journey.</p>
+                    <a href="resources/home-learning.pdf" class="resource-btn">View Activities</a>
+                </div>
+                <div class="resource-item">
+                    <h5>Positive Behavior Support</h5>
+                    <p>Strategies for managing challenging behaviors and promoting positive interactions.</p>
+                    <a href="resources/behavior-support.pdf" class="resource-btn">Get Tips</a>
+                </div>
+                <div class="resource-item">
+                    <h5>Transition Guides</h5>
+                    <p>Support for major transitions like starting nursery, moving rooms, or preparing for school.</p>
+                    <a href="resources/transition-guides.pdf" class="resource-btn">Read More</a>
+                </div>
+                <div class="resource-item">
+                    <h5>Local Services Directory</h5>
+                    <p>A comprehensive list of local family support services, healthcare providers, and community groups.</p>
+                    <a href="resources/local-services.pdf" class="resource-btn">Explore Services</a>
+                </div>
+                <div class="resource-item">
+                    <h5>Nutrition & Health</h5>
+                    <p>Healthy eating tips, meal ideas, and guidance on managing food allergies and dietary needs.</p>
+                    <a href="resources/nutrition-health.pdf" class="resource-btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Support -->
+        <section class="emergency-section">
+            <h3>⚠️ Emergency Support & Crisis Resources</h3>
+            <p>If you need immediate support or are experiencing a family crisis, please reach out to these services:</p>
+            <div class="emergency-contact">
+                <strong>Emergency Services:</strong> 999
+            </div>
+            <div class="emergency-contact">
+                <strong>Childline:</strong> 0800 1111
+            </div>
+            <div class="emergency-contact">
+                <strong>Family Crisis Support:</strong> 0808 802 0925
+            </div>
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+                Our nursery team is also available for urgent support during opening hours: 020 8640 0822
+            </p>
+        </section>
+
+        <!-- Support Groups & Workshops -->
+        <section class="section">
+            <h3>Parent Groups & Workshops</h3>
+            <p>We regularly organize parent support groups and workshops covering various topics relevant to early childhood development and parenting challenges. These sessions provide opportunities to connect with other parents, share experiences, and learn from experts.</p>
+            <p>Recent and upcoming topics include positive discipline strategies, supporting speech and language development, managing screen time, preparing for school transitions, and supporting children's emotional wellbeing. All parents and carers are welcome to attend these free sessions.</p>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <h3>Ready to Get Support?</h3>
+            <p>Don't hesitate to reach out. We're here to help and support your family every step of the way.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-btn">Contact Our Support Team</a>
+                <a href="tel:02086400822" class="cta-btn">Call Us Today</a>
+                <a href="mailto:support@haslemerehouse.co.uk" class="cta-btn">Email Support Worker</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>Contact Information</h4>
+            <p><strong>Haslemere House Day Nursery</strong></p>
+            <p>68 Haslemere Avenue<br>
+            Mitcham, CR4 3BA<br>
+            London, UK</p>
+            <p>📞 Phone: 020 8640 0822</p>
+            <div class="social-media">
+                <a href="mailto:Haslemere.daynursery@googlemail.com" class="social-icon" aria-label="Email us">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/haslemerehousedaynursery/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@haslemerehouseday" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on TikTok">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-column">
+            <h4>Opening Hours</h4>
+            <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
+            <p><strong>Weekends:</strong><br>Closed</p>
+            <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
+        </div>
+        
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="parents.html">Parents Info</a></li>
+                <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h4>Quality Assurance</h4>
+            <p><strong>Services:</strong><br>Outstanding</p>
+            <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted </p>
+    </div>
+</footer>
+</body>
+</html>

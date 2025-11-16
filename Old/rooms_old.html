@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Rooms - Haslemere House Day Nursery</title>
+    <style>
+        /* General Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e3a8a;
+    padding: 12px 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 10px rgba(30, 58, 138, 0.2);
+}
+
+.navbar > a,
+.navbar .dropdown > a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar > a:hover,
+.navbar .dropdown > a:hover {
+    background-color: #3b82f6;
+    transform: translateY(-1px);
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8fafc;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(30, 58, 138, 0.2);
+    z-index: 999;
+    top: 100%;
+    left: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #555 !important;
+    padding: 12px 18px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #e2e8f0;
+}
+
+/* Top Strip */
+.top-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-bottom: 3px solid #1e3a8a;
+    position: relative;
+    overflow: hidden;
+}
+
+.top-strip::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.top-strip h1 {
+    font-size: 36px;
+    color: #1e3a8a;
+    font-weight: 700;
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.ofsted-image {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(30, 58, 138, 0.2));
+    position: relative;
+    z-index: 2;
+}
+
+/* Buttons */
+.btn, .call-btn {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid #1e3a8a;
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.call-btn {
+    background-color: #f8fafc;
+    color: #1e3a8a;
+    position: absolute;
+    right: 30px;
+}
+
+.btn:hover, .call-btn:hover {
+    background-color: #1e40af;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 60px 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.hero-section h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section p {
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+
+/* Room Overview Section */
+.room-overview-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 60px 40px;
+    border-radius: 15px;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.room-overview-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.overview-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.overview-text h3 {
+    font-size: 28px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.overview-text p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.room-features {
+    list-style: none;
+    padding: 0;
+}
+
+.room-features li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 15px;
+    color: #555;
+    font-weight: 500;
+}
+
+.room-features li::before {
+    content: '🏠';
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+}
+
+.overview-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.room-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.room-stats .stat-item {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 4px solid #1e3a8a;
+    box-shadow: 0 3px 15px rgba(30, 58, 138, 0.1);
+}
+
+.room-stats .stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e3a8a;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.room-stats .stat-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Room Cards */
+.rooms-section {
+    margin-bottom: 60px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h3 {
+    font-size: 36px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.section-header p {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.room-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.room-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(30, 58, 138, 0.25);
+}
+
+/* Room-specific styling */
+.tiny-turtles {
+    border-top: 6px solid #059669;
+}
+
+.little-lions {
+    border-top: 6px solid #ea580c;
+}
+
+.busy-bees {
+    border-top: 6px solid #ca8a04;
+}
+
+.room-header {
+    padding: 40px 30px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.room-animal {
+    font-size: 80px;
+    margin-bottom: 20px;
+    display: block;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.room-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1e3a8a;
+}
+
+.room-age {
+    font-size: 16px;
+    color: #3b82f6;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.room-capacity {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 15px 25px;
+    border-radius: 25px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.room-content {
+    padding: 30px;
+}
+
+.room-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.room-features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.room-features-list li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    font-size: 15px;
+    color: #555;
+}
+
+.room-features-list li::before {
+    content: '⭐';
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+}
+
+.room-gallery {
+    margin-bottom: 25px;
+}
+
+.room-gallery h5 {
+    font-size: 18px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.gallery-placeholder {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.gallery-item {
+    height: 80px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #94a3b8;
+}
+
+.room-educator {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.room-educator h5 {
+    font-size: 16px;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.room-educator p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* Schedule Section */
+.schedule-section {
+    background: white;
+    padding: 60px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(30, 58, 138, 0.1);
+    margin-bottom: 60px;
+    border-left: 5px solid #1e3a8a;
+    position: relative;
+    overflow: hidden;
+}
+
+.schedule-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30px, -30px);
+}
+
+.schedule-section h3 {
+    font-size: 28px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.schedule-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.schedule-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #1e3a8a 0%, #3b82f6 100%);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.schedule-card:hover::before {
+    transform: scaleY(1);
+}
+
+.schedule-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 25px rgba(30, 58, 138, 0.15);
+}
+
+.schedule-card h4 {
+    font-size: 20px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-time {
+    font-weight: 600;
+    color: #3b82f6;
+    font-size: 14px;
+}
+
+.schedule-activity {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Enrollment CTA */
+.enrollment-section {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    color: white;
+    padding: 60px 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+}
+
+.enrollment-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.enrollment-content h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.enrollment-content p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.enrollment-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #1e3a8a;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: 2px solid #1e3a8a;
+}
+
+.btn:hover {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+.btn-white {
+    background: white;
+    color: #1e3a8a;
+    border: 2px solid white;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.btn-white:hover {
+    background: #f8fafc;
+    color: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    color: white;
+    padding: 50px 40px;
+    border-radius: 15px;
+    text-align: center;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.cta-section h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-btn {
+    background: white;
+    color: #1e3a8a;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.cta-btn:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 50px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-column h4 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-column p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ffffff;  
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #3b82f6;
+}
+
+.copyright {
+    border-top: 1px solid #34495e;
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.copyright p {
+    color: #95a5a6;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Content Sections */
+.section {
+    background: white;
+    padding: 50px 40px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(30, 58, 138, 0.1);
+    border-left: 5px solid #1e3a8a;
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30px, -30px);
+}
+
+.section h3 {
+    font-size: 28px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.section p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(30, 58, 138, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.02) 0%, transparent 50%);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover::before {
+    transform: scaleY(1);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(30, 58, 138, 0.2);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 32px;
+    color: white;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+
+.feature-card h4 {
+    font-size: 22px;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.feature-card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* Values Section */
+.values-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 60px 40px;
+    border-radius: 15px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.values-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.values-section h3 {
+    text-align: center;
+    font-size: 32px;
+    color: #1e3a8a;
+    margin-bottom: 40px;
+    position: relative;
+    font-weight: 600;
+}
+
+.values-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.value-item {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(30, 58, 138, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.value-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #1e3a8a 0%, #3b82f6 100%);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.value-item:hover::before {
+    transform: scaleY(1);
+}
+
+.value-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 25px rgba(30, 58, 138, 0.15);
+}
+
+.value-item h5 {
+    font-size: 18px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.value-item p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(30, 58, 138, 0.1);
+    margin: 40px 0;
+}
+
+table thead {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+table thead th {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 20px 15px;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+}
+
+table tbody td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+    color: #555;
+}
+
+table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Comparison Table Specific */
+.comparison-table {
+    margin: 40px 0;
+}
+
+.comparison-table .feature-column {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #1e3a8a;
+    text-align: left;
+}
+
+.comparison-table .room-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 20px;
+    font-weight: 600;
+}
+
+.comparison-table .tiny-turtles-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+.comparison-table .little-lions-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+.comparison-table .busy-bees-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+/* Feature Icons */
+.feature-available {
+    color: #059669;
+}
+
+.feature-not-available {
+    color: #9ca3af;
+}
+
+.checkmark {
+    color: #059669;
+}
+
+.cross {
+    color: #ef4444;
+}
+
+/* Room Features Section */
+.room-features-section {
+    background: white;
+    padding: 60px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(30, 58, 138, 0.1);
+    margin: 40px 0;
+    border-left: 5px solid #1e3a8a;
+}
+
+.room-features-section h3 {
+    font-size: 32px;
+    color: #1e3a8a;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.room-features-section p {
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .top-strip {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .top-strip h1 {
+        font-size: 28px;
+    }
+
+    .hero-section {
+        padding: 40px 20px;
+        margin: 20px 10px;
+    }
+
+    .hero-section h2 {
+        font-size: 32px;
+    }
+
+    .hero-section p {
+        font-size: 18px;
+    }
+
+    .main-content {
+        padding: 20px 15px;
+    }
+
+    .overview-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .rooms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .enrollment-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section {
+        padding: 30px 20px;
+        margin: 20px 10px;
+    }
+
+    .values-section {
+        padding: 40px 20px;
+        margin: 20px 10px;
+    }
+
+    .cta-section {
+        padding: 30px 20px;
+        margin: 20px 10px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 20px 10px;
+    }
+
+    .hero-section,
+    .room-overview-section,
+    .schedule-section,
+    .enrollment-section {
+        padding: 30px 20px;
+    }
+
+    .hero-section h2 {
+        font-size: 26px;
+    }
+
+    .section-header h3 {
+        font-size: 28px;
+    }
+
+    .enrollment-content h3 {
+        font-size: 28px;
+    }
+
+    .room-card {
+        margin: 0 10px;
+    }
+
+    .section h3 {
+        font-size: 24px;
+    }
+
+    .feature-card {
+        padding: 20px;
+    }
+
+    .values-section h3, .cta-section h3 {
+        font-size: 24px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Social Media Icons */
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="about.html">About Us</a>
+            <div class="dropdown-content">
+                <a href="aims_&_objectives.html">Aims & Objectives</a>
+                <a href="team.html">Our Team</a>
+                <a href="policy.html">Our Policy</a>
+                <a href="curriculum.html">Our Curriculum</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="parents.html">Parents Info</a>
+            <div class="dropdown-content">
+                <a href="rooms.html">Rooms</a>
+                <a href="send.html">SEND</a>
+                <a href="support-for-parents.html">Support for Parents</a>
+            </div>
+        </div>
+        <a href="sessions-fees.html">Sessions & Fees</a>
+        <a href="news-events.html">News & Events</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <!-- Top Strip -->
+    <div class="top-strip">
+        <h1>Our Rooms</h1>
+        <a href="tel:02086400822" class="call-btn">CALL TODAY</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h2>Safe, Nurturing Learning Environments</h2>
+            <p>Our thoughtfully designed rooms provide age-appropriate spaces where children can explore, learn, and grow. Each room is carefully tailored to meet the developmental needs of different age groups, creating the perfect environment for your child's early years.</p>
+        </section>
+
+        <!-- Room Overview -->
+        <section class="room-overview-section">
+            <div class="overview-content">
+                <div class="overview-text">
+                    <h3>Designed for Development</h3>
+                    <p>Every room at Haslemere House Day Nursery is specifically designed to support child development through carefully planned environments, age-appropriate resources, and expert care from our qualified practitioners.</p>
+                    <ul class="room-features">
+                        <li>Natural light and ventilation throughout</li>
+                        <li>Safe, secure outdoor access from each room</li>
+                        <li>Age-appropriate toys and learning materials</li>
+                        <li>Dedicated quiet areas for rest and reflection</li>
+                        <li>Easy access to bathroom facilities</li>
+                        <li>Individual storage for each child's belongings</li>
+                    </ul>
+                </div>
+                <div class="overview-visual">
+                    <div class="room-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Dedicated Rooms</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">35+</span>
+                            <span class="stat-label">Children Capacity</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Ofsted Compliant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Rooms -->
+        <section class="rooms-section">
+            <div class="section-header">
+                <h3>Meet Our Room Families</h3>
+                <p>Each room has its own unique character and specially trained educators who understand the specific needs of their age group.</p>
+            </div>
+            
+            <div class="rooms-grid">
+                <!-- Tiny Turtles Room -->
+                <div class="room-card tiny-turtles">
+                    <div class="room-header">
+                        <span class="room-animal">🐢</span>
+                        <h4 class="room-name">Tiny Turtles</h4>
+                        <div class="room-age">6 Weeks - 18 Months</div>
+                    </div>
+                    <div class="room-content">
+                        <p class="room-description">Our youngest learners enjoy a calm, nurturing environment designed specifically for babies and toddlers. The Tiny Turtles room focuses on sensory exploration, early communication, and building secure attachments with our caring educators.</p>
+                        
+                        <ul class="room-features-list">
+                            <li>Baby-safe sensory play areas</li>
+                            <li>Flexible feeding and napping schedules</li>
+                            <li>Treasure basket and heuristic play</li>
+                            <li>Daily communication books with parents</li>
+                        </ul>
+
+                        <div class="room-gallery">
+                            <h5>Room Gallery</h5>
+                            <div class="gallery-placeholder">
+                                <div class="gallery-item">📸</div>
+                                <div class="gallery-item">📸</div>
+                                <div class="gallery-item">📸</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Little Lions Room -->
+                <div class="room-card little-lions">
+                    <div class="room-header">
+                        <span class="room-animal">🦁</span>
+                        <h4 class="room-name">Little Lions</h4>
+                        <div class="room-age">18 Months - 3 Years</div>
+                    </div>
+                    <div class="room-content">
+                        <p class="room-description">Our brave Little Lions are discovering their independence! This room encourages exploration, creativity, and social skills development through structured play and learning activities designed for curious toddlers.</p>
+                        
+                        <ul class="room-features-list">
+                            <li>Creative arts and messy play areas</li>
+                            <li>Role play corner with home and shop setups</li>
+                            <li>Interactive reading nook</li>
+                            <li>Potty training support area</li>
+                            <li>Individual learning journals</li>
+                        </ul>
+
+                        <div class="room-gallery">
+                            <h5>Room Gallery</h5>
+                            <div class="gallery-placeholder">
+                                <div class="gallery-item">📸</div>
+                                <div class="gallery-item">📸</div>
+                                <div class="gallery-item">📸</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Busy Bees Room -->
+                <div class="room-card busy-bees">
+                    <div class="room-header">
+                        <span class="room-animal">🐝</span>
+                        <h4 class="room-name">Busy Bees</h4>
+                        <div class="room-age">3 - 5 Years</div>
+                    </div>
+                    <div class="room-content">
+                        <p class="room-description">Our pre-school Busy Bees are preparing for their next big adventure - school! This room focuses on school readiness, advanced learning concepts, and developing independence and confidence.</p>
+                        <ul class="room-features-list">
+                            <li>Dedicated maths and literacy zones</li>
+                            <li>Science and investigation station</li>
+                            <li>Construction and engineering area</li>
+                            <li>Garden-to-table growing activities</li>
+                            <li>School readiness programs</li>
+                            <li>Individual learning and development records</li>
+                        </ul>
+                        <div class="room-gallery">
+                            <h5>Room Gallery</h5>
+                            <div class="gallery-placeholder">
+                                <div class="gallery-item">📸</div>
+                                <div class="gallery-item">📸</div>
+                                <div class="gallery-item">📸</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Schedule -->
+        <section class="schedule-section">
+            <div class="section-header">
+                <h3>Daily Routines</h3>
+                <p>Our structured yet flexible routines provide security and predictability while allowing for individual needs and interests.</p>
+            </div>
+            
+            <div class="schedule-grid">
+                <div class="schedule-card">
+                    <h4>🐢 Tiny Turtles Schedule</h4>
+                    <div class="schedule-item">
+                        <span class="schedule-time">8:00 AM</span>
+                        <span class="schedule-activity">Welcome & Free Play</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">9:30 AM</span>
+                        <span class="schedule-activity">Snack & Sensory Play</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">10:30 AM</span>
+                        <span class="schedule-activity">Rest Time (as needed)</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">11:30 AM</span>
+                        <span class="schedule-activity">Lunch Time</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">1:00 PM</span>
+                        <span class="schedule-activity">Sleep Time</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">3:00 PM</span>
+                        <span class="schedule-activity">Snack & Play</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">4:30 PM</span>
+                        <span class="schedule-activity">Outdoor Time</span>
+                    </div>
+                </div>
+
+                <div class="schedule-card">
+                    🦁 Little Lions Schedule</h4>
+                    <div class="schedule-item">
+                        <span class="schedule-time">8:00 AM</span>
+                        <span class="schedule-activity">Arrival & Free Play</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">9:00 AM</span>
+                        <span class="schedule-activity">Morning Snack</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">9:30 AM</span>
+                        <span class="schedule-activity">Circle Time & Learning</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">10:30 AM</span>
+                        <span class="schedule-activity">Outdoor Play</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">11:30 AM</span>
+                        <span class="schedule-activity">Lunch Time</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">12:30 PM</span>
+                        <span class="schedule-activity">Quiet Time/Rest</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">2:30 PM</span>
+                        <span class="schedule-activity">Afternoon Snack</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">3:00 PM</span>
+                        <span class="schedule-activity">Creative Activities</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">4:30 PM</span>
+                        <span class="schedule-activity">Free Play & Home Time</span>
+                    </div>
+                </div>
+
+                <div class="schedule-card">
+                    <h4>🐝 Busy Bees Schedule</h4>
+                    <div class="schedule-item">
+                        <span class="schedule-time">8:00 AM</span>
+                        <span class="schedule-activity">Welcome & Self-Registration</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">9:00 AM</span>
+                        <span class="schedule-activity">Morning Meeting</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">9:30 AM</span>
+                        <span class="schedule-activity">Phonics & Literacy</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">10:30 AM</span>
+                        <span class="schedule-activity">Snack & Outdoor Learning</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">11:30 AM</span>
+                        <span class="schedule-activity">Mathematics Activities</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">12:00 PM</span>
+                        <span class="schedule-activity">Lunch & Social Time</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">1:00 PM</span>
+                        <span class="schedule-activity">Quiet Time/Story</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">2:00 PM</span>
+                        <span class="schedule-activity">Topic Work & Investigation</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">3:00 PM</span>
+                        <span class="schedule-activity">Afternoon Snack</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">3:30 PM</span>
+                        <span class="schedule-activity">Choose Time & Reflection</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">4:30 PM</span>
+                        <span class="schedule-activity">Home Time Preparation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Room Features Comparison -->
+        <section class="room-overview-section">
+            <div class="section-header">
+                <h3>Room Features at a Glance</h3>
+                <p>Compare the unique features and facilities available in each of our specially designed rooms.</p>
+            </div>
+            
+            <div style="overflow-x: auto; margin-top: 30px;">
+                <table style="width: 100%; min-width: 600px; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(162, 143, 201, 0.1);">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #a28fc9 0%, #9073be 100%); color: white;">
+                            <th style="padding: 20px; text-align: center; font-weight: 600;"> Feature</th>
+                            <th style="padding: 20px; text-align: center; font-weight: 600;">🐢 Tiny Turtles</th>
+                            <th style="padding: 20px; text-align: center; font-weight: 600;">🦁 Little Lions</th>
+                            <th style="padding: 20px; text-align: center; font-weight: 600;">🐝 Busy Bees</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #f0f0f0;">
+                            <td style="padding: 15px; font-weight: 500; color: #555;">Sleep/Rest Area</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Dedicated sleep room</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Quiet rest area</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Quiet reflection space</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f0f0f0; background: #fafafa;">
+                            <td style="padding: 15px; font-weight: 500; color: #555;">Outdoor Access</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Secure baby garden</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Toddler playground</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Adventure garden</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f0f0f0;">
+                            <td style="padding: 15px; font-weight: 500; color: #555;">Creative Arts</td>
+                            <td style="padding: 15px; text-align: center; color: #999;">○ Sensory exploration</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Messy play area</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Art studio space</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f0f0f0; background: #fafafa;">
+                            <td style="padding: 15px; font-weight: 500; color: #555;">Role Play Area</td>
+                            <td style="padding: 15px; text-align: center; color: #999;">○ Treasure baskets</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Home corner & shop</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Multiple themed areas</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f0f0f0;">
+                            <td style="padding: 15px; font-weight: 500; color: #555;">Learning Zones</td>
+                            <td style="padding: 15px; text-align: center; color: #999;">○ Baby-safe toys</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Early learning areas</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Dedicated subject zones</td>
+                        </tr>
+                        <tr style="background: #fafafa;">
+                            <td style="padding: 15px; font-weight: 500; color: #555;">Technology</td>
+                            <td style="padding: 15px; text-align: center; color: #999;">○ Music & sounds</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Interactive whiteboard</td>
+                            <td style="padding: 15px; text-align: center; color: #4CAF50;">✓ Tablets & coding toys</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Enrollment Call-to-Action -->
+        <section class="enrollment-section">
+            <div class="enrollment-content">
+                <h3>Ready to Join Our Room Family?</h3>
+                <p>Give your child the best start in life with our nurturing, educational environment. Our expert practitioners are ready to welcome you and support your child's development journey.</p>
+                <div class="enrollment-buttons">
+                    <a href="contact.html" class="btn btn-white">Book a Visit</a>
+                    <a href="sessions-fees.html" class="btn btn-white">View Sessions & Fees</a>
+                    <a href="tel:01428123456" class="btn btn-white">Call Us Today</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h4>Contact Information</h4>
+            <p><strong>Haslemere House Day Nursery</strong></p>
+            <p>68 Haslemere Avenue<br>
+            Mitcham, CR4 3BA<br>
+            London, UK</p>
+            <p>📞 Phone: 020 8640 0822</p>
+            <div class="social-media">
+                <a href="mailto:Haslemere.daynursery@googlemail.com" class="social-icon" aria-label="Email us">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/haslemerehousedaynursery/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@haslemerehouseday" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on TikTok">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-column">
+            <h4>Opening Hours</h4>
+            <p><strong>Monday - Friday:</strong><br>8:00 AM - 6:00 PM</p>
+            <p><strong>Weekends:</strong><br>Closed</p>
+            <p><strong>Bank Holidays:</strong><br>Closed on major holidays</p>
+        </div>
+        
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="parents.html">Parents Info</a></li>
+                <li><a href="sessions-fees.html">Sessions & Fees</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h4>Quality Assurance</h4>
+            <p><strong>Services:</strong><br>Outstanding</p>
+            <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted </p>
+    </div>
+</footer>
+</body>
+</html>

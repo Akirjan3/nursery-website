@@ -84,7 +84,7 @@ body {
     background-color: #e2e8f0;
 }
 
-/* Enhanced Top Strip */
+/* Enhanced Top Strip with Background Image */
 .top-strip {
     display: flex;
     justify-content: center;
@@ -94,8 +94,27 @@ body {
     border-bottom: 3px solid #1e3a8a;
     position: relative;
     overflow: hidden;
+    min-height: 500px; /* Adjust based on your needs */
 }
 
+/* Background image layer - blurred */
+.top-strip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/logos/Untitled.png'); /* Update with your image filename */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(2px); /* Adjust blur amount (higher = more blur) */
+    opacity: 0.5; /* Adjust transparency (0-1, lower = more transparent) */
+    z-index: 0;
+}
+
+/* Decorative overlay pattern */
 .top-strip::before {
     content: '';
     position: absolute;
@@ -105,11 +124,13 @@ body {
     height: 200px;
     background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
     border-radius: 50%;
+    z-index: 1;
 }
 
+/* Ensure content stays on top */
 .logo-circle {
-    width: 140px;
-    height: 140px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     display: flex;
@@ -124,7 +145,12 @@ body {
     position: relative;
     z-index: 2;
 }
-
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
 .logo-circle:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 30px rgba(30, 58, 138, 0.3);
@@ -138,10 +164,12 @@ body {
     z-index: 2;
 }
 
-/* Enhanced Buttons */
-.btn, .call-btn {
-    background-color: #1e3a8a;
-    color: white;
+.call-btn {
+    background-color: #f8fafc;
+    color: #1e3a8a;
+    position: absolute;
+    right: 30px;
+    z-index: 2;
     padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;
@@ -149,20 +177,9 @@ body {
     font-size: 16px;
     border: 2px solid #1e3a8a;
     transition: all 0.3s ease;
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
 }
 
-.call-btn {
-    background-color: #f8fafc;
-    color: #1e3a8a;
-    position: absolute;
-    right: 30px;
-}
-
-.btn:hover, .call-btn:hover {
+.call-btn:hover {
     background-color: #1e40af;
     color: white;
     transform: translateY(-2px);
@@ -987,7 +1004,9 @@ footer {
     
     <!-- Enhanced Header Strip -->
     <div class="top-strip">
-        <div class="logo-circle">HASLEMERE HOUSE</div>
+        <div class="logo-circle">
+            <img src="images/logos/Haslemere_logo.png" alt="Haslemere House Logo" class="logo-image">
+        </div>
         <a href="tel:02086400822" class="call-btn">CALL TODAY</a>
     </div>
 
@@ -1106,7 +1125,7 @@ footer {
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                 </a>
-                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Facebook">
+                <a href="https://www.facebook.com/people/Haslemerehousedaynursery/61580962444749/?mibextid=wwXIfr&rdid=iohJh4upkaPRpXWf&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D5FxFGMr9%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Facebook">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                     </svg>
