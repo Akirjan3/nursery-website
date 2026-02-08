@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parents Info - Haslemere House Day Nursery</title>
+    <title>Our Team - Haslemere House Day Nursery</title>
     <style>
 /* General Reset and Typography */
 * {
@@ -232,13 +232,13 @@ body {
     margin-top: 40px;
 }
 
+/* Team Card Styles - Updated */
 .team-card {
     background: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(30, 58, 138, 0.1);
     transition: all 0.3s ease;
-    border-top: 4px solid #1e3a8a;
     position: relative;
 }
 
@@ -265,15 +265,26 @@ body {
 }
 
 .team-photo {
-    height: 120px;
+    padding: 30px 30px 25px 30px;
     background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    color: white;
     position: relative;
     z-index: 2;
+}
+
+.team-photo h4 {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.team-role {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
 }
 
 .team-info {
@@ -283,26 +294,18 @@ body {
 }
 
 .team-info h4 {
-    font-size: 22px;
-    color: #1e3a8a;
-    margin-bottom: 8px;
-    font-weight: 600;
+    display: none;
 }
 
-.team-role {
-    font-size: 14px;
-    color: #1e40af;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
+.team-info .team-role {
+    display: none;
 }
 
 .team-info p {
     font-size: 15px;
     color: #666;
     line-height: 1.7;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 .team-qualifications {
@@ -311,6 +314,7 @@ body {
     font-style: italic;
     border-top: 1px solid #f0f0f0;
     padding-top: 15px;
+    margin-top: 15px;
 }
 
 /* Team Introduction Section */
@@ -460,6 +464,7 @@ body {
     justify-content: center;
 }
 
+/* Leader Card Styles - Updated */
 .leader-card {
     background: white;
     border-radius: 15px;
@@ -494,19 +499,30 @@ body {
 }
 
 .directors-card {
-    border-top: 5px solid #1e3a8a;
+    border-top: none;
 }
 
 .leader-photo {
-    height: 150px;
+    padding: 35px 35px 30px 35px;
     background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 80px;
-    color: white;
     position: relative;
     z-index: 2;
+}
+
+.leader-photo h4 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.leader-photo .leader-role {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
 }
 
 .leader-info {
@@ -516,19 +532,11 @@ body {
 }
 
 .leader-info h4 {
-    font-size: 24px;
-    color: #1e3a8a;
-    margin-bottom: 8px;
-    font-weight: 600;
+    display: none;
 }
 
-.leader-role {
-    font-size: 16px;
-    color: #1e40af;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
+.leader-info .leader-role {
+    display: none;
 }
 
 .leader-info p {
@@ -571,7 +579,6 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 
 .management-section::before {
     content: '';
@@ -699,7 +706,6 @@ body {
     font-size: 16px;
 }
 
-
 .current-apprentices h5 {
     font-size: 20px;
     margin-bottom: 20px;
@@ -713,26 +719,12 @@ body {
     gap: 20px;
 }
 
+/* Apprentice Cards - Updated */
 .apprentice-card {
     background: rgba(255, 255, 255, 0.15);
     padding: 25px;
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.apprentice-card .team-photo {
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    flex-shrink: 0;
 }
 
 .apprentice-details h6 {
@@ -776,6 +768,7 @@ body {
     background: radial-gradient(circle, rgba(30, 58, 138, 0.1) 0%, transparent 70%);
     border-radius: 50%;
 }
+
 .team-values-section .values-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -783,6 +776,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .values-content h3 {
     text-align: center;
     font-size: 32px;
@@ -811,22 +805,6 @@ body {
     border-top: 3px solid #1e3a8a;
 }
 
-.value-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.03) 0%, transparent 50%);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 0.3s ease;
-}
-
-.value-item:hover::before {
-    transform: scaleY(1);
-}
 
 .value-item:hover {
     transform: translateY(-8px);
@@ -1042,151 +1020,38 @@ footer {
     display: none;
 }
 
-/* Responsive Design for Team Page */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-.top-strip {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    padding: 20px;
+/* Social Media Icons */
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
 }
 
-.call-btn {
-    position: static;
-    margin: 0 auto;
-}
-    
-    .top-strip h1 {
-        font-size: 28px;
-    }
-    
-    .main-content {
-        padding: 20px 15px;
-    }
-    
-    .hero-section {
-        padding: 40px 20px;
-        margin: 20px 10px;
-    }
-    
-    .hero-section h2 {
-        font-size: 32px;
-    }
-    
-    .intro-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .apprentice-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .apprentice-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .leader-credentials {
-        justify-content: center;
-    }
-    
-    .values-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .team-stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-    }
-    
-    .team-stats .stat-item {
-        padding: 20px 15px;
-    }
-    
-    .team-stats .stat-number {
-        font-size: 24px;
-    }
-    
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .team-intro-section,
-    .management-section,
-    .support-section,
-    .apprentices-section,
-    .team-values-section,
-    .join-team-section {
-        padding: 40px 20px;
-        margin: 20px 10px;
-    }
-        .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .footer-column {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .social-media {
-        justify-content: center;
-    }
-}
-
-/* Hamburger Menu - Mobile Only */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 6px;
-    padding: 15px;
-    position: fixed;
-    top: 15px;
-    right: 20px;
-    z-index: 1001;
-    background: rgba(30, 58, 138, 0.9);
-    border-radius: 8px;
-}
-
-.hamburger span {
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    border-radius: 3px;
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ecf0f1;
     transition: all 0.3s ease;
 }
 
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(9px, 9px);
+.social-icon:hover {
+    background: #3b82f6;
+    color: white;
+    transform: translateY(-3px);
 }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
+.social-icon svg {
+    width: 20px;
+    height: 20px;
 }
 
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(9px, -9px);
-}
-
-.dropdown-toggle {
-    display: none;
-}
+/* Responsive Design */
 @media (max-width: 1024px) {
     .management-section .team-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1197,26 +1062,6 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
-    .management-section .team-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .team-values-section .values-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .apprentices-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .apprentice-card:nth-child(4) {
-        max-width: 100%;
-    }
-}
-
-
-/* Responsive Design for Team Page */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -1321,78 +1166,108 @@ footer {
         position: static;
         margin: 0 auto;
     }
-
-    .logo-circle {
-        width: 100px;
-        height: 100px;
-        font-size: 14px;
+    
+    .top-strip h1 {
+        font-size: 28px;
     }
-
-    .cta-section {
-        flex-direction: column;
-        padding: 20px;
+    
+    .main-content {
+        padding: 20px 15px;
     }
-
-    .welcome {
-        padding: 50px 20px;
+    
+    .hero-section {
+        padding: 40px 20px;
         margin: 20px 10px;
     }
-
-    .welcome h2 {
+    
+    .hero-section h2 {
         font-size: 32px;
     }
-
-    .welcome p {
-        font-size: 16px;
+    
+    .intro-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
-
-    .activities {
-        padding: 50px 20px;
-        margin: 20px 10px;
+    
+    .apprentice-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
-
-    .activity-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 20px;
-    }
-
-    .activity-placeholder {
-        height: 160px;
-    }
-
-    .stats-section {
-        padding: 40px 20px;
-        margin: 20px 10px;
-    }
-
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .testimonials-section {
-        padding: 40px 20px;
-        margin: 20px 10px;
-    }
-
-    .testimonial-text {
-        font-size: 18px;
-    }
-
-    .testimonial-controls {
+    
+    .apprentice-card {
         flex-direction: column;
+        text-align: center;
         gap: 15px;
     }
-
+    
+    .leader-credentials {
+        justify-content: center;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .team-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .team-stats .stat-item {
+        padding: 20px 15px;
+    }
+    
+    .team-stats .stat-number {
+        font-size: 24px;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-intro-section,
+    .management-section,
+    .support-section,
+    .apprentices-section,
+    .team-values-section,
+    .join-team-section {
+        padding: 40px 20px;
+        margin: 20px 10px;
+    }
+    
     .footer-container {
         grid-template-columns: 1fr;
         text-align: center;
     }
     
+    .footer-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
     .social-media {
         justify-content: center;
     }
+    
+    .management-section .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-values-section .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .apprentices-grid {
+        grid-template-columns: 1fr;
+    }
 }
+
 @media (max-width: 480px) {
     .team-stats {
         grid-template-columns: 1fr;
@@ -1420,37 +1295,6 @@ footer {
     .cta-content h3 {
         font-size: 28px;
     }
-}
-
-/* Social Media Icons */
-.social-media {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-    justify-content: center; /* Add this if not present */
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ecf0f1;
-    transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-    background: #3b82f6;
-    color: white;
-    transform: translateY(-3px);
-}
-
-.social-icon svg {
-    width: 20px;
-    height: 20px;
 }
     </style>
 </head>
@@ -1545,11 +1389,10 @@ footer {
             <div class="leadership-grid">
                 <div class="leader-card directors-card">
                     <div class="leader-photo">
-                        👫
-                    </div>
-                    <div class="leader-info">
                         <h4>Anojan Sivanantharajah & Krishneya Anojan</h4>
                         <div class="leader-role">Co-Directors & Owners</div>
+                    </div>
+                    <div class="leader-info">
                         <p>Our dedicated directors bring passion and vision to Haslemere House Day Nursery. With extensive experience in early childhood education and business management, they ensure the highest standards of care and continuous improvement in all aspects of nursery operations.</p>
                         <div class="leader-credentials">
                             <span>🎓 Business Management</span>
@@ -1570,28 +1413,31 @@ footer {
             
             <div class="team-grid">
                 <div class="team-card">
-                    <div class="team-photo">👩‍🏫</div>
-                    <div class="team-info">
+                    <div class="team-photo">
                         <h4>Sara Clark</h4>
                         <div class="team-role">Nursery Manager</div>
+                    </div>
+                    <div class="team-info">
                         <p>Sara leads our nursery with exceptional organisational skills and a deep commitment to child development. Her years of experience ensure smooth daily operations and high-quality care standards.</p>
                     </div>
                 </div>
 
                 <div class="team-card">
-                    <div class="team-photo">👩‍🎓</div>
-                    <div class="team-info">
+                    <div class="team-photo">
                         <h4>Lizzie Hobbs</h4>
                         <div class="team-role">Deputy Manager & SENCO</div>
+                    </div>
+                    <div class="team-info">
                         <p>As our Special Educational Needs Coordinator, Lizzie ensures inclusive care for all children. Her expertise in supporting children with additional needs makes her an invaluable member of our leadership team.</p>
                     </div>
                 </div>
 
                 <div class="team-card">
-                    <div class="team-photo">👩‍💼</div>
-                    <div class="team-info">
+                    <div class="team-photo">
                         <h4>Sharon Thomas-Randall</h4>
                         <div class="team-role">Third in Charge</div>
+                    </div>
+                    <div class="team-info">
                         <p>Sharon brings stability and expertise to our management structure, supporting both staff development and maintaining our high standards of childcare across all age groups.</p>
                     </div>
                 </div>
@@ -1606,69 +1452,73 @@ footer {
             </div>
             
             <div class="team-grid">
-                <div class="team-grid">
-                    <div class="team-card">
-                        <div class="team-photo">👩‍🎨</div>
-                        <div class="team-info">
-                            <h4>Micaela New</h4>
-                            <div class="team-role">Nursery Practitioner</div>
-                            <p>Micaela specialises in creative activities and artistic development, helping children explore their imagination through various art and craft projects.</p>
-                        </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <h4>Micaela New</h4>
+                        <div class="team-role">Nursery Practitioner</div>
                     </div>
-
-                    <div class="team-card">
-                        <div class="team-photo">👩‍🔬</div>
-                        <div class="team-info">
-                            <h4>Sevvanthy Mathanraaj</h4>
-                            <div class="team-role">Nursery Practitioner</div>
-                            <p>With a focus on early learning and development, Sewwathy creates engaging educational activities that support children's cognitive and social growth.</p>
-                        </div>
+                    <div class="team-info">
+                        <p>Micaela specialises in creative activities and artistic development, helping children explore their imagination through various art and craft projects.</p>
                     </div>
+                </div>
 
-                    <div class="team-card">
-                        <div class="team-photo">👩‍🌱</div>
-                        <div class="team-info">
-                            <h4>Kala Shuganthan</h4>
-                            <div class="team-role">Nursery Practitioner</div>
-                            <p>Kala brings expertise in outdoor learning and nature-based activities, encouraging children to explore and learn from their natural environment.</p>
-                        </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <h4>Sevvanthy Mathanraaj</h4>
+                        <div class="team-role">Nursery Practitioner</div>
                     </div>
-
-                    <div class="team-card">
-                        <div class="team-photo">👩‍🏃</div>
-                        <div class="team-info">
-                            <h4>Nicole Morris</h4>
-                            <div class="team-role">Nursery Practitioner</div>
-                            <p>Nicole specialises in physical development and movement activities, helping children develop their motor skills through fun and engaging exercises.</p>
-                        </div>
+                    <div class="team-info">
+                        <p>With a focus on early learning and development, Sewwathy creates engaging educational activities that support children's cognitive and social growth.</p>
                     </div>
+                </div>
 
-                    <div class="team-card">
-                        <div class="team-photo">👩‍📚</div>
-                        <div class="team-info">
-                            <h4>Shyamala Annalingam</h4>
-                            <div class="team-role">Nursery Practitioner</div>
-                            <p>Shyamala focuses on language development and literacy, creating storytelling sessions and reading activities that foster a love of books and communication.</p>
-                        </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <h4>Kala Shuganthan</h4>
+                        <div class="team-role">Nursery Practitioner</div>
                     </div>
-
-                    <div class="team-card">
-                        <div class="team-photo">👩‍🎵</div>
-                        <div class="team-info">
-                            <h4>Syeda Abbas</h4>
-                            <div class="team-role">Nursery Practitioner</div>
-                            <p>Syeda brings enthusiasm and dedication to daily childcare activities, with a special interest in music and movement that helps children express themselves creatively.</p>
-                        </div>
+                    <div class="team-info">
+                        <p>Kala brings expertise in outdoor learning and nature-based activities, encouraging children to explore and learn from their natural environment.</p>
                     </div>
+                </div>
 
+                <div class="team-card">
+                    <div class="team-photo">
+                        <h4>Nicole Morris</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                    </div>
+                    <div class="team-info">
+                        <p>Nicole specialises in physical development and movement activities, helping children develop their motor skills through fun and engaging exercises.</p>
+                    </div>
+                </div>
 
-                    <div class="team-card">
-                        <div class="team-photo">👩‍💫</div>
-                        <div class="team-info">
-                            <h4>Kerry Inwood</h4>
-                            <div class="team-role">Nursery Practitioner</div>
-                            <p>Kerry brings warmth and dedication to our team, creating a nurturing environment where children feel safe, valued, and excited to learn every day.</p>
-                        </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <h4>Shyamala Annalingam</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                    </div>
+                    <div class="team-info">
+                        <p>Shyamala focuses on language development and literacy, creating storytelling sessions and reading activities that foster a love of books and communication.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <h4>Syeda Abbas</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                    </div>
+                    <div class="team-info">
+                        <p>Syeda brings enthusiasm and dedication to daily childcare activities, with a special interest in music and movement that helps children express themselves creatively.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">
+                        <h4>Kerry Inwood</h4>
+                        <div class="team-role">Nursery Practitioner</div>
+                    </div>
+                    <div class="team-info">
+                        <p>Kerry brings warmth and dedication to our team, creating a nurturing environment where children feel safe, valued, and excited to learn every day.</p>
                     </div>
                 </div>
             </div>
@@ -1683,10 +1533,11 @@ footer {
             
             <div class="support-grid">
                 <div class="team-card support-card">
-                    <div class="team-photo">👩‍🍳</div>
-                    <div class="team-info">
+                    <div class="team-photo">
                         <h4>Paula Moran</h4>
                         <div class="team-role">Head Cook</div>
+                    </div>
+                    <div class="team-info">
                         <p>Paula prepares fresh, nutritious meals daily, accommodating dietary requirements and allergies while ensuring children enjoy healthy, delicious food that supports their growth and development.</p>
                     </div>
                 </div>
@@ -1716,39 +1567,36 @@ footer {
                         <h5>Current Apprentices</h5>
                         <div class="apprentices-grid">
                             <div class="apprentice-card">
-                                
                                 <div class="apprentice-details">
-                                    <h6>Lillie-Jo Randel 👩‍🎓</h6>
+                                    <h6>Lillie-Jo Randel</h6>
                                     <div class="apprentice-level">Level 3 Apprentice</div>
                                     <p>Currently completing Level 3 qualification while gaining hands-on experience working with children across different age groups.</p>
                                 </div>
                             </div>
                             <div class="apprentice-card">
-                                
                                 <div class="apprentice-details">
-                                    <h6>Amy Barber 👩‍🎓</h6>
+                                    <h6>Amy Barber</h6>
                                     <div class="apprentice-level">Level 3 Apprentice</div>
                                     <p>Developing her skills in early years education and gaining practical experience in supporting children's learning and development.</p>
                                 </div>
                             </div>
                             <div class="apprentice-card">
-                              
                                 <div class="apprentice-details">
-                                    <h6>Denise Carta 👩‍🎓</h6>
+                                    <h6>Denise Carta</h6>
                                     <div class="apprentice-level">Level 2 Apprentice</div>
                                     <p>Building foundational skills in childcare and gaining practical experience in supporting early years development and learning.</p>
                                 </div>
                             </div>
                             <div class="apprentice-card">
-                               
                                 <div class="apprentice-details">
-                                    <h6>Ayla Oosthuizen 👩‍🎓</h6>
+                                    <h6>Ayla Oosthuizen</h6>
                                     <div class="apprentice-level">Level 2 Apprentice</div>
                                     <p>Developing her expertise in childcare through hands-on learning and mentorship from our experienced team members.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </section>
 
@@ -1809,7 +1657,7 @@ footer {
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                 </a>
-                                <a href="https://www.facebook.com/people/Haslemerehousedaynursery/61580962444749/?mibextid=wwXIfr&rdid=iohJh4upkaPRpXWf&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D5FxFGMr9%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Facebook">
+                <a href="https://www.facebook.com/people/Haslemerehousedaynursery/61580962444749/?mibextid=wwXIfr&rdid=iohJh4upkaPRpXWf&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1D5FxFGMr9%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Facebook">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                     </svg>
