@@ -1207,23 +1207,23 @@ footer {
         <h2>DISCOVER OUR ACTIVITIES</h2>
         <div class="activity-gallery">
             
-            <!-- Reading Corner Card -->
+            <!-- Indoor Playing Area Card -->
             <div class="activity-card">
                 <div class="activity-header">
-                    <span class="activity-icon">📚</span>
-                    <h3 class="activity-title">Reading Corner</h3>
-                    <p class="activity-description">Cozy storytelling and early literacy development</p>
+                    <span class="activity-icon">🧸</span>
+                    <h3 class="activity-title">Indoor Playing Area</h3>
+                    <p class="activity-description">Fun and imaginative play in a safe indoor environment</p>
                 </div>
                 <div class="activity-content">
                     <div class="activity-gallery-wrapper">
                         <div class="activity-gallery-item">
-                            <img src="images/activities/reading1.jpg" alt="Reading Corner 1">
+                            <img src="images/activities/noodles.jpg" alt="Indoor Playing Area 1">
                         </div>
                         <div class="activity-gallery-item">
-                            <img src="images/activities/reading2.jpg" alt="Reading Corner 2">
+                            <img src="images/activities/animals.jpg" alt="Indoor Playing Area 3">
                         </div>
                         <div class="activity-gallery-item">
-                            <img src="images/activities/reading3.jpg" alt="Reading Corner 3">
+                            <img src="images/activities/farm.jpg" alt="Indoor Playing Area 3">
                         </div>
                     </div>
                 </div>
@@ -1242,16 +1242,16 @@ footer {
                             <img src="images/activities/Nature_stamps_painting_little_lions_room1.jpeg" alt="Art & Crafts 1">
                         </div>
                         <div class="activity-gallery-item">
-                            <img src="images/activities/Nature_stamps_painting_little_lions_room2.jpeg" alt="Art & Crafts 2">
+                            <img src="images/activities/painting.jpg" alt="Art & Crafts 2">
                         </div>
                         <div class="activity-gallery-item">
-                            <img src="images/activities/Nature_stamps_painting_little_lions_room3.jpeg" alt="Art & Crafts 3">
+                            <img src="images/activities/Nature_stamps_painting_little_lions_room2.jpeg" alt="Art & Crafts 3">
                         </div>
                         <div class="activity-gallery-item">
-                            <img src="images/activities/Nature_stamps_painting_little_lions_room4.jpeg" alt="Art & Crafts 4">
+                            <img src="images/activities/Nature_stamps_painting_little_lions_room3.jpeg" alt="Art & Crafts 4">
                         </div>
                         <div class="activity-gallery-item">
-                            <img src="images/activities/simple_garden_tuff_tray.jpg" alt="Art & Crafts 5">
+                            <img src="images/activities/Nature_stamps_painting_little_lions_room4.jpeg" alt="Art & Crafts 5">
                         </div>
                     </div>
                 </div>
@@ -1267,7 +1267,7 @@ footer {
                 <div class="activity-content">
                     <div class="activity-gallery-wrapper">
                         <div class="activity-gallery-item">
-                            <img src="images/activities/outdoor1.jpg" alt="Outdoor Play 1">
+                            <img src="images/activities/simple_garden_tuff_tray.jpg" alt="Outdoor Play 1">
                         </div>
                         <div class="activity-gallery-item">
                             <img src="images/activities/outdoor2.jpg" alt="Outdoor Play 2">
@@ -1395,15 +1395,24 @@ footer {
         </div>
         
         <div class="footer-column">
-            <h4>Quality Assurance</h4>
-            <p><strong>Services:</strong><br>Outstanding</p>
-            <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
-        </div>
-    </div>
+                    <h4>Quality Assurance</h4>
+                    <p><strong>Services:</strong><br>Outstanding</p>
+                    <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+                    <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
+                        <img src="images/logos/NDNA.png" alt="NDNA" onclick="openLightbox(this.src)" style="width:80px; height:60px; object-fit:contain; padding:4px; border-radius:4px; cursor:pointer;">
+                        <img src="images/logos/food_hygiene.png" alt="Food Hygiene" onclick="openLightbox(this.src)" style="width:80px; height:60px; object-fit:contain; padding:4px; border-radius:4px; cursor:pointer;">
+                    </div>
+                </div>
+            </div>
     
     <div class="copyright">
         <p>&copy; 2025 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted </p>
     </div>
+
+    <div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
+    <button onclick="closeLightbox()" style="position:absolute; top:15px; right:20px; background:none; border:none; color:white; font-size:36px; cursor:pointer; line-height:1;">✕</button>
+    <img id="lightbox-img" src="" style="max-width:80%; max-height:80vh; object-fit:contain; background:white; padding:20px; border-radius:8px;">
+</div>
 </footer>
 
 <!-- Image Modal -->
@@ -1685,6 +1694,17 @@ if (document.querySelector('.logo-circle')) {
         window.location.href = 'about.html';
     });
 }
+
+function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').style.display = 'flex';
+}
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+});
 </script>
 </body>
 </html>
