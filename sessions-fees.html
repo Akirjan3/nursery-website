@@ -353,12 +353,16 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     border: 2px solid #1e3a8a;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
 }
 
 .contact-btn:hover {
     background: #1e40af;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
 }
 
 /* Funding Section */
@@ -1111,13 +1115,13 @@ footer {
                     <div style="font-size: 40px; margin-bottom: 12px;">📥</div>
                     <h4 style="color: #1e3a8a; font-size: 18px; margin-bottom: 10px; font-weight: 600;">Full Price List</h4>
                     <p style="color: #666; font-size: 14px; margin-bottom: 20px;">Our complete session fees and pricing breakdown.</p>
-                    <a href="documents/Nursery_fees.pdf" target="_blank" style="display: inline-block; background: #1e3a8a; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px;">View PDF</a>
+                    <a href="documents/Nursery_fees.pdf" target="_blank" class="contact-btn">View PDF</a>
                 </div>
                 <div style="background: #f8fafc; border: 2px solid #1e3a8a; border-radius: 12px; padding: 30px 25px; max-width: 280px; flex: 1;">
                     <div style="font-size: 40px; margin-bottom: 12px;">📊</div>
                     <h4 style="color: #1e3a8a; font-size: 18px; margin-bottom: 10px; font-weight: 600;">Pricing Examples</h4>
                     <p style="color: #666; font-size: 14px; margin-bottom: 20px;">See how our pricing and funding works in practice.</p>
-                    <a href="documents/Nursery_funding_example.pdf" target="_blank" style="display: inline-block; background: #1e3a8a; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px;">View PDF</a>
+                    <a href="documents/Nursery_funding_example.pdf" target="_blank" class="contact-btn">View PDF</a>
                 </div>
             </div>
         </section>
