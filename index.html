@@ -1052,13 +1052,11 @@ footer {
         min-height: 350px;
     }
     
-    /* Make logo bigger on small phones */
     .logo-circle {
         width: 220px;
         height: 220px;
     }
     
-    /* Reduce background image blur effect on mobile */
     .top-strip::after {
         filter: blur(3px);
         opacity: 0.3;
@@ -1373,14 +1371,11 @@ footer {
                 </div>
             </div>
 
-
-
         </div>
     </section>
 
     <!-- Testimonials Section -->
-<!-- Testimonials Section -->
-<section class="testimonials-section">
+    <section class="testimonials-section">
         <h3>What Parents Say About Us</h3>
         <div class="testimonials-slider">
             <div class="testimonial active">
@@ -1420,6 +1415,12 @@ footer {
                     Many times, when picking her up from nursery, we'd meet Lizzie holding her because she was sleeping, which was just so sweet for us to see. Honestly, all the staff there were great. They even gave my daughter a pet name. Couldn't ask for a better first learning experience for my child."
                 </div>
             </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "My son was very comfortable and happy at Haslemere House Day Nursery. You have an amazing team, all are very friendly and sincere!"
+                </div>
+            </div>
             
         </div>
         
@@ -1431,6 +1432,7 @@ footer {
                 <span class="dot" onclick="currentSlide(3)"></span>
                 <span class="dot" onclick="currentSlide(4)"></span>
                 <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
             </div>
             <div class="testimonial-nav" id="nextBtn">›</div>
         </div>
@@ -1489,24 +1491,24 @@ footer {
         </div>
         
         <div class="footer-column">
-                    <h4>Quality Assurance</h4>
-                    <p><strong>Services:</strong><br>Outstanding</p>
-                    <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
-                    <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
-                        <img src="images/logos/NDNA.png" alt="NDNA" onclick="openLightbox(this.src)" style="width:80px; height:60px; object-fit:contain; padding:4px; border-radius:4px; cursor:pointer;">
-                        <img src="images/logos/food_hygiene.png" alt="Food Hygiene" onclick="openLightbox(this.src)" style="width:80px; height:60px; object-fit:contain; padding:4px; border-radius:4px; cursor:pointer;">
-                    </div>
-                </div>
+            <h4>Quality Assurance</h4>
+            <p><strong>Services:</strong><br>Outstanding</p>
+            <p><strong>Safeguarding:</strong><br>Fully Compliant</p>
+            <div style="display:flex; gap:10px; margin-top:15px; flex-wrap:wrap;">
+                <img src="images/logos/NDNA.png" alt="NDNA" onclick="openLightbox(this.src)" style="width:80px; height:60px; object-fit:contain; padding:4px; border-radius:4px; cursor:pointer;">
+                <img src="images/logos/food_hygiene.png" alt="Food Hygiene" onclick="openLightbox(this.src)" style="width:80px; height:60px; object-fit:contain; padding:4px; border-radius:4px; cursor:pointer;">
             </div>
+        </div>
+    </div>
     
     <div class="copyright">
         <p>&copy; 2026 Haslemere House Day Nursery. All rights reserved. | Registered with Ofsted </p>
     </div>
 
     <div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
-    <button onclick="closeLightbox()" style="position:absolute; top:15px; right:20px; background:none; border:none; color:white; font-size:36px; cursor:pointer; line-height:1;">✕</button>
-    <img id="lightbox-img" src="" style="max-width:80%; max-height:80vh; object-fit:contain; background:white; padding:20px; border-radius:8px;">
-</div>
+        <button onclick="closeLightbox()" style="position:absolute; top:15px; right:20px; background:none; border:none; color:white; font-size:36px; cursor:pointer; line-height:1;">✕</button>
+        <img id="lightbox-img" src="" style="max-width:80%; max-height:80vh; object-fit:contain; background:white; padding:20px; border-radius:8px;">
+    </div>
 </footer>
 
 <!-- Image Modal -->
@@ -1531,27 +1533,20 @@ if (hamburger) {
         navbar.classList.toggle('active');
     });
     
-    // Handle dropdown toggle clicks on mobile
     dropdownToggles.forEach((toggle, index) => {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
             const dropdown = dropdowns[index];
-            
-            // Close other dropdowns
             dropdowns.forEach(otherDropdown => {
                 if (otherDropdown !== dropdown) {
                     otherDropdown.classList.remove('active');
                 }
             });
-            
-            // Toggle this dropdown
             dropdown.classList.toggle('active');
         });
     });
     
-    // Close menu when clicking a sub-item
     const dropdownLinks = document.querySelectorAll('.dropdown-content a');
     dropdownLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -1565,7 +1560,6 @@ if (hamburger) {
         });
     });
     
-    // Close menu when clicking outside
     document.addEventListener('click', function(e) {
         if (navbar.classList.contains('active') && !navbar.contains(e.target) && !hamburger.contains(e.target)) {
             hamburger.classList.remove('active');
@@ -1593,42 +1587,30 @@ document.addEventListener('DOMContentLoaded', function() {
         const items = gallery.querySelectorAll('.activity-gallery-item');
         let currentSlide = 0;
         
-        // Initialize - show first image
         items.forEach((item, index) => {
             item.style.display = index === 0 ? 'flex' : 'none';
         });
         
-        // Auto advance every 5 seconds
         const slideInterval = setInterval(() => {
             items[currentSlide].style.display = 'none';
             currentSlide = (currentSlide + 1) % items.length;
             items[currentSlide].style.display = 'flex';
         }, 5000);
         
-        // Click to expand image
         gallery.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
             const currentItem = items[currentSlide];
             const img = currentItem.querySelector('img');
-            
             if (img && imageModal && modalImage) {
-                // Collect all images from this gallery
                 currentGalleryImages = Array.from(items)
                     .map(item => item.querySelector('img'))
                     .filter(img => img !== null);
-                
-                // Find the index of the current image
                 currentImageIndex = currentGalleryImages.findIndex(i => i.src === img.src);
-                
-                // Show modal with current image
                 modalImage.src = img.src;
                 modalImage.alt = img.alt;
                 imageModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
-                
-                // Show/hide navigation arrows based on number of images
                 if (modalPrev && modalNext) {
                     if (currentGalleryImages.length > 1) {
                         modalPrev.style.display = 'flex';
@@ -1642,12 +1624,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Navigate to previous image
     if (modalPrev) {
         modalPrev.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
             if (currentGalleryImages.length > 0) {
                 currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
                 const newImg = currentGalleryImages[currentImageIndex];
@@ -1657,12 +1637,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Navigate to next image
     if (modalNext) {
         modalNext.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            
             if (currentGalleryImages.length > 0) {
                 currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length;
                 const newImg = currentGalleryImages[currentImageIndex];
@@ -1672,7 +1650,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Close modal when clicking X
     if (modalClose) {
         modalClose.addEventListener('click', function(e) {
             e.preventDefault();
@@ -1682,7 +1659,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Close modal when clicking outside the image
     if (imageModal) {
         imageModal.addEventListener('click', function(e) {
             if (e.target === imageModal) {
@@ -1692,7 +1668,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Close modal with Escape key, navigate with arrow keys
     document.addEventListener('keydown', function(e) {
         if (imageModal && imageModal.classList.contains('active')) {
             if (e.key === 'Escape') {
@@ -1733,20 +1708,15 @@ document.addEventListener('DOMContentLoaded', function() {
 function showSlide(n) {
     let slides = document.getElementsByClassName('testimonial');
     let dots = document.getElementsByClassName('dot');
-    
     if (slides.length === 0) return;
-    
     if (n > slides.length) { slideIndex = 1; }
     if (n < 1) { slideIndex = slides.length; }
-    
     for (let i = 0; i < slides.length; i++) {
         slides[i].classList.remove('active');
     }
-    
     for (let i = 0; i < dots.length; i++) {
         dots[i].classList.remove('active');
     }
-    
     slides[slideIndex - 1].classList.add('active');
     if (dots[slideIndex - 1]) dots[slideIndex - 1].classList.add('active');
 }
@@ -1782,7 +1752,6 @@ if (document.querySelector('.testimonials-slider')) {
     document.querySelector('.testimonials-slider').addEventListener('mouseleave', startAutoSlide);
 }
 
-// Logo circle interaction
 if (document.querySelector('.logo-circle')) {
     document.querySelector('.logo-circle').addEventListener('click', function() {
         window.location.href = 'about.html';
